@@ -1,8 +1,17 @@
 <?php
 
   $router = new AltoRouter();
-
   $router->map('GET', '/', 'App\Controllers\IndexController@show', 'Home');
+
+  require_once __DIR__.'/admin_routes.php';
+
+
+
+
+
+
+
+
 
   // $match = $router->match();
   // if($match) {

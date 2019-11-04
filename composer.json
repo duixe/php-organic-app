@@ -1,7 +1,7 @@
 {
     "autoload": {
         "psr-4":{
-            "App\\":"app"
+            "App\\":"app/"
         },
         "files": ["app/functions/helper.php"]
     },
@@ -12,7 +12,9 @@
         "philo/laravel-blade": "^3.1",
         "illuminate/database":"~5.4",
         "phpmailer/phpmailer": "^6.1",
-        "league/oauth2-google": "^3.0"
+        "league/oauth2-google": "^3.0",
+        "voku/pagination": "^3.0",
+        "nesbot/carbon": "^2.25"
 
     },
 

@@ -1,0 +1,41 @@
+.custom_notification {
+  display: none;
+  width: 80%;
+  margin: 0.3rem auto;
+}
+
+.custom_notification ul li {
+  list-style: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.callout {
+  padding: 10px;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+
+.callout__primary {
+  border-left-color: blue;
+  color: blue;
+}
+
+.callout__danger {
+  border-left-color: orangered;
+  color: orangered;
+}
+
+table .form-delete {
+  display: inline-block !important;
+}
+
+table .form-delete button {
+  outline: none !important;
+  border: none !important;
+  background: none;
+}
+
