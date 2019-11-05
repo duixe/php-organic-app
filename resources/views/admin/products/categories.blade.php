@@ -199,12 +199,25 @@
                             <div class="custom_notification callout callout__primary"></div>
                             <form>
                               <div class="input-group">
-                                <input type="text" id="item-subcategory-name-{{$subcategory['id']}}" class="form-control" placeholder="subcategory name" value="{{ $category['name'] }}">
+                                <input type="text" id="item-subcategory-name-{{$subcategory['id']}}" class="form-control" placeholder="subcategory name" value="{{ $subcategory['name'] }}">
+                              </div>
+                                <div class="input-gorup mt-3">
+                                  <div class="input-group-prepend">
+                                      <label "input-group-text"  for="item-category-{{$subcategory['category_id']}}">Chanege Category </label>
+                                  </div>
+                                    <select class="custom-select" id="item-category-{{$subcategory['category_id']}}">
+                                      @foreach(App\Models\Category::all() as $category)
+                                        @if ($category->id == $subcategory['category_id'])
+                                          <option selected value="{{$category->id}}">{{$category->name}}</option>
+                                        @endif
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                      @endforeach
+                                    </select>
+                                </div>
                                 <div class="input-group mt-3">
-                                  <input type="submit" class="btn btn-info update-subcategory" id="{{$subcategory['id']}}"
+                                  <input type="submit" class="btn btn-info update-subcategory" id="{{$subcategory['id']}}" data-category-id="{{$subcategory['category_id']}}"
                                   data-token="{{App\Classes\CSRFToken::_token()}}" value="update">
                                 </div>
-                              </div>
                             </form>
                           </div>
                           {{-- <div class="modal-footer">
