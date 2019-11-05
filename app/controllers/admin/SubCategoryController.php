@@ -67,25 +67,39 @@ class SubCategoryController extends BaseController{
       if (Request::has('post')) {
         $request = Request::get('post');
 
+        $other_err = [];
 
         if (CSRFToken::verifyCSRFToken($request->token, false)) {
           $rules = [
-            'name' => ['required' => true, 'minLength' => 4, 'string' => true, 'unique' => categories]
+            'name' => ['required' => true, 'minLength' => 4, 'string' => true],
+            'category_id' => ['required' => true]
           ];
 
           $validate = new ValidateRequest;
           $validate->abide($_POST, $rules);
 
-          //when there is an error from the data sent from the AJAX script, this is what happens-it hits the header function with err 422;
-          if ($validate->hasError()) {
+          $duplicate_subcategory = SubCategory::where('name', $request->name)->where('category_id', $request->category_id)->exists();
+
+          if ($duplicate_subcategory) {
+            $other_err['name'] = array('you have not made any changes');
+          }
+
+          $category = Category::where('id', $request->category_id)->exists();
+
+          if (!$category) {
+            $other_err['name'] = array('Invalid product category');
+          }
+
+          if ($validate->hasError() || $duplicate_subcategory || !$category) {
             $errors = $validate->getErrorMessages();
+            count($other_err) ? $response = array_merge($errors, $other_err) : $response = $errors;
             header('HTTP/1.1 422 Unprocessible Entity', true, 422);
-            echo json_encode($errors);
+            echo json_encode($response);
             exit;
           }
 
-          Category::where('id', $id)->update(['name' => $request->name]);
-          echo json_encode(['success' => 'Record updated successfully']);
+          SubCategory::where('id', $id)->update(['name' => $request->name, 'category_id' => $request->category_id]);
+          echo json_encode(['success' => ' subcategory updated successfully']);
           exit;
 
         }
@@ -107,8 +121,8 @@ class SubCategoryController extends BaseController{
          if (CSRFToken::verifyCSRFToken($request->token)) {
 
 
-           Category::destroy($id);
-           Session::add('success', 'Category deleted');
+           SubCategory::destroy($id);
+           Session::add('success', 'subcategory deleted');
 
            Redirect::redirectTo('/admin/products/categories');
 

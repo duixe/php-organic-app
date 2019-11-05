@@ -148,7 +148,7 @@
 <div class="subcategory mt-5">
   <div class="row">
     <div class="col-lg">
-      <h1>Subcategories</h1>
+      <h1>Sub categories</h1>
     </div>
 
   </div>
@@ -192,12 +192,25 @@
                             <div class="custom_notification callout callout__primary"></div>
                             <form>
                               <div class="input-group">
-                                <input type="text" id="item-subcategory-name-<?php echo e($subcategory['id']); ?>" class="form-control" placeholder="subcategory name" value="<?php echo e($category['name']); ?>">
+                                <input type="text" id="item-subcategory-name-<?php echo e($subcategory['id']); ?>" class="form-control" placeholder="subcategory name" value="<?php echo e($subcategory['name']); ?>">
+                              </div>
+                                <div class="input-gorup mt-3">
+                                  <div class="input-group-prepend">
+                                      <label "input-group-text"  for="item-category-<?php echo e($subcategory['category_id']); ?>">Chanege Category </label>
+                                  </div>
+                                    <select class="custom-select" id="item-category-<?php echo e($subcategory['category_id']); ?>">
+                                      <?php $__currentLoopData = App\Models\Category::all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if($category->id == $subcategory['category_id']): ?>
+                                          <option selected value="<?php echo e($category->id); ?>"><?php echo e($category->name); ?></option>
+                                        <?php endif; ?>
+                                        <option value="<?php echo e($category->id); ?>"><?php echo e($category->name); ?></option>
+                                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </select>
+                                </div>
                                 <div class="input-group mt-3">
-                                  <input type="submit" class="btn btn-info update-subcategory" id="<?php echo e($subcategory['id']); ?>"
+                                  <input type="submit" class="btn btn-info update-subcategory" id="<?php echo e($subcategory['id']); ?>" data-category-id="<?php echo e($subcategory['category_id']); ?>"
                                   data-token="<?php echo e(App\Classes\CSRFToken::_token()); ?>" value="update">
                                 </div>
-                              </div>
                             </form>
                           </div>
                           
@@ -221,7 +234,7 @@
 
       <?php endif; ?>
       <?php else: ?>
-        <h4>You have not created any category</h4>
+        <h4>You have not created any sub category</h4>
       <?php endif; ?>
     </div>
   </div>

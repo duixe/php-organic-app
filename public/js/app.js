@@ -34818,6 +34818,47 @@ var _this = this;
         }
       });
       e.preventDefault();
+    }); //update  subcategory
+
+    $(".update-subcategory").on('click', function (e) {
+      var token = $(this).data('token'); // //this refer to the particular btn that is clicked
+
+      var id = $(this).attr("id"); // let id2 = e.target.id;
+
+      var category_id = $(this).data('category-id');
+      var name = $("#item-subcategory-name-" + id).val();
+      var selected_category_id = $('#item-category-' + category_id + ' option:selected').val();
+
+      if (category_id !== selected_category_id) {
+        category_id = selected_category_id;
+      }
+
+      $.ajax({
+        type: 'POST',
+        url: '/admin/products/subcategories/' + id + '/edit',
+        data: {
+          token: token,
+          name: name,
+          category_id: category_id
+        },
+        // dataType: "JSON",
+        success: function success(data) {
+          var res = jQuery.parseJSON(data);
+          $(".custom_notification").css("display", 'block').removeClass('callout__danger').addClass('callout__primary').delay(4000).slideUp(300).html(res.success);
+        },
+        error: function error(req, err) {
+          var errors = jQuery.parseJSON(req.responseText);
+          var ul = document.createElement("ul");
+          $.each(errors, function (key, value) {
+            var li = document.createElement("li");
+            var textValue = document.createTextNode(value);
+            li.appendChild(textValue);
+            ul.appendChild(li);
+          });
+          $(".custom_notification").css("display", 'block').removeClass('callout__primary').addClass('callout__danger').delay(4000).slideUp(300).html(ul);
+        }
+      });
+      e.preventDefault();
     });
   };
 })();
