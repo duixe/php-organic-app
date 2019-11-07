@@ -4,7 +4,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" da
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLabel">Delete Category</h3>
+        <h3 class="modal-title" id="exampleModalLabel">Confirm Delete</h3>
 
         {{-- <a href="/admin/products/categories" type="button" class="close" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -12,7 +12,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" da
       </div>
       <div class="modal-body">
         <div class="custom_notification callout callout__primary"></div>
-        <p>do you really want to delete this category</p>
+        <p>do you really want to delete this Item</p>
         {{-- <form>
           <div class="input-group">
             <input type="text" id="item-name-{{$category['id']}}" class="form-control" placeholder="category name" name="name" value="{{ $category['name'] }}">

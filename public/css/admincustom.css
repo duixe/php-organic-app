@@ -40,84 +40,62 @@ table .form-delete button {
 }
 
 .round-head {
-  border: 1px solid #1cc88a;
+  border-bottom: 1px solid #1cc88a;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  border-radius: 1rem;
   position: relative;
-  padding: 0 0.5rem;
+  padding: 0.5rem 0.8rem;
   margin: 0 auto;
   margin-bottom: 1rem;
   -webkit-transition: all ease-in-out 0.3s;
   transition: all ease-in-out 0.3s;
-}
-
-.round-head::before {
-  content: "";
-  display: inline-block;
-  width: 7rem;
-  border: 1px solid #1cc88a;
-  position: absolute;
-  top: 50%;
-  left: -32%;
-}
-
-.round-head::after {
-  content: "";
-  display: inline-block;
-  width: 7rem;
-  border: 1px solid #1cc88a;
-  position: absolute;
-  top: 50%;
-  right: -32%;
 }
 
 .round-head:hover {
   background: -webkit-gradient(linear, left top, right bottom, from(rgba(28, 200, 138, 0.5)), to(rgba(16, 105, 72, 0.8)));
   background: linear-gradient(to right bottom, rgba(28, 200, 138, 0.5), rgba(16, 105, 72, 0.8));
   color: white;
+  border-radius: 1rem;
   box-shadow: 0.3rem 0.8rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .round-head__small {
-  border: 1px solid #1cc88a;
+  border-bottom: 1px solid #1cc88a;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  border-radius: 1rem;
   position: relative;
-  padding: 0 0.5rem;
+  padding: 0.5rem 0.8rem;
   margin: 0 auto;
   margin-bottom: 1rem;
   -webkit-transition: all ease-in-out 0.3s;
   transition: all ease-in-out 0.3s;
 }
 
-.round-head__small::before {
-  content: "";
-  display: inline-block;
-  width: 7rem;
-  border: 1px solid #1cc88a;
-  position: absolute;
-  top: 50%;
-  left: -42%;
-}
-
-.round-head__small::after {
-  content: "";
-  display: inline-block;
-  width: 7rem;
-  border: 1px solid #1cc88a;
-  position: absolute;
-  top: 50%;
-  right: -42%;
-}
-
 .round-head__small:hover {
   background: -webkit-gradient(linear, left top, right bottom, from(rgba(28, 200, 138, 0.5)), to(rgba(16, 105, 72, 0.8)));
   background: linear-gradient(to right bottom, rgba(28, 200, 138, 0.5), rgba(16, 105, 72, 0.8));
   color: white;
+  border-radius: 1rem;
   box-shadow: 0.3rem 0.8rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn-custom__danger {
+  display: block;
+  padding: 0.8rem;
+  color: orangered !important;
+  border: 1.5px solid orangered !important;
+  border-radius: 5px;
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+}
+
+.btn-custom__danger:hover {
+  color: #fff !important;
+  background-color: orangered !important;
+  box-shadow: 0.3rem 0.5rem 0.7rem rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 

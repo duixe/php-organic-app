@@ -27,9 +27,18 @@
   $router->map('GET', '/admin/category/[i:id]/selected', 'App\Controllers\Admin\ProductController@getSubCategories', 'selected_category');
   $router->map('POST', '/admin/products/create', 'App\Controllers\Admin\ProductController@createStore', 'create_product');
 
+
   //create product Get route in order to show the form
   $router->map('GET', '/admin/products/create', 'App\Controllers\Admin\ProductController@ShowCreateProductForm', 'create_product_form');
-    $router->map('GET', '/admin/products', 'App\Controllers\Admin\ProductController@show', 'show_product');
+  $router->map('GET', '/admin/products', 'App\Controllers\Admin\ProductController@show', 'show_product');
+
+  //create product Get route in order to show the form
+  $router->map('GET', '/admin/products/[i:id]/edit', 'App\Controllers\Admin\ProductController@ShowEditProductForm', 'edit_product_form');
+  $router->map('POST', '/admin/products/edit', 'App\Controllers\Admin\ProductController@edit', 'edit_product');
+
+  //
+  $router->map('POST', '/admin/products/[i:id]/delete', 'App\Controllers\Admin\ProductController@delete', 'delete_product');
+
 
 
 

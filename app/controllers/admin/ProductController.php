@@ -46,47 +46,13 @@ class ProductController extends BaseController{
 
   }
 
-  public function edit() {
-    if (Request::has('post')) {
-      $request = Request::get('post');
 
-
-      if (CSRFToken::verifyCSRFToken($request->token)) {
-        $rules = [
-          'name' => ['required' => true, 'minLength' => 4, 'string' => true, 'unique' => categories]
-        ];
-
-        $validate = new ValidateRequest;
-        $validate->abide($_POST, $rules);
-
-        if ($validate->hasError()) {
-          $errors = $validate->getErrorMessages();
-          return view('admin/products/categories', [
-            'categories' => $this->categories, 'links' => $this->links, 'errors' => $errors,
-            'subcategories' => $this->subcategories, 'subcategories_links' => $this->subcategories_links
-          ]);
-        }
-        //process form data
-        Category::create([
-          'name' => $request->name,
-          'slug' => generateSlug($request->name)
-        ]);
-
-        $total = Category::all()->count();
-        $sub_total= SubCategory::all()->count();
-        list($this->categories, $this->links) = paginate(3, $total, $this->table_name, new Category);
-        list($this->subcategories, $this->subcategories_links) = paginate(5, $sub_total, 'sub_categories', new SubCategory);
-        return view('admin/products/categories', [
-          'categories' => $this->categories, 'links' => $this->links, 'success' => 'category created',
-          'subcategories' => $this->subcategories, 'subcategories_links' => $this->subcategories_links
-        ]);
-
-      }
-
-      throw new \Exception("Token mismatch");
-
-    }
+  public function ShowEditProductForm($id) {
+    $categories = $this->categories;
+    $product = Product::where('id', $id)->with(['category', 'subCategory'])->first();
+    return \view('admin/products/edit', compact('product', 'categories'));
   }
+
 
   public function createStore($id) {
       if (Request::has('post')) {
@@ -129,7 +95,7 @@ class ProductController extends BaseController{
 
           $ds = DIRECTORY_SEPARATOR;
           $temp_file = $file->productImage->tmp_name;
-          $image_path = UploadFile::move($temp_file, "img{$ds}uploads{$ds}products{$ds}", $filename)->path();
+          $image_path = UploadFile::move($temp_file, "img{$ds}uploads{$ds}products", $filename)->path();
 
           // process form
           Product::create([
@@ -158,7 +124,79 @@ class ProductController extends BaseController{
    }
 
 
-   public function delete($id) {
+ public function edit() {
+     if (Request::has('post')) {
+       $request = Request::get('post');
+       $file_err = [];
+
+       if (CSRFToken::verifyCSRFToken($request->token)) {
+         $rules = [
+           'name' => ['required' => true, 'minLength' => 4, 'maxLength' => 80, 'string' => true],
+           'price' => ['required' => true, 'minLength' => 2, 'number' => true],
+           'quantity' => ['required' => true],
+           'category' => ['required' => true],
+           'subcategory' => ['required' => true],
+           'description' => ['required' => true, 'mixed' => true, 'minLength' => 4, 'maxLength' => 1000]
+         ];
+
+         $validate = new ValidateRequest;
+         $validate->abide($_POST, $rules);
+
+         $file = Request::get('file');
+         isset($file->productImage->name) ? $filename = $file->productImage->name : $filename = '';
+
+
+        if(isset($file->productImage->name) && !UploadFile::isImage($filename)) {
+           $file_err['productImage'] = ['The Image you\'re trying to upload is invalid,file type should be jpeg, jpg, png, svg or bmp'];
+         }
+
+         //when there is an error from the data sent from the AJAX script, this is what happens-it hits the header function with err 422;
+         if ($validate->hasError()) {
+           $prev_err = $validate->getErrorMessages();
+           count($file_err) ? $errors = array_merge($prev_err, $file_err) : $errors = $prev_err;
+
+           return view('admin/products/create', [
+             'categories' => $this->categories, 'errors' => $errors
+           ]);
+
+         }
+         //ELOQUENT RETURNS AN EXCEPTION IF ID IS NOT FOUND JUST LIKE THE IF STATEMENT BELOW IT
+         $product = Product::findOrFail($request->product_id);
+         // if(!$product) {
+         //   throw new \Exception('Invalid Prouct ID');
+         // }
+         //if no exception thrown...then 👇
+         $product->name = $request->name;
+         $product->description = $request->description;
+         $product->price = $request->price;
+         $product->category_id = $request->category;
+         $product->sub_category_id = $request->subcategory;
+
+         //if another file was uploaded 👇
+         if ($filename) {
+           $ds = DIRECTORY_SEPARATOR;
+           $old_img_path = BASE_PATH."{$ds}public{$ds}$product->image_path";
+           $temp_file = $file->productImage->tmp_name;
+           $image_path = UploadFile::move($temp_file, "img{$ds}uploads{$ds}products{$ds}", $filename)->path();
+           unlink($old_img_path);
+           $product->image_path = $image_path;
+         }
+
+         $product->save();
+         Session::add('success', 'Record Updated successfully');
+         Redirect::redirectTo('/admin/products');
+       }else {
+          throw new \Exception("Token mismatch");
+       }
+
+
+
+     }
+     return null;
+   }
+
+
+  public function delete($id) {
        if (Request::has('post')) {
          $request = Request::get('post');
 
@@ -166,21 +204,11 @@ class ProductController extends BaseController{
          if (CSRFToken::verifyCSRFToken($request->token)) {
 
 
-           Category::destroy($id);
+           Product::destroy($id);
 
-           //delete all subcategory depending on a particular deleted category
-           $subcategories = SubCategory::where('category_id', $id)->get();
-           if (count($subcategories)) {
-             foreach ($subcategories as $subcategory) {
-               $subcategory->delete();
-             }
-           }
-           Session::add('success', 'Category deleted');
+           Session::add('success', 'Product deleted');
 
-           Redirect::redirectTo('/admin/products/categories');
-
-
-
+           Redirect::redirectTo('/admin/products');
          }
 
          throw new \Exception("Token mismatch");

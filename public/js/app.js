@@ -34922,6 +34922,7 @@ var _this = this;
 
       case 'adminProduct':
         ORGANICSTORE.admin.changeEvent();
+        ORGANICSTORE.admin["delete"]();
         break;
 
       case 'adminCategories':

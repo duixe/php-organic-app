@@ -11,9 +11,10 @@
       case 'home':
 
         break;
-        
+
       case 'adminProduct':
         ORGANICSTORE.admin.changeEvent();
+        ORGANICSTORE.admin.delete();
         break;
 
       case 'adminCategories':
