@@ -18,6 +18,7 @@ require('jquery.easing/jquery.easing.min.js');
 require('../../assets/js/admin.min.js');
 require('chart.js/dist/Chart.bundle');
 require('../../assets/js/store.js');
+require('../../assets/js/admin/events.js');
 require('../../assets/js/admin/update.js');
 require('../../assets/js/admin/delete.js');
 require('../../assets/js/admin/create.js');

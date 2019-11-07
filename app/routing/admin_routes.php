@@ -23,7 +23,13 @@
   //Delete subcategory router
   $router->map('POST', '/admin/products/subcategory/[i:id]/delete', 'App\Controllers\Admin\SubCategoryController@delete', 'delete_subcategory');
 
+  //create product
+  $router->map('GET', '/admin/category/[i:id]/selected', 'App\Controllers\Admin\ProductController@getSubCategories', 'selected_category');
+  $router->map('POST', '/admin/products/create', 'App\Controllers\Admin\ProductController@createStore', 'create_product');
 
+  //create product Get route in order to show the form
+  $router->map('GET', '/admin/products/create', 'App\Controllers\Admin\ProductController@ShowCreateProductForm', 'create_product_form');
+    $router->map('GET', '/admin/products', 'App\Controllers\Admin\ProductController@show', 'show_product');
 
 
 

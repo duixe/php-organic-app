@@ -39,7 +39,7 @@ class UploadFile{
   public static function isImage($file) {
     $fileobj = new static;
     $ext = $fileobj->fileExtension($File);
-    $validExt = array('jpg', 'jpeg', 'png', 'svg', 'bmp', 'gif');
+    $validExt = array('jpg', 'jpeg', 'png', 'svg', 'bmp', 'gif', 'svg');
 
     #if the file extension is not in the $validExt array...
     if (!in_array(strtolower($ext), $validExt)) {
@@ -57,7 +57,7 @@ class UploadFile{
     return $this->path;
   }
 
-  public static function move($tmp_path, $folder, $filename, $new_filename) {
+  public static function move($tmp_path, $folder, $file, $new_filename = '') {
     $fileobj = new static;
     $ds = DIRECTORY_SEPARATOR;
 
@@ -68,7 +68,7 @@ class UploadFile{
       mkdir($folder, 0777, true);
     }
 
-    $fileobj->path = "{$foler}{$ds}{$file_name}";
+    $fileobj->path = "{$folder}{$ds}{$file_name}";
     $absolute_path = BASE_PATH."{$ds}public{$ds}$fileobj->path";
 
     #👇check whether file was moved successfully from temp path to absolute specified path

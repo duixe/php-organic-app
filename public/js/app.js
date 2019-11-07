@@ -34772,6 +34772,44 @@ module.exports = g;
 
 /***/ }),
 
+/***/ "./resources/assets/js/admin/events.js":
+/*!*********************************************!*\
+  !*** ./resources/assets/js/admin/events.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function () {
+  'use strict';
+
+  ORGANICSTORE.admin.changeEvent = function () {
+    $('#product-category').on('change', function () {
+      var category_id = $('#product-category' + ' option:selected').val();
+      $('#product-subcategory').html('Select subcategory');
+      $.ajax({
+        type: 'GET',
+        url: '/admin/category/' + category_id + '/selected',
+        data: {
+          category_id: category_id
+        },
+        success: function success(res) {
+          var subcategories = jQuery.parseJSON(res);
+
+          if (subcategories.length) {
+            $.each(subcategories, function (key, value) {
+              $('#product-subcategory').append('<option value="' + value.id + '">' + value.name + '</option>');
+            });
+          } else {
+            $('#product-subcategory').append('<option value="">No record found</option>');
+          }
+        }
+      });
+    });
+  };
+})();
+
+/***/ }),
+
 /***/ "./resources/assets/js/admin/update.js":
 /*!*********************************************!*\
   !*** ./resources/assets/js/admin/update.js ***!
@@ -34882,6 +34920,10 @@ var _this = this;
       case 'home':
         break;
 
+      case 'adminProduct':
+        ORGANICSTORE.admin.changeEvent();
+        break;
+
       case 'adminCategories':
         ORGANICSTORE.admin.update();
         ORGANICSTORE.admin["delete"]();
@@ -34925,6 +34967,8 @@ __webpack_require__(/*! ../../assets/js/admin.min.js */ "./resources/assets/js/a
 __webpack_require__(/*! chart.js/dist/Chart.bundle */ "./node_modules/chart.js/dist/Chart.bundle.js");
 
 __webpack_require__(/*! ../../assets/js/store.js */ "./resources/assets/js/store.js");
+
+__webpack_require__(/*! ../../assets/js/admin/events.js */ "./resources/assets/js/admin/events.js");
 
 __webpack_require__(/*! ../../assets/js/admin/update.js */ "./resources/assets/js/admin/update.js");
 

@@ -4,6 +4,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Carbon\Carbon;
+use App\Models\Product;
 
 class Category extends Model{
   use SoftDeletes;
@@ -12,6 +13,14 @@ class Category extends Model{
   protected $fillable = ['name', 'slug'];
   protected $dates = ['deleted_at'];
 
+  public function products() {
+    //👇product::class = App\Models\Product
+    return $this->hasMany(Product::class);
+  }
+
+  public function subCategories() {
+    return $this->hasMany(SubCategory::class);
+  }
 
   public function transform($data) {
 

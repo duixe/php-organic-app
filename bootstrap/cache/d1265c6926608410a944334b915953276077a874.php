@@ -1,5 +1,5 @@
 
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion position-sticky" id="accordionSidebar">
 
  <!-- Sidebar - Brand -->
  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -102,13 +102,13 @@
  </div>
 
  <li class="nav-item">
-   <a class="nav-link" href="/admin/product/create">
+   <a class="nav-link" href="/admin/products/create">
      <i class="fa fa-plus fa-fw"></i>
      <span>Add Products</span></a>
  </li>
 
  <li class="nav-item">
-   <a class="nav-link" href="manage_inventory">
+   <a class="nav-link" href="/admin/products">
      <i class="fa fa-edit fa-fw"></i>
      <span>Manage Products</span></a>
  </li>
@@ -117,7 +117,7 @@
 
  <!-- Nav Item - Categories -->
  <li class="nav-item">
-   <a class="nav-link" href="/admin/product/categories">
+   <a class="nav-link" href="/admin/products/categories">
      <i class="fa fa-compress fa-fw"></i>
      <span>Categories</span></a>
  </li>
