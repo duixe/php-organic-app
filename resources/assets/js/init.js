@@ -9,7 +9,7 @@
     // SWITCH TO A PREFRED PAGE AT A POINT IN EXECUTION
     switch ($("body").data("page-id")) {
       case 'home':
-
+        ORGANICSTORE.homenav.initNav();
         break;
 
       case 'adminProduct':

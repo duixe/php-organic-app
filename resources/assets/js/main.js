@@ -22,4 +22,5 @@ require('../../assets/js/admin/events.js');
 require('../../assets/js/admin/update.js');
 require('../../assets/js/admin/delete.js');
 require('../../assets/js/admin/create.js');
+require('../../assets/js/pages/nav.js');
 require('../../assets/js/init.js');

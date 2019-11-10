@@ -1,5 +1,269 @@
 @charset "UTF-8";
 
+/*
+    0 - 600px =>  phone
+    600 - 900px => Tablet - potrait
+    900 - 1200px =>  Tablet landscape &
+    (1200 - 1800) => where normal styles apply
+    1800+ => Big Desktop
+
+    $breakpoint arguements choices :
+    -phone
+    -tab-pot
+    -tab-land
+    -big-desktop
+
+    for media queries 1em = 16px
+*/
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  /* 👆 (default fnt size /10) * 100 hence it defines what 1 rem is*/
+}
+
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* NB: Anything related to font should be included in the body section */
+
+body {
+  box-sizing: border-box;
+}
+
+@media (max-width: 56.25em) {
+  body {
+    padding: 0;
+    overflow-x: hidden;
+  }
+}
+
+@-webkit-keyframes navLinkFade {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+}
+
+@media (max-width: 56.25em) {
+  .header {
+    background-color: green;
+  }
+}
+
+.nav {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+  min-height: 10vh;
+  font-family: sans-serif;
+  padding-top: 3rem;
+}
+
+.nav-logo {
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  margin-left: 3rem;
+}
+
+.nav-logo h4 {
+  font-size: 2rem !important;
+}
+
+.nav__list {
+  display: -webkit-box;
+  display: flex;
+  justify-content: space-around !important;
+  width: 30%;
+  text-transform: uppercase;
+}
+
+@media (max-width: 56.25em) {
+  .nav__list {
+    position: absolute;
+    right: 0;
+    top: 10vh;
+    height: 90vh;
+    background: green;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-align: center;
+            align-items: center;
+    width: 50%;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    -webkit-transition: -webkit-transform 0.5s ease-in;
+    transition: -webkit-transform 0.5s ease-in;
+    transition: transform 0.5s ease-in;
+    transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in;
+  }
+}
+
+.nav__item {
+  list-style: none;
+}
+
+.nav__item a {
+  color: black !important;
+}
+
+@media (max-width: 56.25em) {
+  .nav__item {
+    opacity: 0;
+  }
+}
+
+.nav__link:link {
+  text-decoration: none !important;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.nav__link {
+  position: relative;
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 2px;
+  background: currentColor;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  transition: -webkit-transform 150ms ease-in-out;
+  -webkit-transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+}
+
+.nav__link:hover::after {
+  -webkit-transform: scaleX(1.2);
+  transform: scaleX(1.2);
+}
+
+.nav-right {
+  margin-right: 10rem;
+}
+
+.nav-right a {
+  padding-left: 1rem;
+  text-transform: uppercase;
+  color: #000 !important;
+}
+
+.nav-right a i:last-child {
+  margin-right: 0.6rem;
+}
+
+.nav-right a:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.nav__burger {
+  display: none;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+.nav__burger-line {
+  width: 2.5rem;
+  height: 0.3rem;
+  background-color: black;
+  margin: 0.5rem;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 56.25em) {
+  .nav__burger {
+    display: block;
+  }
+}
+
+.nav__active {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.toggle .line-1 {
+  -webkit-transform: rotate(-45deg) translate(-5px, 6px);
+          transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line-2 {
+  opacity: 0;
+}
+
+.toggle .line-3 {
+  -webkit-transform: rotate(45deg) translate(-5px, -6px);
+          transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.home {
+  margin-top: 10rem;
+}
+
 /* Slider */
 
 .slick-slider {

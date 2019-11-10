@@ -2,10 +2,11 @@
 
 (() => {
   "use strict";
-  
+
   window.ORGANICSTORE = {
     global: {},
-    admin: {}
+    admin: {},
+    homenav: {}
 
   };
 })()

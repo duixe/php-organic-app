@@ -1,0 +1,158 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 10vh;
+  font-family: sans-serif;
+  padding-top: 3rem;
+
+
+
+
+
+  &-logo {
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    margin-left: 3rem;
+
+    h4 {
+      font-size: 2rem !important;
+    }
+
+
+    &__span {
+
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-around !important;
+    width: 30%;
+
+    text-transform: uppercase;
+    // color: #fff;
+
+    @include respond(tab-port) {
+        position: absolute;
+        right: 0;
+        top: 10vh;
+        height: 90vh;
+        background: green;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform .5s ease-in;
+    }
+
+  }
+
+
+  &__item {
+      list-style: none;
+
+      a {
+        color: black !important;
+      }
+
+      @include respond(tab-port) {
+        opacity: 0;
+      }
+
+  }
+
+  &__link:link {
+
+      // color: #fff !important;
+      text-decoration: none !important;
+      font-weight: bold;
+      font-size: 1.4rem;
+
+
+  }
+
+  &__link {
+      position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 1rem;
+      right: 1rem;
+      height: 2px;
+      background: currentColor;
+      -webkit-transform: scaleX(0);
+              transform: scaleX(0);
+      transition: -webkit-transform 150ms ease-in-out;
+      transition: transform 150ms ease-in-out;
+      transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+    }
+
+    &:hover::after {
+      -webkit-transform: scaleX(1.2);
+      transform: scaleX(1.2);
+    }
+
+
+  }
+
+  &-right {
+      margin-right: 10rem;
+
+      a {
+        padding-left: 1rem;
+        text-transform: uppercase;
+        color: #000 !important;
+
+        i:last-child {
+          margin-right: .6rem;
+        }
+
+        &:not(:last-child) {
+          margin-right: 2rem;
+        }
+      }
+
+  }
+
+  &__burger {
+    display: none;
+    margin-right: 2rem;
+    cursor: pointer;
+
+
+    &-line {
+      width: 2.5rem;
+      height: .3rem;
+      background-color: black;
+      margin: .5rem;
+      transition: all .3s ease;
+
+    }
+
+    @include respond(tab-port) {
+      display: block;
+    }
+  }
+
+
+  &__active {
+    transform: translateX(0);
+  }
+}
+
+.toggle .line-1 {
+  transform : rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line-2 {
+  opacity: 0;
+}
+
+.toggle .line-3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}

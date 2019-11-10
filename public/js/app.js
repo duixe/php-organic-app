@@ -34918,6 +34918,7 @@ var _this = this;
     // SWITCH TO A PREFRED PAGE AT A POINT IN EXECUTION
     switch ($("body").data("page-id")) {
       case 'home':
+        ORGANICSTORE.homenav.initNav();
         break;
 
       case 'adminProduct':
@@ -34977,7 +34978,41 @@ __webpack_require__(/*! ../../assets/js/admin/delete.js */ "./resources/assets/j
 
 __webpack_require__(/*! ../../assets/js/admin/create.js */ "./resources/assets/js/admin/create.js");
 
+__webpack_require__(/*! ../../assets/js/pages/nav.js */ "./resources/assets/js/pages/nav.js");
+
 __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.js");
+
+/***/ }),
+
+/***/ "./resources/assets/js/pages/nav.js":
+/*!******************************************!*\
+  !*** ./resources/assets/js/pages/nav.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function () {
+  'use strict';
+
+  ORGANICSTORE.homenav.initNav = function () {
+    var burger = document.querySelector('.nav__burger');
+    var nav = document.querySelector('.nav__list');
+    var navlinks = document.querySelectorAll('.nav__list li');
+    burger.addEventListener('click', function () {
+      //toggle hambugger
+      nav.classList.toggle('nav__active'); //display links
+
+      navlinks.forEach(function (link, index) {
+        if (link.style.animation) {
+          link.style.animation = '';
+        } else {
+          link.style.animation = "navLinkFade 0.5s ease forwards ".concat(index / 7 + 0.5, "s");
+        }
+      });
+      burger.classList.toggle('toggle');
+    });
+  };
+})();
 
 /***/ }),
 
@@ -34994,7 +35029,8 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
 
   window.ORGANICSTORE = {
     global: {},
-    admin: {}
+    admin: {},
+    homenav: {}
   };
 })();
 
