@@ -34919,6 +34919,7 @@ var _this = this;
     switch ($("body").data("page-id")) {
       case 'home':
         ORGANICSTORE.homenav.initNav();
+        ORGANICSTORE.homeslider.initCarousel();
         break;
 
       case 'adminProduct':
@@ -34959,9 +34960,9 @@ window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
 
 __webpack_require__(/*! bootstrap/dist/js/bootstrap.min.js */ "./node_modules/bootstrap/dist/js/bootstrap.min.js");
 
-__webpack_require__(/*! slick-carousel/slick/slick.min */ "./node_modules/slick-carousel/slick/slick.min.js");
+__webpack_require__(/*! jquery.easing/jquery.easing.min.js */ "./node_modules/jquery.easing/jquery.easing.min.js");
 
-__webpack_require__(/*! jquery.easing/jquery.easing.min.js */ "./node_modules/jquery.easing/jquery.easing.min.js"); //custom js files
+__webpack_require__(/*! slick-carousel/slick/slick.min */ "./node_modules/slick-carousel/slick/slick.min.js"); //custom js files
 
 
 __webpack_require__(/*! ../../assets/js/admin.min.js */ "./resources/assets/js/admin.min.js");
@@ -34979,6 +34980,8 @@ __webpack_require__(/*! ../../assets/js/admin/delete.js */ "./resources/assets/j
 __webpack_require__(/*! ../../assets/js/admin/create.js */ "./resources/assets/js/admin/create.js");
 
 __webpack_require__(/*! ../../assets/js/pages/nav.js */ "./resources/assets/js/pages/nav.js");
+
+__webpack_require__(/*! ../../assets/js/pages/slider.js */ "./resources/assets/js/pages/slider.js");
 
 __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.js");
 
@@ -35016,6 +35019,29 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
 
 /***/ }),
 
+/***/ "./resources/assets/js/pages/slider.js":
+/*!*********************************************!*\
+  !*** ./resources/assets/js/pages/slider.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function () {
+  "use strict";
+
+  ORGANICSTORE.homeslider.initCarousel = function () {
+    $('.slider__page').not(".slick-initialized").slick({
+      autoplay: true,
+      autoplaySpeed: 3000,
+      dots: true,
+      prevArrow: ".section-landing .slider__btn .slider__btn-prev",
+      nextArrow: ".section-landing .slider__btn .slider__btn-next"
+    });
+  };
+})();
+
+/***/ }),
+
 /***/ "./resources/assets/js/store.js":
 /*!**************************************!*\
   !*** ./resources/assets/js/store.js ***!
@@ -35030,7 +35056,8 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
   window.ORGANICSTORE = {
     global: {},
     admin: {},
-    homenav: {}
+    homenav: {},
+    homeslider: {}
   };
 })();
 

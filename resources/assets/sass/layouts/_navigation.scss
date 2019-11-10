@@ -55,7 +55,7 @@
       list-style: none;
 
       a {
-        color: black !important;
+        color: #000 !important;
       }
 
       @include respond(tab-port) {
@@ -84,7 +84,7 @@
       left: 1rem;
       right: 1rem;
       height: 2px;
-      background: currentColor;
+      background: green;
       -webkit-transform: scaleX(0);
               transform: scaleX(0);
       transition: -webkit-transform 150ms ease-in-out;

@@ -10,6 +10,7 @@
     switch ($("body").data("page-id")) {
       case 'home':
         ORGANICSTORE.homenav.initNav();
+        ORGANICSTORE.homeslider.initCarousel();
         break;
 
       case 'adminProduct':

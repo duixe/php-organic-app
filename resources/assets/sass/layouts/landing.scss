@@ -1,0 +1,42 @@
+.landing {
+
+}
+
+.slider {
+
+  &__page {
+
+    &-1 {
+      position: relative;
+
+      img {
+        width: 100% !important;
+        height: 100vh !important;
+      }
+
+      h4 {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        // transform: translate(-50%, -50%);
+        z-index: 200;
+        text-align: center;
+      }
+    }
+
+    &-2 {
+      img {
+        width: 100% !important;
+        height: 100vh !important;
+    }
+
+    }
+
+    &-3 {
+      img {
+        width: 100% !important;
+        height: 100vh !important;
+      }
+    }
+  }
+}

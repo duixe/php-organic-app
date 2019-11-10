@@ -11,8 +11,8 @@ window.axios = require('axios');
 //node dependencies
 // require('popper.js/dist/popper.min');
 require('bootstrap/dist/js/bootstrap.min.js');
-require('slick-carousel/slick/slick.min');
 require('jquery.easing/jquery.easing.min.js');
+require('slick-carousel/slick/slick.min');
 
 //custom js files
 require('../../assets/js/admin.min.js');
@@ -23,4 +23,5 @@ require('../../assets/js/admin/update.js');
 require('../../assets/js/admin/delete.js');
 require('../../assets/js/admin/create.js');
 require('../../assets/js/pages/nav.js');
+require('../../assets/js/pages/slider.js');
 require('../../assets/js/init.js');

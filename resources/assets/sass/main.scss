@@ -12,11 +12,13 @@
 
 @import "./layouts/header";
 @import "./layouts/navigation";
+@import "./layouts/landing";
 
 @import "./pages/home";
 
 ////////////import slick //////////////
 @import "../../../node_modules/slick-carousel/slick/slick.scss";
+@import "../../../node_modules/slick-carousel/slick/slick-theme.scss";
 
 
 
