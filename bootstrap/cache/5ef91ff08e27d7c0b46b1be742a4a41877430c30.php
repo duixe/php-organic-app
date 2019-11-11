@@ -8,15 +8,38 @@
         <section class="section-landing">
           <div class="slider__page">
             <div class="slider__page-1">
-              <h4>Testing for absolute</h4>
-              <img src="/img/home/img-slider-1.jpg" alt="">
+              <div class="slider__textbox">
+                <h1 class="heading-land">Organic</h1>
+                <h5 class="heading-land__5">100% guranteed</h5>
+                <h2 class="heading-land__2">Live Organic Stay Healthy</h2>
+                <p class="heading-land__paragraph">Organic fruits and vegetables at your Doorstep</p>
+
+                <a href="#" class="bttn bttn--primary">Shop Now</a>
+              </div>
+              <img src="/img/home/img-slider-01.jpg" alt="">
             </div>
 
             <div class="slider__page-2">
-              <img src="/img/home/img-slider-2.jpg" alt="">
+              <div class="slider__textbox">
+                <h1 class="heading-land">Organic</h1>
+                <h5 class="heading-land__5">100% guranteed</h5>
+                <h2 class="heading-land__2">Live Organic Stay Healthy</h2>
+                <p class="heading-land__paragraph">Organic fruits and vegetables at your Doorstep</p>
+
+                <a href="#" class="bttn bttn--primary">Shop Now</a>
+              </div>
+              <img src="/img/home/img-slider-02.jpg" alt="">
             </div>
 
             <div class="slider__page-3">
+              <div class="slider__textbox">
+                <h1 class="heading-land">Organic</h1>
+                <h5 class="heading-land__5">100% guranteed</h5>
+                <h2 class="heading-land__2">Live Organic Stay Healthy</h2>
+                <p class="heading-land__paragraph">Organic fruits and vegetables at your Doorstep</p>
+
+                <a href="#" class="bttn bttn--primary">Shop Now</a>
+              </div>
               <img src="/img/home/img-slider-3.jpg" alt="">
             </div>
           </div>

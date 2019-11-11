@@ -34920,6 +34920,7 @@ var _this = this;
       case 'home':
         ORGANICSTORE.homenav.initNav();
         ORGANICSTORE.homeslider.initCarousel();
+        ORGANICSTORE.homescroll.initScroll();
         break;
 
       case 'adminProduct':
@@ -34983,6 +34984,8 @@ __webpack_require__(/*! ../../assets/js/pages/nav.js */ "./resources/assets/js/p
 
 __webpack_require__(/*! ../../assets/js/pages/slider.js */ "./resources/assets/js/pages/slider.js");
 
+__webpack_require__(/*! ../../assets/js/pages/scroll.js */ "./resources/assets/js/pages/scroll.js");
+
 __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.js");
 
 /***/ }),
@@ -35019,6 +35022,37 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
 
 /***/ }),
 
+/***/ "./resources/assets/js/pages/scroll.js":
+/*!*********************************************!*\
+  !*** ./resources/assets/js/pages/scroll.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function () {
+  "use strict";
+
+  ORGANICSTORE.homescroll.initScroll = function () {
+    var header = document.querySelector("header");
+    var sectionOne = document.querySelector(".section-landing");
+    var sectionOneOptions = {
+      rootMargin: "-760px 0px 0px 0px"
+    };
+    var sectionOneObserver = new IntersectionObserver(function (entries, sectionOneObserver) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) {
+          header.classList.add("header__scrolled");
+        } else {
+          header.classList.remove("header__scrolled");
+        }
+      });
+    }, sectionOneOptions);
+    sectionOneObserver.observe(sectionOne);
+  };
+})();
+
+/***/ }),
+
 /***/ "./resources/assets/js/pages/slider.js":
 /*!*********************************************!*\
   !*** ./resources/assets/js/pages/slider.js ***!
@@ -35034,6 +35068,8 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
       autoplay: true,
       autoplaySpeed: 3000,
       dots: true,
+      fade: true,
+      cssEase: 'linear',
       prevArrow: ".section-landing .slider__btn .slider__btn-prev",
       nextArrow: ".section-landing .slider__btn .slider__btn-next"
     });
@@ -35057,7 +35093,8 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
     global: {},
     admin: {},
     homenav: {},
-    homeslider: {}
+    homeslider: {},
+    homescroll: {}
   };
 })();
 

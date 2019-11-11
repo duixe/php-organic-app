@@ -11,6 +11,8 @@
       case 'home':
         ORGANICSTORE.homenav.initNav();
         ORGANICSTORE.homeslider.initCarousel();
+        ORGANICSTORE.homescroll.initScroll();
+
         break;
 
       case 'adminProduct':

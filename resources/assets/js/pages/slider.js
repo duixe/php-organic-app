@@ -7,6 +7,8 @@
       autoplay: true,
       autoplaySpeed: 3000,
       dots: true,
+      fade: true,
+      cssEase: 'linear',
       prevArrow: ".section-landing .slider__btn .slider__btn-prev",
       nextArrow: ".section-landing .slider__btn .slider__btn-next",
     });

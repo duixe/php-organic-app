@@ -7,7 +7,8 @@
     global: {},
     admin: {},
     homenav: {},
-    homeslider:{}
+    homeslider:{},
+    homescroll: {}
 
   };
 })()

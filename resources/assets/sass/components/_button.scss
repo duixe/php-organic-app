@@ -1,0 +1,36 @@
+
+.bttn {
+    &,
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        margin-top: 2rem;
+        display: inline-block;
+        border-radius: 10rem;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 600;
+
+        transition: all .2s;
+        position: relative;
+        font-size: $default-font-size;
+
+        //style for button inside form
+        border: 4px solid rgba($pink-dark, .8);
+        cursor: pointer;
+    }
+
+    &--primary {
+      background-color: $color-white;
+      color: $color-secondary;
+      transition: all .5s ease;
+
+
+    &:hover {
+      background-image: linear-gradient(to right bottom, $pink-light, $pink-dark);
+      color: $color-white;
+      border: none;
+    }
+    }
+}

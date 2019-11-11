@@ -16,6 +16,12 @@
 
 }
 
+@mixin customFont($fontfam, $color, $fontweight) {
+  font-family: $fontfam;
+  color: $color;
+  font-weight: $fontweight;
+}
+
 
 //MEDIA QUERY MANAGER
 /*

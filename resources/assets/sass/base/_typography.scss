@@ -1,0 +1,40 @@
+body {
+  font-family: 'Pacifico', cursive;
+  font-family: 'Abril Fatface', cursive;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.heading-land {
+  @include customFont($font-paci, $color-primary, 400);
+  display: block;
+  font-size: 12.8rem;
+  text-transform: uppercase;
+  transform: skewY(-9deg);
+  text-shadow: .3rem .8rem 1rem rgba($color-black, .8);
+
+  &__2 {
+    display: inline-block;
+    @include customFont($font-abril, $color-white, 400);
+    font-size: 8rem;
+    text-shadow: .5rem 1rem 2rem rgba($color-black, .8);
+    width: 70vw;
+
+  }
+
+  &__5 {
+    display: inline-block;
+    // float: right;
+    margin-left: 30rem;
+    @include customFont($font-abril, $color-secondary, 400);
+    font-size: 3.4rem;
+
+  }
+
+  &__paragraph {
+    @include customFont($font-oswald, $color-white, 500);
+    font-size: 2rem;
+    letter-spacing: 1rem;
+  }
+}

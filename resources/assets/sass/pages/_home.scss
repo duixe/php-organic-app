@@ -5,10 +5,11 @@
 }
 
 .section-landing {
-    position: relative;
-    background: linear-gradient(to right bottom, rgba(0,0,0, .2), rgba(0,0,0, .2));
-    background-size: cover;
-    background-position: top;
+    // position: relative;
+    // background: linear-gradient(to right bottom, rgba(0,0,0, .2), rgba(0,0,0, .7));
+    // background-size: cover;
+    // background-position: top;
+
     // height: 100vh;
     &:hover .slider__btn-prev,
     &:hover .slider__btn-next {

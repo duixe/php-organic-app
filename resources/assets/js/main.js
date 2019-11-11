@@ -24,4 +24,5 @@ require('../../assets/js/admin/delete.js');
 require('../../assets/js/admin/create.js');
 require('../../assets/js/pages/nav.js');
 require('../../assets/js/pages/slider.js');
+require('../../assets/js/pages/scroll.js');
 require('../../assets/js/init.js');

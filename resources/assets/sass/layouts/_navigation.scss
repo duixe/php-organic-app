@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   min-height: 10vh;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   padding-top: 3rem;
 
 
@@ -13,7 +13,9 @@
   &-logo {
     color: black;
     text-transform: uppercase;
-    letter-spacing: .5rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    letter-spacing: .1rem;
     margin-left: 3rem;
 
     h4 {
@@ -55,7 +57,7 @@
       list-style: none;
 
       a {
-        color: #000 !important;
+        color: $color-secondary !important;
       }
 
       @include respond(tab-port) {
@@ -68,8 +70,8 @@
 
       // color: #fff !important;
       text-decoration: none !important;
-      font-weight: bold;
-      font-size: 1.4rem;
+      font-weight: 500;
+      font-size: 1.8rem;
 
 
   }
@@ -106,7 +108,7 @@
       a {
         padding-left: 1rem;
         text-transform: uppercase;
-        color: #000 !important;
+        color: $color-secondary !important;
 
         i:last-child {
           margin-right: .6rem;
