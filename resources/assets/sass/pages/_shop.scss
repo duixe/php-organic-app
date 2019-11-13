@@ -1,0 +1,17 @@
+.shop__main {
+  width: auto;
+  height: auto;
+  background-image: linear-gradient(to right bottom, rgba($color-secondary, .4), rgba($color-secondary, .9));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  padding: 25rem 10rem 6rem 10rem;
+}
+
+
+.section__shop {
+  background-color: $color-white !important;
+  padding: 7rem !important;
+  box-shadow: 0 0 2rem 0 rgba($color-black, 0.25);
+  border-radius: 1.5rem;
+}

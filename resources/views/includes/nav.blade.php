@@ -5,9 +5,9 @@
       <h4>ORganic|<span class="nav-logo__span">STORE</span></h4>
     </div>
     <ul class="nav__list">
-      <li class="nav__item"><a class="nav__link" href="#">HOME</a></li>
+      <li class="nav__item"><a class="nav__link" href="/">HOME</a></li>
       <li class="nav__item"><a class="nav__link" href="#">About us</a></li>
-      <li class="nav__item"><a class="nav__link" href="#">Shop</a></li>
+      <li class="nav__item"><a class="nav__link" href="/shop">Shop</a></li>
       <li class="nav__item"><a class="nav__link" href="#">Contact us</a></li>
     </ul>
     <div class="nav-right">

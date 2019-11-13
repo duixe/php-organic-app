@@ -17,7 +17,7 @@
         font-size: $default-font-size;
 
         //style for button inside form
-        border: 4px solid rgba($pink-dark, .8);
+        border: 4px solid rgba($pink-light, .8);
         cursor: pointer;
     }
 
@@ -30,7 +30,7 @@
     &:hover {
       background-image: linear-gradient(to right bottom, $pink-light, $pink-dark);
       color: $color-white;
-      border: none;
+      border-color: rgba($pink-light, 0);
     }
     }
 }

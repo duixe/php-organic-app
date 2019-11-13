@@ -10,12 +10,15 @@
 @import "./base/animations";
 
 @import "./components/button";
+@import "./components/feature";
+@import "./components/card";
 
 @import "./layouts/header";
 @import "./layouts/navigation";
 @import "./layouts/landing";
 
 @import "./pages/home";
+@import "./pages/shop";
 
 ////////////import slick //////////////
 @import "../../../node_modules/slick-carousel/slick/slick.scss";

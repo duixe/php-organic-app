@@ -8,7 +8,7 @@
     admin: {},
     homenav: {},
     homeslider:{},
-    homescroll: {}
-
+    homescroll: {},
+    shop: {}
   };
 })()

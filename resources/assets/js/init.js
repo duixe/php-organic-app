@@ -11,8 +11,14 @@
       case 'home':
         ORGANICSTORE.homenav.initNav();
         ORGANICSTORE.homeslider.initCarousel();
+        ORGANICSTORE.homeslider.homePageProducts();
         ORGANICSTORE.homescroll.initScroll();
+        break;
 
+      case 'shop':
+        ORGANICSTORE.shop.shopPageProducts();
+        ORGANICSTORE.shop.initNavShop();
+        ORGANICSTORE.shop.initScrollShop();
         break;
 
       case 'adminProduct':

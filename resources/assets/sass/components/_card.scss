@@ -1,0 +1,128 @@
+.pcard {
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 4rem auto auto;
+  text-align: center;
+  position: relative;
+  background-color: $color-white;
+  transition: all 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+
+  &:hover {
+    box-shadow: 0 0 2rem 0 rgba($color-black, 0.25);
+  }
+
+  &:hover &-icons {
+    opacity: 1;
+    visibility: visible;
+    // transform: translateX(-20%);
+    transform: translateY(3.5rem);
+    -webkit-transform: translateY(3.5rem);
+
+  }
+
+  &:hover::after {
+    opacity: 1;
+    visibility: visible;
+    // transform: translateX(-20%);
+    transform: translateY(0);
+
+
+  }
+
+  &-content {
+    background-color: $color-ash;
+    height: 33.3rem;
+    position: relative;
+
+    img {
+      width: 80%;
+      height: 64%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: 0 auto;
+      z-index: 10
+    }
+  }
+
+  &-icons {
+    border-radius: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // width: 60%;
+    left: 0;
+    margin: auto;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    z-index: 20;
+    // transform: translateX(-50%);
+    transform: translateY(-6.5rem);
+    // -webkit-transform: translateY(-60%);
+    transition: all 0.6s cubic-bezier(.68,-0.55,.27,1.55);
+
+    & > a:first-child {
+      border-radius: 2rem 0 0 2rem;
+    }
+
+    & > a:last-child {
+      border-radius: 0 2rem 2rem 0;
+      margin-left: 1rem;
+    }
+
+    & > a {
+      background-color: $color-white;
+      color: #dedede;
+      font-size: 2rem;
+      height: 4.5rem;
+      line-height: 4.5rem;
+      width: 6rem;
+
+      &:hover {
+        background-color: #92d2a7;
+        color: $color-white;
+      }
+    }
+  }
+
+  &-caption {
+    text-align: center;
+    padding: 1rem 0 3rem;
+    margin-top: 1.2rem;
+
+    &__title {
+      @include customFont($font-rob, $color-secondary, 600);
+      font-size: 2rem;
+      letter-spacing: .1rem
+    }
+
+    &__price {
+      @include customFont($font-oswald, $color-orange, 600);
+      font-size: 1.5rem;
+      letter-spacing: .2rem
+    }
+  }
+
+  &::after {
+    bottom: 0;
+    content: "";
+    display: block;
+    height: .5rem;
+    margin: auto;
+    vertical-align: middle;
+    width: 5rem;
+    background-color: $color-orange;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-6.5rem);
+    -webkit-transform: translateX(-6.5rem);
+    transition: all 0.4s ease-in-out 0s;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+  }
+
+}

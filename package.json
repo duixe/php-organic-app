@@ -29,6 +29,8 @@
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
-    "jquery.easing": "^1.4.1"
+    "jquery.easing": "^1.4.1",
+    "vue-resource": "^1.5.1",
+    "vue-validator": "^3.0.0-alpha.2"
   }
 }

@@ -38,3 +38,51 @@ body {
     letter-spacing: 1rem;
   }
 }
+
+.heading-secondary {
+  @include customFont($font-lob, $color-secondary, 700);
+  display: inline-block;
+  letter-spacing: .2rem;
+  font-size: 3.5rem;
+  position: relative;
+
+  //for underline👇
+
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   right: 0;
+  //   margin: 0 auto;
+  //   width: 80%;
+  //   height: .4rem;
+  //   background-color: $color-secondary;
+  // }
+
+  span {
+    background-color: inherit;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -37%;
+    top: 50%;
+    width: 12rem;
+    height: .2rem;
+    background-color: $color-secondary;
+    z-index: -2;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -37%;
+    top: 50%;
+    width: 12rem;
+    height: .2rem;
+    background-color: $color-secondary;
+    z-index: -2;
+  }
+}

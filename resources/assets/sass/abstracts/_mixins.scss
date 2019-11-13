@@ -17,9 +17,9 @@
 }
 
 @mixin customFont($fontfam, $color, $fontweight) {
-  font-family: $fontfam;
-  color: $color;
-  font-weight: $fontweight;
+  font-family: $fontfam !important;
+  color: $color !important;
+  font-weight: $fontweight !important;
 }
 
 
