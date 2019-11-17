@@ -1,0 +1,73 @@
+.farm__box {
+  padding: 2rem 1rem;
+  border: 1.5px solid $color-primary;
+  border-radius: 1rem;
+  // transition: all 0.4s ease;
+  transition: all 0.5s cubic-bezier(1,-0.56,.06,1.32);
+  backface-visibility: hidden;
+
+  &:hover {
+    box-shadow: 0 0 1.5rem 0 rgba($color-black, 0.25);
+  }
+
+  &-head {
+    width: 15rem;
+    margin: auto;
+    margin-bottom: 3.5rem;
+
+
+
+    img {
+      max-width: 90%;
+      height: auto;
+    }
+  }
+
+  &-divider {
+    background-color: $color-primary;
+    display: block;
+    height: .3rem;
+    margin: 3rem auto 1.5rem;
+    width: 4rem;
+  }
+
+  &-footer {
+    padding: 1rem;
+  }
+
+  &-h4 {
+    @include customFont($font-rob, $color-secondary, 600);
+    font-size: 2rem;
+    letter-spacing: .1rem
+  }
+
+  &-paragraph {
+    @include customFont($font-oswald, $color-orange, 600);
+    font-size: 1.5rem;
+    letter-spacing: .2rem
+  }
+}
+
+.farm__message {
+  padding: 0 0;
+  overflow-y: hidden;
+
+  &-h4 {
+    @include customFont($font-oswald, $color-secondary, 500);
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    margin-bottom: 3rem;
+    letter-spacing: .5rem;
+  }
+
+  &-h3 {
+      @include customFont($font-rob, $color-secondary, 600);
+      font-size: 4rem;
+      margin-bottom: 1.8rem;
+  }
+
+  &-paragraph {
+    @include customFont($font-pop, $color-secondary, 400);
+    font-size: 1.5rem;
+  }
+}

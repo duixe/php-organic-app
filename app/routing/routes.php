@@ -4,7 +4,8 @@
   $router->map('GET', '/', 'App\Controllers\IndexController@show', 'Home');
   $router->map('GET', '/shop', 'App\Controllers\IndexController@showShop', 'Shop');
   $router->map('GET', '/featured', 'App\Controllers\IndexController@FeaturedProducts', 'featured_product');
-  $router->map('GET', '/get-products', 'App\Controllers\IndexController@getProducts', 'get_product'); 
+  $router->map('GET', '/get-products', 'App\Controllers\IndexController@getProducts', 'get_product');
+    $router->map('POST', '/load-more', 'App\Controllers\IndexController@loadMoreProduct', 'load_more_product'); 
 
 
   require_once __DIR__.'/admin_routes.php';

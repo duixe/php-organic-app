@@ -6,7 +6,8 @@
 
 .section-landing {
 
-    // position: relative;
+    position: relative;
+    padding-bottom: 2rem;
     // background: linear-gradient(to right bottom, rgba(0,0,0, .2), rgba(0,0,0, .7));
     // background-size: cover;
     // background-position: top;
@@ -45,18 +46,31 @@
         right: 0;
       }
     }
+
+    &__wave {
+      // position: absolute;
+      // width: 100%;
+      // height: 14.3rem;
+      // bottom: 0;
+      // left: 0;
+      //
+      // background-image: url('/img/home/wave.png');
+
+
+    }
+
 }
 
 .slick-dots {
   position: absolute;
-  bottom: 0 !important;
+  bottom: .7rem !important;
   right: 0 !important;
 
     li {
       margin: 0 .6em;
 
       &.slick-active button {
-        transform: scale(1.3) !important;
+        transform: scale(1.9) !important;
         box-shadow: 0 .3rem .5rem .1rem rgba(0,0,0, .205) !important;
       }
 
@@ -64,19 +78,113 @@
 
     button {
       display: block !important;
-      width: 1.3rem !important;
-      height: 1.3rem !important;
+      width: 1.7rem !important;
+      height: 1.7rem !important;
       padding: 0 !important;
       border: none !important;
-      background-color: #fff !important;
+      background-color: $color-primary !important;
       text-indent: -999999px;
       border-radius: 100% !important;
 
     }
 
-
 }
 
 .section-features {
   padding: 8rem 0 8rem 0;
+}
+
+.section-about {
+  padding: 10rem 0 8rem 0;
+  background-color: $color-ash;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section-farm {
+  padding: 25rem 0 8rem 0;
+}
+
+.section-produce {
+  padding: 18rem 0 8rem 0;
+}
+
+.section-book {
+  padding: 20rem 0;
+  background-color: $color-ash;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.book {
+    background-image: linear-gradient(105deg,
+                            rgba($color-primary, .6) 0%,
+                            rgba($color-primary, .9) 54%,
+                            transparent 50%),
+                        url(/img/home/msgimg.jpg);
+    background-size: cover;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+
+    // height: 55rem;
+
+    @include respond(tab-land) {
+        background-image: linear-gradient(105deg,
+                            rgba($color-white, .9) 0%,
+                            rgba($color-white, .9) 65%,
+                            transparent 65%),
+                        url(/img/home/msgimg.jpg);
+    }
+
+    @include respond(tab-pot) {
+        background-image: linear-gradient(to right,
+                            rgba($color-white, .9) 0%,
+                            rgba($color-white, .9) 100%),
+                        url(/img/home/msgimg.jpg);
+    }
+
+    &__form {
+        width: 50%;
+        padding: 4rem;
+
+        @include respond(tab-land) {
+            width: 65%;
+        }
+
+        @include respond(tab-pot) {
+            width: 100%;
+        }
+    }
+
+  &__bg {
+
+    &-img1 {
+      position: absolute;
+      left: -4.8rem;
+      top: 0;
+      z-index: 0;
+    }
+
+    &-img2 {
+      position: absolute;
+      right: -38px;
+      bottom: -150px;
+      z-index: 1;
+      width: 35rem;
+    }
+  }
+}
+
+.section-stories {
+
+    position: relative;
+    padding: 15rem 0;
+
+    @include respond(tab-port) {
+        padding: 10rem 0;
+    }
+
 }

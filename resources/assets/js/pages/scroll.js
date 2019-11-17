@@ -22,4 +22,11 @@
 
       sectionOneObserver.observe(sectionOne);
     }
+
+  ORGANICSTORE.homescroll.customNav = () => {
+    $(".customtab__nav li").on('click', function() {
+      $(".customtab__nav li").removeClass("active");
+      $(this).addClass("active");
+    })
+  }
 })();

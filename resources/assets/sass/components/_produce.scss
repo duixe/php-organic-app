@@ -1,0 +1,75 @@
+.customtab {
+  margin-top: 1.5rem;
+  &__nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    li {
+      list-style: none;
+
+      .active a {
+        border-color: rgba($color-orange, 0);
+        background-color: rgba($color-orange, .9);
+        color: $color-white !important;
+      }
+    }
+
+    &-btn,
+    &:link {
+      backface-visibility: hidden;
+      text-decoration: none !important;
+      padding: .6rem 2rem;
+      // margin-top: 2rem;
+      display: inline-block;
+      border-radius: 10rem;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 600;
+      font-size: 1.6rem;
+      border: 1px solid rgba($pink-dark, .8);
+      cursor: pointer;
+      color: $color-secondary !important;
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        border-color: rgba($color-orange, 0);
+        background-color: rgba($color-orange, .9);
+        // box-shadow: .2rem .5rem 1rem rgba($color-black, .6);
+        box-shadow: .1rem .4rem 5.1rem -1.7rem rgba($color-black, .75);
+        color: $color-white !important;
+      }
+
+      &:focus {
+        border-color: rgba($color-orange, 0);
+        background-color: rgba($color-orange, .9);
+        box-shadow: .1rem .4rem 5.1rem -1.7rem rgba($color-black, .25);
+        color: $color-white !important;
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .active {
+//   height: auto !important;
+// }
+//
+// .tab-pane {
+//   display: block !important;
+// }

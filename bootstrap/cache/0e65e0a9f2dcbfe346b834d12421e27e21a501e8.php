@@ -2,7 +2,7 @@
 <header class="header">
   <nav class="nav">
     <div class="nav-logo">
-      <h4>ORganic|<span class="nav-logo__span">STORE</span></h4>
+      <h4>🍊rganic|<span class="nav-logo__span">STORE</span></h4>
     </div>
     <ul class="nav__list">
       <li class="nav__item"><a class="nav__link" href="/">HOME</a></li>
@@ -11,7 +11,15 @@
       <li class="nav__item"><a class="nav__link" href="#">Contact us</a></li>
     </ul>
     <div class="nav-right">
-      <a class="nav__link" href="#"><i class="far fa-user"></i>Login</a>
+      <div class="nav-right__toggle">
+        <a class="nav__link" href="#"><i class="far fa-user"></i>Login
+          <ul class="login__dropdown">
+            <li><a href="#">Login</a></li>
+            <hr>
+            <li><a href="#">Register</a></li>
+          </ul>
+        </a>
+      </div>
       <a class="nav__link" href="#cart"><i class="fas fa-shopping-basket"></i><sup id="cart-itm" class="badge badge-pill badge-info">3</sup></a>
     </div>
     <div class="nav__burger">

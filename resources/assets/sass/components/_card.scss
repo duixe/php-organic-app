@@ -34,16 +34,17 @@
     height: 33.3rem;
     position: relative;
 
-    img {
-      width: 80%;
-      height: 64%;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      margin: 0 auto;
-      z-index: 10
-    }
+  }
+
+  &__img {
+    width: 80%;
+    height: 64%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 10
   }
 
   &-icons {
@@ -90,6 +91,15 @@
     }
   }
 
+
+  &__shape {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
   &-caption {
     text-align: center;
     padding: 1rem 0 3rem;

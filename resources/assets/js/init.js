@@ -13,6 +13,7 @@
         ORGANICSTORE.homeslider.initCarousel();
         ORGANICSTORE.homeslider.homePageProducts();
         ORGANICSTORE.homescroll.initScroll();
+        ORGANICSTORE.homescroll.customNav();
         break;
 
       case 'shop':

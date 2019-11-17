@@ -12,6 +12,12 @@
 @import "./components/button";
 @import "./components/feature";
 @import "./components/card";
+@import "./components/about";
+@import "./components/farm";
+@import "./components/produce";
+@import "./components/form";
+@import "./components/bg-video";
+@import "./components/story";
 
 @import "./layouts/header";
 @import "./layouts/navigation";
@@ -20,11 +26,11 @@
 @import "./pages/home";
 @import "./pages/shop";
 
-////////////import slick //////////////
-@import "../../../node_modules/slick-carousel/slick/slick.scss";
-@import "../../../node_modules/slick-carousel/slick/slick-theme.scss";
-
 
 
 /////////// import bootstrap //////////
 @import "../../../node_modules/bootstrap/scss/bootstrap";
+
+////////////import slick //////////////
+@import "../../../node_modules/slick-carousel/slick/slick.scss";
+@import "../../../node_modules/slick-carousel/slick/slick-theme.scss";

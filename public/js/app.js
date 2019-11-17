@@ -50792,6 +50792,7 @@ var _this = this;
         ORGANICSTORE.homeslider.initCarousel();
         ORGANICSTORE.homeslider.homePageProducts();
         ORGANICSTORE.homescroll.initScroll();
+        ORGANICSTORE.homescroll.customNav();
         break;
 
       case 'shop':
@@ -50923,6 +50924,35 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
       created: function created() {
         this.getFeaturedProducts();
       }
+    }); //for produce in home page
+
+    var app3 = new Vue({
+      el: '#root-3',
+      data: {
+        products: [],
+        loading: false
+      },
+      //in vue when trying to define any function they must go into the method object👇
+      methods: {
+        getAllProducts: function getAllProducts() {
+          this.loading = true;
+          axios.get('/get-products').then(function (res) {
+            app3.products = res.data.products;
+            app3.loading = false;
+          });
+        },
+        stringLimit: function stringLimit(string, value) {
+          if (string.length > value) {
+            return string.substring(0, value) + "...";
+          } else {
+            return string;
+          }
+        }
+      },
+      //when the vue instance is created then call an unanemous func to call the custom function
+      created: function created() {
+        this.getAllProducts();
+      }
     });
   };
 })();
@@ -50988,6 +51018,13 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
     }, sectionOneOptions);
     sectionOneObserver.observe(sectionOne);
   };
+
+  ORGANICSTORE.homescroll.customNav = function () {
+    $(".customtab__nav li").on('click', function () {
+      $(".customtab__nav li").removeClass("active");
+      $(this).addClass("active");
+    });
+  };
 })();
 
 /***/ }),
@@ -51007,16 +51044,18 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
       el: '#root-2',
       data: {
         featured: [],
+        products: [],
         loading: false
       },
       //in vue when trying to define any function they must go into the method object👇
       methods: {
         getFeaturedProducts: function getFeaturedProducts() {
           this.loading = true;
-          axios.get('/featured').then(function (res) {
-            app2.featured = res.data.featured;
+          axios.all([axios.get('/featured'), axios.get('/get-products')]).then(axios.spread(function (featuredRes, getProdRes) {
+            app2.featured = featuredRes.data.featured;
+            app2.products = getProdRes.data.products;
             app2.loading = false;
-          });
+          }));
         },
         stringLimit: function stringLimit(string, value) {
           if (string.length > value) {
@@ -51082,7 +51121,7 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
     var header = document.querySelector("header");
     var sectionOne = document.querySelector(".section-shop");
     var sectionOneOptions = {
-      rootMargin: "-772px 0px 0px 0px"
+      rootMargin: "-800px 0px 0px 0px"
     };
     var sectionOneObserver = new IntersectionObserver(function (entries, sectionOneObserver) {
       entries.forEach(function (entry) {
@@ -51118,6 +51157,14 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
       cssEase: 'linear',
       prevArrow: ".section-landing .slider__btn .slider__btn-prev",
       nextArrow: ".section-landing .slider__btn .slider__btn-next"
+    });
+    $('.slider__page2').not(".slick-initialized").slick({
+      autoplay: true,
+      autoplaySpeed: 3000,
+      arrows: false,
+      dots: true,
+      fade: false,
+      cssEase: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)'
     });
   };
 })();

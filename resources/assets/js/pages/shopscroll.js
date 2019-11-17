@@ -6,7 +6,7 @@
       const sectionOne = document.querySelector(".section-shop");
 
       const sectionOneOptions = {
-        rootMargin: "-772px 0px 0px 0px",
+        rootMargin: "-800px 0px 0px 0px",
       };
 
       const sectionOneObserver = new IntersectionObserver(function(entries, sectionOneObserver) {
