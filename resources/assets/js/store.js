@@ -9,6 +9,7 @@
     homenav: {},
     homeslider:{},
     homescroll: {},
-    shop: {}
+    shop: {},
+    product: {}
   };
 })()

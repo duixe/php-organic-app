@@ -16,6 +16,13 @@
         ORGANICSTORE.homescroll.customNav();
         break;
 
+      case 'product':
+        ORGANICSTORE.product.details();
+        ORGANICSTORE.product.initNavProduct();
+        ORGANICSTORE.product.initScrollProduct();
+        // ORGANICSTORE.product.initCarouselProduct();
+        break;
+
       case 'shop':
         ORGANICSTORE.shop.shopPageProducts();
         ORGANICSTORE.shop.initNavShop();

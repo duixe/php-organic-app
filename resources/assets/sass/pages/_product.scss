@@ -1,0 +1,167 @@
+.product {
+  padding: 10rem 10rem;
+  background-color: $color-ash;
+  width: 100vw;
+  height: 100vh;
+
+  @include respond(tab-port) {
+    background-color: $color-white;
+    padding: 3rem 0;
+  }
+
+  &__container {
+    // box-shadow: 0 .5rem 1.5rem rgba($color-black, .5);
+    // background-color: $color-white;
+    // width: 100% !important;
+    // height: auto;
+    // padding-bottom: 7rem;
+  }
+
+  &__description {
+    padding: 4rem 3rem;
+    width: 100%;
+    // vertical-align: middle;
+
+    @include respond(tab-port) {
+      padding: 0;
+      vertical-align: none;
+    }
+
+    &-title {
+      @include customFont($font-rob, $color-secondary, 500);
+      font-size: 5rem !important;
+      letter-spacing: .2rem;
+      margin-bottom: .5rem;
+
+      .light1 {
+        @include customFont($font-rob, $color-secondary, 300);
+      }
+    }
+
+    &-divider {
+      width: 4rem;
+      height: .4rem;
+      background-color: $color-primary;
+      display: inline-block;
+      margin: 2rem auto;
+
+    }
+
+    &-divider2 {
+      display: inline-block;
+      width: 100%;
+      height: .1rem;
+      border: .1rem dashed $color-primary;
+      margin: 1rem auto;
+      vertical-align: middle;
+
+    }
+
+    &-price {
+      @include customFont($font-oswald, $color-orange, 600);
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    &-paragraph {
+      @include customFont($font-pop, $color-secondary, 500);
+      font-size: 1.5rem;
+      line-height: 1.7;
+      margin: 2rem 0;
+    }
+
+    &-tags {
+      margin-top: 2rem;
+      li {
+        list-style: none;
+        @include customFont($font-rob, $color-secondary, 300);
+        font-size: 2rem;
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+
+        span {
+          margin-right: 1.5rem;
+          @include customFont($font-rob, $color-secondary, 500);
+          font-size: 2.2rem;
+        }
+        a {
+          text-decoration: none !important;
+          color: $color-secondary !important;
+        }
+      }
+    }
+
+    &-foot {
+      margin-top: 2.5rem;
+    }
+
+    &-btn {
+
+      &:link,
+      &:visited {
+          @include customFont($font-rob, $color-white, 400);
+          font-size: $default-font-size;
+          letter-spacing: .2rem;
+          display: inline-block;
+          background-color: $color-orange-dark;
+          width: 100%;
+          line-height: 200%;
+          outline: none;
+          text-align: center;
+          border-radius: .2rem;
+          text-decoration: none;
+          padding: 3px;
+          box-shadow: 0 .5rem 1.5rem rgba($color-black, .5);
+          transition: all .5s cubic-bezier(0.600, -0.280, 0.735, 0.045);
+
+          &:hover {
+            background-color: $color-secondary;
+          }
+      }
+
+      .fas {
+        margin-right: 2rem !important;
+      }
+    }
+  }
+
+  &-item {
+    padding-top: 8rem;
+
+    img {
+      width: 35rem;
+      height: auto;
+      margin-top: auto;
+
+      @include respond(tab-port) {
+        width: 20rem;
+      }
+    }
+  }
+
+  // &-slide {
+  //   visibility:hidden;
+  // 	opacity:0;
+  // 	transition: opacity 1s;
+  //
+  //   .slick-initialized {
+  //     visibility:visible !important;
+	//     opacity:1 !important;
+  //
+  //     .product-slide__item {
+  //       display:block;
+  //       visibility:visible!important;
+  //     }
+  //   }
+  //
+  //   &__item {
+  //     display:none !important;
+  //
+  //     &:first-child {
+  //       display:block !important;
+  //       visibility:hidden !important;
+  //     }
+  //   }
+  // }
+}

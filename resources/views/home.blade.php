@@ -69,14 +69,14 @@
                 </div>
               </div>
               <div class="row pb-2">
-                <div class="col-xs-4 col-sm-3 col-md-2" v-for="feature in featured">
+                <div class="col-xs-4 col-sm-3 col-md-2" v-cloak v-for="feature in featured">
                   <div class="pcard">
                     <div class="pcard-content">
                       <img :src="'/' + feature.image_path" class="pcard__img" alt="@{{ feature.name }}">
                       <img src="/img/home/wavesmall.png" class="pcard__shape" alt="">
                       <div class="pcard-icons">
                         <a :href="'/products/' + feature.id" class="fa fa-shopping-basket" data-toggle="tooltip" data-placement="top" title="Add to Cart"></a>
-                        <a :href="'/products/' + feature.id" class="fa fa-expand" data-toggle="tooltip" data-placement="top" title="about this product"></a>
+                        <a :href="'/products/' + feature.id" class="fa fa-expand"></a>
                       </div>
                     </div>
                     <div class="pcard-caption">
@@ -214,14 +214,14 @@
 
                   <div class="row tab-content">
 
-                      <div class="tab-pane active col-xs-12 col-sm-4 col-md-3" v-for="product in products" id="tab-1" role="tabpanel">
+                      <div class="tab-pane active col-xs-12 col-sm-4 col-md-3" v-cloak v-for="product in products" id="tab-1" role="tabpanel">
                         <div class="pcard">
                           <div class="pcard-content">
                             <img :src="'/' + product.image_path" class="pcard__img" v-bind:alt="product.name">
                             <img src="/img/home/wavesmall.png" class="pcard__shape" alt="">
                             <div class="pcard-icons">
                               <a :href="'/products/' + product.id" class="fa fa-shopping-basket" data-toggle="tooltip" data-placement="top" title="Add to Cart"></a>
-                              <a :href="'/products/' + product.id" class="fa fa-expand" data-toggle="tooltip" data-placement="top" title="about this product"></a>
+                              <a :href="'/products/' + product.id" class="fa fa-expand"></a>
                             </div>
                           </div>
                           <div class="pcard-caption">
@@ -229,11 +229,11 @@
                             <p class="pcard-caption__price">$@{{ product.price }}</p>
                           </div>
                         </div>
-
                     </div>
 
                   </div>
           </div>
+
         </section>
 
 

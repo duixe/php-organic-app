@@ -50795,6 +50795,13 @@ var _this = this;
         ORGANICSTORE.homescroll.customNav();
         break;
 
+      case 'product':
+        ORGANICSTORE.product.details();
+        ORGANICSTORE.product.initNavProduct();
+        ORGANICSTORE.product.initScrollProduct(); // ORGANICSTORE.product.initCarouselProduct();
+
+        break;
+
       case 'shop':
         ORGANICSTORE.shop.shopPageProducts();
         ORGANICSTORE.shop.initNavShop();
@@ -50874,13 +50881,21 @@ __webpack_require__(/*! ../../assets/js/pages/shopnav.js */ "./resources/assets/
 
 __webpack_require__(/*! ../../assets/js/pages/slider.js */ "./resources/assets/js/pages/slider.js");
 
+__webpack_require__(/*! ../../assets/js/pages/sliderProduct.js */ "./resources/assets/js/pages/sliderProduct.js");
+
 __webpack_require__(/*! ../../assets/js/pages/home_products.js */ "./resources/assets/js/pages/home_products.js");
 
 __webpack_require__(/*! ../../assets/js/pages/shop_products.js */ "./resources/assets/js/pages/shop_products.js");
 
+__webpack_require__(/*! ../../assets/js/pages/product__details.js */ "./resources/assets/js/pages/product__details.js");
+
 __webpack_require__(/*! ../../assets/js/pages/scroll.js */ "./resources/assets/js/pages/scroll.js");
 
 __webpack_require__(/*! ../../assets/js/pages/shopscroll.js */ "./resources/assets/js/pages/shopscroll.js");
+
+__webpack_require__(/*! ../../assets/js/pages/productnav.js */ "./resources/assets/js/pages/productnav.js");
+
+__webpack_require__(/*! ../../assets/js/pages/productscroll.js */ "./resources/assets/js/pages/productscroll.js");
 
 __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.js");
 
@@ -50991,6 +51006,134 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
 
 /***/ }),
 
+/***/ "./resources/assets/js/pages/product__details.js":
+/*!*******************************************************!*\
+  !*** ./resources/assets/js/pages/product__details.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function () {
+  "use strict";
+
+  ORGANICSTORE.product.details = function () {
+    var app = new Vue({
+      el: '#product',
+      data: {
+        product: [],
+        category: [],
+        subCategory: [],
+        similarProducts: [],
+        productId: $('#product').data('id'),
+        loading: false
+      },
+      methods: {
+        getProductDetails: function getProductDetails() {
+          this.loading = true;
+          setTimeout(function () {
+            axios.get('/products-details/' + app.productId).then(function (res) {
+              app.product = res.data.product;
+              app.category = res.data.category;
+              app.subCategory = res.data.subCategory;
+              app.loading = false;
+            });
+          }, 1000);
+        },
+        getSimilarProduct: function getSimilarProduct() {
+          axios.get('/products-details/' + this.productId).then(function (res) {
+            app.similarProducts = res.data.similarProducts;
+            setTimeout(function () {
+              $('#product-slide').not(".slick-initialized").slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplaySpeed: 3000
+              });
+            }, 1000);
+          });
+        },
+        stringLimit: function stringLimit(string, value) {
+          if (string.length > value) {
+            return string.substring(0, value) + "...";
+          } else {
+            return string;
+          }
+        }
+      },
+      created: function created() {
+        this.getProductDetails();
+      },
+      mounted: function mounted() {
+        this.getSimilarProduct();
+      }
+    });
+  };
+})();
+
+/***/ }),
+
+/***/ "./resources/assets/js/pages/productnav.js":
+/*!*************************************************!*\
+  !*** ./resources/assets/js/pages/productnav.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function () {
+  'use strict';
+
+  ORGANICSTORE.product.initNavProduct = function () {
+    var burger = document.querySelector('.nav__burger');
+    var nav = document.querySelector('.nav__list');
+    var navlinks = document.querySelectorAll('.nav__list li');
+    burger.addEventListener('click', function () {
+      //toggle hambugger
+      nav.classList.toggle('nav__active'); //display links
+
+      navlinks.forEach(function (link, index) {
+        if (link.style.animation) {
+          link.style.animation = '';
+        } else {
+          link.style.animation = "navLinkFade 0.5s ease forwards ".concat(index / 7 + 0.5, "s");
+        }
+      });
+      burger.classList.toggle('toggle');
+    });
+  };
+})();
+
+/***/ }),
+
+/***/ "./resources/assets/js/pages/productscroll.js":
+/*!****************************************************!*\
+  !*** ./resources/assets/js/pages/productscroll.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function () {
+  "use strict";
+
+  ORGANICSTORE.product.initScrollProduct = function () {
+    var header = document.querySelector("header");
+    var sectionOne = document.querySelector(".product");
+    var sectionOneOptions = {
+      rootMargin: "-1000px 0px 0px 0px"
+    };
+    var sectionOneObserver = new IntersectionObserver(function (entries, sectionOneObserver) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) {
+          header.classList.add("header__scrolled");
+        } else {
+          header.classList.remove("header__scrolled");
+        }
+      });
+    }, sectionOneOptions);
+    sectionOneObserver.observe(sectionOne);
+  };
+})();
+
+/***/ }),
+
 /***/ "./resources/assets/js/pages/scroll.js":
 /*!*********************************************!*\
   !*** ./resources/assets/js/pages/scroll.js ***!
@@ -51045,6 +51188,7 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
       data: {
         featured: [],
         products: [],
+        count: 0,
         loading: false
       },
       //in vue when trying to define any function they must go into the method object👇
@@ -51054,6 +51198,7 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
           axios.all([axios.get('/featured'), axios.get('/get-products')]).then(axios.spread(function (featuredRes, getProdRes) {
             app2.featured = featuredRes.data.featured;
             app2.products = getProdRes.data.products;
+            app2.count = getProdRes.data.count;
             app2.loading = false;
           }));
         },
@@ -51063,11 +51208,33 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
           } else {
             return string;
           }
+        },
+        loadMoreProducts: function loadMoreProducts() {
+          var token = $('.section-shop').data('token');
+          this.loading = true; //jquery param is used because by default axios passes all javascript OBJ as JSON, we rather need form url encode format of which php understand
+
+          var data = $.param({
+            next: 4,
+            token: token,
+            count: app2.count
+          });
+          axios.post('/load-more', data).then(function (res) {
+            app2.products = res.data.products;
+            app2.count = res.data.count;
+            app2.loading = false;
+          });
         }
       },
       //when the vue instance is created then call an unanemous func to call the custom function
       created: function created() {
         this.getFeaturedProducts();
+      },
+      mounted: function mounted() {
+        $(window).scroll(function () {
+          if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+            app2.loadMoreProducts();
+          }
+        });
       }
     });
   };
@@ -51171,6 +51338,27 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
 
 /***/ }),
 
+/***/ "./resources/assets/js/pages/sliderProduct.js":
+/*!****************************************************!*\
+  !*** ./resources/assets/js/pages/sliderProduct.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function () {
+  "use strict";
+
+  ORGANICSTORE.product.initCarouselProduct = function () {
+    $('.product-slide').not(".slick-initialized").slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplaySpeed: 3000
+    });
+  };
+})();
+
+/***/ }),
+
 /***/ "./resources/assets/js/store.js":
 /*!**************************************!*\
   !*** ./resources/assets/js/store.js ***!
@@ -51188,7 +51376,8 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
     homenav: {},
     homeslider: {},
     homescroll: {},
-    shop: {}
+    shop: {},
+    product: {}
   };
 })();
 
