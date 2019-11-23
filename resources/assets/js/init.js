@@ -20,7 +20,12 @@
         ORGANICSTORE.product.details();
         ORGANICSTORE.product.initNavProduct();
         ORGANICSTORE.product.initScrollProduct();
-        // ORGANICSTORE.product.initCarouselProduct();
+        break;
+
+      case 'cart':
+        ORGANICSTORE.product.cart();
+        ORGANICSTORE.cart.initNavCart();
+        ORGANICSTORE.cart.initScrollCart();
         break;
 
       case 'shop':

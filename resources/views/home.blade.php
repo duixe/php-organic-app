@@ -52,7 +52,7 @@
           <div class="section-landing__wave"></div>
         </section>
 
-        <section class="section-features" id="root">
+        <section class="section-features" data-token="{{ $token }}" id="root">
             {{-- <div class="u-center-text u-margin-bottom-vsmall">
               <h4 id="intro" class="heading-secondary circled"><span>Variteies Available</span></h4>
             </div> --}}
@@ -75,7 +75,7 @@
                       <img :src="'/' + feature.image_path" class="pcard__img" alt="@{{ feature.name }}">
                       <img src="/img/home/wavesmall.png" class="pcard__shape" alt="">
                       <div class="pcard-icons">
-                        <a :href="'/products/' + feature.id" class="fa fa-shopping-basket" data-toggle="tooltip" data-placement="top" title="Add to Cart"></a>
+                        <button @click.prevent="addToCart(feature.id)" type="button" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fa fa-shopping-basket"></i></button>
                         <a :href="'/products/' + feature.id" class="fa fa-expand"></a>
                       </div>
                     </div>
@@ -198,7 +198,7 @@
         </section>
 
         <!-- section produce -->
-        <section class="section-produce" id="root-3">
+        <section class="section-produce" data-token="{{ $token }}" id="root-3">
           <div class="container">
             <div class="text-center">
               <h4 class="farm__message-h4">fresh from our farm</h4>
@@ -220,7 +220,7 @@
                             <img :src="'/' + product.image_path" class="pcard__img" v-bind:alt="product.name">
                             <img src="/img/home/wavesmall.png" class="pcard__shape" alt="">
                             <div class="pcard-icons">
-                              <a :href="'/products/' + product.id" class="fa fa-shopping-basket" data-toggle="tooltip" data-placement="top" title="Add to Cart"></a>
+                              <button @click.prevent="addToCart(product.id)" type="button" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fa fa-shopping-basket"></i></button>
                               <a :href="'/products/' + product.id" class="fa fa-expand"></a>
                             </div>
                           </div>

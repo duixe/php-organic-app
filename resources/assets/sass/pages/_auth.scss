@@ -1,0 +1,88 @@
+.auth {
+  padding: 10rem 12rem;
+  background: linear-gradient(to right bottom, rgba($pink-light, .75), rgba($pink-dark, .85));
+  background-size: cover;
+  background-position: top;
+  width: 100vw;
+  height: auto;
+  position: relative;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+.register {
+
+  &__bg-image {
+    background-image: linear-gradient(to right bottom,
+     rgba($color-orange, .45),
+     rgba($color-orange-dark, .75)),
+    url('/img/home/register-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__content {
+    padding: 2.5rem 6rem;
+
+    &-head {
+      margin-bottom: 2.5rem;
+
+      h4 {
+        @include customFont($font-pop, $color-secondary, 600);
+        font-size: 2.5rem;
+        text-align: center;
+      }
+    }
+  }
+
+  &__btn {
+    border-radius: 3rem;
+    border: 1px solid $color-orange-dark;
+    background: $color-orange-dark;
+    color: $color-white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1.2rem 4.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    display: block;
+    margin: 0 auto;
+
+
+    &:active {
+      transform: scale(0.95);
+      background: linear-gradient(to right, rgba($color-orange-dark, .85), rgba($color-orange, .85));
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__small {
+    @include customFont($font-rob, $color-secondary, 500);
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    &:not(:last-child) {
+      margin-bottom: .4rem;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+button {
+
+
+}

@@ -18,6 +18,7 @@
 @import "./components/form";
 @import "./components/bg-video";
 @import "./components/story";
+@import "./components/loader";
 
 @import "./layouts/header";
 @import "./layouts/navigation";
@@ -26,11 +27,17 @@
 @import "./pages/home";
 @import "./pages/shop";
 @import "./pages/product";
+@import "./pages/cart";
+@import "./pages/auth";
+@import "./pages/auth-login";
 
 
 
 /////////// import bootstrap //////////
 @import "../../../node_modules/bootstrap/scss/bootstrap";
+
+/////////// import sweetalert //////////
+@import '../../../node_modules/sweetalert2/src/sweetalert2.scss';
 
 ////////////import slick //////////////
 @import "../../../node_modules/slick-carousel/slick/slick.scss";

@@ -24,11 +24,18 @@
           }));
         },
         stringLimit: function(string, value) {
-          if (string.length > value) {
-            return string.substring(0, value) + "...";
-          }else {
-            return string;
-          }
+          return ORGANICSTORE.module.truncateString(string, value);
+        },
+        addToCart: function(id) {
+          ORGANICSTORE.module.addItemToCart(id, function(msg) {
+            Toast.fire({
+              icon: 'success',
+              title: msg
+            })
+          });
+          ORGANICSTORE.module.getTotalItems(function(totalItem) {
+            $('#cart-itm').html(totalItem);
+          });
         },
         loadMoreProducts: function() {
           let token = $('.section-shop').data('token');
@@ -42,11 +49,17 @@
             app2.loading = false;
           })
         },
+        showTotalItemInCart: function() {
+          ORGANICSTORE.module.getTotalItems(function(totalItem) {
+            $('#cart-itm').html(totalItem);
+          });
+        }
 
       },
       //when the vue instance is created then call an unanemous func to call the custom function
       created: function() {
         this.getFeaturedProducts();
+        this.showTotalItemInCart();
       },
       mounted: function() {
         $(window).scroll(function() {

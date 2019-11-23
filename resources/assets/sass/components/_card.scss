@@ -67,8 +67,25 @@
     // -webkit-transform: translateY(-60%);
     transition: all 0.6s cubic-bezier(.68,-0.55,.27,1.55);
 
-    & > a:first-child {
+    // & > a:first-child {
+    //   border-radius: 2rem 0 0 2rem;
+    // }
+    & > button {
+      border: none;
+      outline: none;
       border-radius: 2rem 0 0 2rem;
+      background-color: $color-white;
+      color: #dedede;
+      font-size: 2rem;
+      height: 4.5rem;
+      line-height: 4.5rem;
+      width: 6rem;
+
+      &:hover {
+        background-color: #92d2a7;
+        color: $color-white;
+      }
+
     }
 
     & > a:last-child {
@@ -83,6 +100,7 @@
       height: 4.5rem;
       line-height: 4.5rem;
       width: 6rem;
+      text-decoration: none !important;
 
       &:hover {
         background-color: #92d2a7;

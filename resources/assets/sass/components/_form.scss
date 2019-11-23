@@ -33,6 +33,35 @@
 
     }
 
+    &__input2 {
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color-ash, .5);
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 100%;
+        display: block;
+        transition: all .3s;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-secondary, .1);
+            border-bottom: 3px solid $color-green-light;
+        }
+
+        &:focus:invalid {
+            border-bottom: 3px solid $color-brown-dark;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+        }
+
+    }
+
 
     &__label {
         font-size: 1.2rem;
@@ -44,6 +73,13 @@
     }
 
     &__input:placeholder-shown + &__label{
+        //👇the opacity is added and used because i want to animate the label during appearance
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+
+    &__input2:placeholder-shown + &__label{
         //👇the opacity is added and used because i want to animate the label during appearance
         opacity: 0;
         visibility: hidden;

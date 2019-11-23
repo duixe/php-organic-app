@@ -1,0 +1,267 @@
+.shopping_cart {
+  padding: 15rem;
+
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
+
+}
+
+.cart__table {
+  width: 100%;
+
+  &-table {
+    @include respond(tab-port) {
+      overflow-x: scroll !important;
+    }
+  }
+
+  &-row {
+    th {
+      @include customFont($font-rob, $color-secondary, 500);
+      font-size: 1.5rem;
+      padding: 1rem 1.5rem;
+      text-transform: capitalize;
+      text-align: center;
+    }
+  }
+
+  &-body {
+
+    tr td:not(:first-child) {
+      vertical-align: middle;
+      text-align: center;
+      padding: 3rem 1.2rem;
+    }
+
+    tr td:first-child {
+      padding: 3rem .3rem;
+    }
+
+    tr td:nth-child(2) {
+      text-align: left;
+    }
+  }
+
+}
+
+.td {
+
+  &__image {
+
+    &-bg {
+      width: 65%;
+      background-color: #fffaef;
+    }
+
+    img {
+      width: 13rem;
+      height: auto;
+      padding: 2rem;
+    }
+  }
+
+  &__details {
+
+    &-h4 {
+      @include customFont($font-rob, $color-secondary, 600);
+      font-size: 2rem;
+      text-transform: capitalize;
+      a {
+        text-decoration: none !important;
+        color: $color-secondary !important;
+      }
+
+      span {
+        @include customFont($font-rob, $color-secondary, 300);
+      }
+    }
+
+    &-h5 {
+        @include customFont($font-rob, $color-or, 500);
+        font-size: 1.6rem;
+        margin-top: 2.5rem;
+    }
+
+    &-span {
+      @include customFont($font-rob, $color-secondary, 400);
+      font-size: 1.3rem;
+    }
+  }
+
+  &__price {
+
+    &-h4 {
+        @include customFont($font-rob, $color-secondary, 600);
+        font-size: 2.1rem !important;
+    }
+  }
+
+  &__quantity {
+    position: relative;
+    width: 14rem;
+    margin: .5rem auto;
+    border-radius: 2rem;
+    background-color: $color-ash;
+    padding: .9rem .7rem;
+
+    &-btnm {
+      position: absolute;
+      top: .5rem;
+      left: 1rem;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      font-size: 2rem;
+      color: $color-primary;
+    }
+
+    &-btnp {
+      position: absolute;
+      top: .5rem;
+      right: 1rem;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      font-size: 2rem;
+      color: $color-secondary
+    }
+
+    &-h5 {
+      @include customFont($font-rob, $color-secondary, 600);
+      font-size: 1.4rem !important;
+      margin: .3rem auto;
+    }
+  }
+
+  &__total {
+
+    &-price {
+      @include customFont($font-rob, $color-orange, 700);
+      font-size: 2.2rem;
+    }
+
+    button {
+      border: none !important;
+      outline: none !important;
+      width: 2.5rem;
+      height: 2.5rem;
+      line-height: 2.5rem;
+      border-radius: 1.5rem;
+      float: right;
+      vertical-align: middle;
+      background-color: #f5ecee;
+      padding: .2rem;
+      transition: all .2s ease;
+
+      .fas {
+        display: inline-block;
+        font-size: 1.4rem;
+        color: $color-orange;
+      }
+
+      &:hover {
+        background-color: $color-secondary;
+      }
+      &:hover .fas{
+        color: $color-white ;
+      }
+    }
+  }
+}
+
+.cart__summary {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 2rem;
+  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
+
+
+
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
+
+  &-left {
+    vertical-align: middle;
+    @include respond(tab-port) {
+      width: 100%;
+    }
+    &--h5 {
+      @include customFont($font-oswald, $color-secondary, 600);
+      font-size: 1.7rem;
+
+      span {
+        @include customFont($font-oswald, $color-primary, 400);
+        font-size: 1.3rem;
+      }
+    }
+
+    .coupon-box {
+      margin-top: .6rem;
+      height: 4.5rem;
+      border-radius: 4rem;
+      padding: 1rem;
+      background-color: cyan;
+
+      .coupon-btn {
+        border: none !important;
+        outline: none !important;
+        float: right;
+        width: 3rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background-color: cyan;
+        vertical-align: center;
+
+        .fas {
+          font-size: 1.7rem !important;
+        }
+      }
+
+      .coupon-txt {
+        border: none;
+        outline: none;
+        background: none;
+        float: left;
+        color: $color-brown-dark;
+        font-size: 1.6rem;
+        line-height: 2.5rem;
+        width: 85%;
+      }
+    }
+  }
+
+  &-right {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
+    &--total {
+      padding: 1.5rem;
+      h5 {
+        @include customFont($font-oswald, $color-secondary, 600);
+        font-size: 1.7rem;
+        padding: .8rem;
+        &:not(:last-child) {
+          border-bottom: 1px solid cyan;
+        }
+      }
+      span {
+        // float: right;
+        // margin-top: -2rem;
+        @include customFont($font-oswald, $color-orange, 600);
+        font-size: 1.7rem;
+      }
+    }
+  }
+}

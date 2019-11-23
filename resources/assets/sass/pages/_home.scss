@@ -2,6 +2,23 @@
   display: none;
 }
 
+.toast {
+  max-width: 500px !important;
+}
+
+.swal-wide{
+    width:850px !important;
+}
+
+.swal2-content {
+  font-size: 3.125em !important;
+}
+
+.swal2-popup.swal2-toast .swal2-title {
+  font-size: 1.7em !important;
+  padding: .7em !important;
+}
+
 .section-landing {
 
     position: relative;

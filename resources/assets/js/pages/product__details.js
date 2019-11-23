@@ -36,19 +36,41 @@
                 slidesToScroll: 1,
                 autoplaySpeed: 3000
               });
-            }, 1000);
+            }, 600);
           })
         },
         stringLimit: function(string, value) {
-          if (string.length > value) {
-            return string.substring(0, value) + "...";
-          }else {
-            return string;
-          }
+          return ORGANICSTORE.module.truncateString(string, value);
+        },
+        addToCart: function(id) {
+          let swalObj = {
+            width: 600,
+            padding: '3em',
+            fontSize: '20px'
+          };
+          ORGANICSTORE.module.addItemToCart(id, function(msg) {
+            Swal.fire({
+              title: '😊',
+              width: 600,
+              padding: '3em',
+              fontSize: '3.125em',
+              text: msg,
+              icon: 'success',
+            })
+          });
+          ORGANICSTORE.module.getTotalItems(function(totalItem) {
+            $('#cart-itm').html(totalItem);
+          });
+        },
+        showTotalItemInCart: function() {
+          ORGANICSTORE.module.getTotalItems(function(totalItem) {
+            $('#cart-itm').html(totalItem);
+          });
         }
       },
       created: function() {
         this.getProductDetails();
+        this.showTotalItemInCart();
       },
       mounted: function() {
         this.getSimilarProduct();

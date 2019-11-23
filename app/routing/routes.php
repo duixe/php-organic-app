@@ -10,9 +10,11 @@
 
   //product route
   $router->map('GET', '/products/[i:id]', 'App\Controllers\ProductController@show', 'product');
-    $router->map('GET', '/products-details/[i:id]', 'App\Controllers\ProductController@get', 'product_detail');
+  $router->map('GET', '/products-details/[i:id]', 'App\Controllers\ProductController@get', 'product_detail');
 
 
+  require_once __DIR__.'/cart_routes.php';
+  require_once __DIR__.'/auth.php';
   require_once __DIR__.'/admin_routes.php';
 
 

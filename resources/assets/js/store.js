@@ -10,6 +10,8 @@
     homeslider:{},
     homescroll: {},
     shop: {},
-    product: {}
+    product: {},
+    cart: {}
+
   };
 })()

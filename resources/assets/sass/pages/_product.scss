@@ -1,8 +1,10 @@
 .product {
-  padding: 10rem 10rem;
+  padding: 10rem 10rem 4rem;
+
   background-color: $color-ash;
   width: 100vw;
   height: 100vh;
+  // overflow-y: hidden;
 
   @include respond(tab-port) {
     background-color: $color-white;
@@ -94,32 +96,32 @@
 
     &-foot {
       margin-top: 2.5rem;
+
+      button,
+      &:visited {
+        @include customFont($font-rob, $color-white, 400);
+        font-size: $default-font-size;
+        letter-spacing: .2rem;
+        display: inline-block;
+        background-color: $color-orange-dark;
+        width: 100%;
+        line-height: 200%;
+        outline: none;
+        border: none;
+        text-align: center;
+        border-radius: .2rem;
+        text-decoration: none;
+        padding: 3px;
+        box-shadow: 0 .5rem 1.5rem rgba($color-black, .5);
+        transition: all .5s cubic-bezier(0.600, -0.280, 0.735, 0.045);
+
+        &:hover {
+          background-color: $color-secondary;
+        }
+      }
     }
 
     &-btn {
-
-      &:link,
-      &:visited {
-          @include customFont($font-rob, $color-white, 400);
-          font-size: $default-font-size;
-          letter-spacing: .2rem;
-          display: inline-block;
-          background-color: $color-orange-dark;
-          width: 100%;
-          line-height: 200%;
-          outline: none;
-          text-align: center;
-          border-radius: .2rem;
-          text-decoration: none;
-          padding: 3px;
-          box-shadow: 0 .5rem 1.5rem rgba($color-black, .5);
-          transition: all .5s cubic-bezier(0.600, -0.280, 0.735, 0.045);
-
-          &:hover {
-            background-color: $color-secondary;
-          }
-      }
-
       .fas {
         margin-right: 2rem !important;
       }
@@ -127,10 +129,11 @@
   }
 
   &-item {
-    padding-top: 8rem;
+    padding-top: 4rem;
+    margin-bottom: 4rem;
 
     img {
-      width: 35rem;
+      width: 30rem;
       height: auto;
       margin-top: auto;
 
@@ -138,30 +141,44 @@
         width: 20rem;
       }
     }
+
+    &__sub {
+      margin-bottom: 1.5rem;
+      h4 {
+        @include customFont($font-pop, $color-secondary, 600);
+        font-size: 2.5rem;
+      }
+
+    }
   }
 
-  // &-slide {
-  //   visibility:hidden;
-  // 	opacity:0;
-  // 	transition: opacity 1s;
-  //
-  //   .slick-initialized {
-  //     visibility:visible !important;
-	//     opacity:1 !important;
-  //
-  //     .product-slide__item {
-  //       display:block;
-  //       visibility:visible!important;
-  //     }
-  //   }
-  //
-  //   &__item {
-  //     display:none !important;
-  //
-  //     &:first-child {
-  //       display:block !important;
-  //       visibility:hidden !important;
-  //     }
-  //   }
-  // }
+  &__slider {
+    margin-top: 2.5rem;
+
+    &-anchor {
+      h4 {
+        @include customFont($font-pop, $color-white, 400);
+        font-size: 1.5rem;
+        background-color: $color-secondary;
+        display: inline-block;
+        padding: .5rem 1rem !important;
+        border-radius: .5rem;
+        transition: all .3s ease-in-out .2s;
+
+        &:hover {
+          transform: scale(1.2);
+          box-shadow: 0 .2rem 1rem rgba($color-black, .55);
+        }
+      }
+        &:link {
+          text-decoration: none !important;
+          color: $color-secondary !important;
+          outline: none !important;
+        }
+
+        img:hover {
+          transform: scale(1);
+        }
+      }
+    }
 }

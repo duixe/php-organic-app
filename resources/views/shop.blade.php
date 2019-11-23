@@ -19,7 +19,7 @@
                 <img :src="'/' + feature.image_path" class="pcard__img" v-bind:alt="feature.name">
                 <img src="/img/home/wavesmall.png" class="pcard__shape" alt="">
                 <div class="pcard-icons">
-                  <a :href="'/products/' + feature.id" class="fa fa-shopping-basket" data-toggle="tooltip" data-placement="top" title="Add to Cart"></a>
+                  <button @click.prevent="addToCart(feature.id)" type="button" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fa fa-shopping-basket"></i></button>
                   <a :href="'/products/' + feature.id" class="fa fa-expand" data-toggle="tooltip" data-placement="top" title="about this product"></a>
                 </div>
               </div>
@@ -48,7 +48,7 @@
                 <img :src="'/' + product.image_path" class="pcard__img" v-bind:alt="product.name">
                 <img src="/img/home/wavesmall.png" class="pcard__shape" alt="">
                 <div class="pcard-icons">
-                  <a :href="'/products/' + product.id" class="fa fa-shopping-basket" data-toggle="tooltip" data-placement="top" title="Add to Cart"></a>
+                  <button @click.prevent="addToCart(product.id)" type="button" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fa fa-shopping-basket"></i></button>
                   <a :href="'/products/' + product.id" class="fa fa-expand" data-toggle="tooltip" data-placement="top" title="about this product"></a>
                 </div>
               </div>
@@ -60,8 +60,12 @@
           </div>
         </div>
       </div>
-      <div class="text-center">
+      {{-- <div class="text-center">
         <i v-show="loading" class="fas fa-spinner fa-spin" style="font-size: 4rem; padding-bottom: 3.5rem; position: fixed; top: 60%; color: 0a2b1d; bottom: 20%;"></i>
+      </div> --}}
+      <div v-show="loading" class="loader">
+        <div class="circle"></div>
+        <div class="circle"></div>
       </div>
     </section>
 

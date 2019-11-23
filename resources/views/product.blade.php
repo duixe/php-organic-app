@@ -6,21 +6,31 @@
 
 @section('content')
 
-    <section class="product" id="product" data-token="{{ $product->token }}" data-id="{{ $product->id }}">
-      <div class="text-center">
+    <section class="product" id="product" data-token="{{ $token }}" data-id="{{ $product->id }}">
+      {{-- <div class="text-center">
         <i v-show="loading" class="fas fa-spinner fa-spin" style="font-size: 4rem; padding-bottom: 3.5rem; position: fixed; top: 60%; color: 0a2b1d; bottom: 20%;"></i>
+      </div> --}}
+      <div v-show="loading" class="loader">
+        <div class="circle"></div>
+        <div class="circle"></div>
       </div>
       <div class="container-fluid">
           <div class="product__container">
-          <div class="row mt-5">
+          <div class="row mt-4">
             <div class="col-sm-8 col-lg-6 col-sm-offset-2 col-lg-offset-0 pt-40 text-center">
               <div class="product-item">
                 <img src="/{{$product->image_path}}" alt="">
               </div>
+              <div class="product-item__sub">
+                <h4>Similar products &darr;</h4>
+              </div>
               <div class="product__slider">
                 <div class="row" id="product-slide">
                   <div class="col-md-3 product-slide__item" v-for="similar in similarProducts">
-                    <img :src="'/' + similar.image_path" v-bind:alt="similar.name" style="width: 100%;">
+                   <a v-bind:href="'/products/' + similar.id" class="product__slider-anchor">
+                     <img :src="'/' + similar.image_path" v-bind:alt="similar.name" style="width: 50%;">
+                     <h4>@{{ similar.name }}</h4>
+                   </a>
                   </div>
                 </div>
               </div>
@@ -41,7 +51,7 @@
                 </ul>
                 <span class="product__description-divider2"></span>
                 <div class="product__description-foot">
-                  <a href="#" class="product__description-btn"><i class="fas fa-shopping-basket"></i> Add to basket</a>
+                  <button @click.prevent="addToCart(product.id)" type="button" class="product__description-btn"><i class="fas fa-shopping-basket"></i> Add to basket</button>
                 </div>
               </div>
             </div>

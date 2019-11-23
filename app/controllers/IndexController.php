@@ -11,7 +11,8 @@ class IndexController extends BaseController{
 
   public function show() {
 
-    return view('home');
+    $token = CSRFToken::_token();
+    return view('home', compact(token));
   }
 
   public function showShop() {
