@@ -89,17 +89,12 @@
   }
 }
 
+.form-check-input {
+  margin-left: -1.25rem !important;
+}
 
-
-
-
-
-
-
-
-
-
-button {
-
-
+.form-check-label {
+  @include customFont($font-rob, $color-secondary, 500);
+  font-size: 1.4rem !important;
+  margin-left: 1rem !important;
 }

@@ -30,4 +30,10 @@ class CSRFToken{
       return false;
     }
   }
+
+  public static function getHashToken($reqToken) {
+    if (Session::has('token') && Session::get('token') === $reqToken) {
+      return hash_hmac('sha256', $reqToken, 'GtXcY4C1ye8542KtYGoBEVa4XJXu8Ah1');
+    }
+  }
 }

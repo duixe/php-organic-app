@@ -7,8 +7,11 @@ use App\Classes\Request;
 use App\Classes\CSRFToken;
 use App\Classes\ValidateRequest;
 use App\Models\User;
+use App\Models\Remember;
 use App\Classes\Session;
 use App\Classes\Redirect;
+use App\Classes\Auth;
+use Carbon\Carbon;
 
 class AuthController extends BaseController{
 
@@ -70,6 +73,7 @@ class AuthController extends BaseController{
 
   public function login() {
     if(Request::has('post')) {
+
       $request = Request::get('post');
       if (CSRFToken::verifyCSRFToken($request->token)) {
         $rules = [
@@ -93,10 +97,25 @@ class AuthController extends BaseController{
           if($user){
             if (!password_verify($request->password, $user->password)) {
               Session::add('error', 'Incorrect Credentials');
-              return view('login');
+              return view('login', ['remember_me' => $request->remember_me]);
             }else {
               Session::add('SESSION_USER_ID', $user->id);
               Session::add('SESSION_USER_NAME', $user->username);
+
+              //Add Remember me before redirect to home page
+              $authLogin = new Auth();
+              if ($request->remember_me) {
+
+                if ($authLogin->rememberLogin($request, $user)) {
+
+                  // $expire_timestamp = time() + 60 * 60 * 24 * 30;
+                  setcookie('remember_me', $request->token, $authLogin->expire_timestamp, '/');
+
+                }
+              }
+
+              // $cookie_result = var_dump($_COOKIE);
+
               Redirect::redirectTo('/');
             }
           }else {
@@ -106,8 +125,8 @@ class AuthController extends BaseController{
 
 
 
-        Request::refresh();
-        return \view('register', ['success' => 'Account created, please login']);
+        // Request::refresh();
+        // return \view('register', ['success' => 'Account created, please login']);
       }else {
         throw new \Exception("Token Mismatch", 1);
 
@@ -126,6 +145,8 @@ class AuthController extends BaseController{
           session_destroy();
           session_regenerate_id(true);
         }
+        //delete remember me option
+        Auth::deleteRemeberMe();
       }
 
       Redirect::redirectTo('/');

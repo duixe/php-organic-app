@@ -31,6 +31,11 @@
                           <label for="name" class="form__label">password</label>
                         </div>
 
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" name="remember_me" id="exampleCheck1" <?php if(remember_me): ?> checked="checked" <?php endif; ?>>
+                          <label class="form-check-label p2" for="exampleCheck1">Remember me</label>
+                        </div>
+
                         <input type="hidden" name="token" value="<?php echo e(App\Classes\CSRFToken::_token()); ?>">
                         <button class="login__btn">Log in</button>
                       </form>

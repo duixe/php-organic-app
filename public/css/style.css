@@ -2365,6 +2365,18 @@ u.margin-bottom-vsmall {
   margin-bottom: 0.5rem;
 }
 
+.form-check-input {
+  margin-left: -1.25rem !important;
+}
+
+.form-check-label {
+  font-family: "Roboto", sans-serif !important;
+  color: #525252 !important;
+  font-weight: 500 !important;
+  font-size: 1.4rem !important;
+  margin-left: 1rem !important;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
