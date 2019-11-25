@@ -25,7 +25,14 @@ class Mail{
     $environment = getenv('APP_ENV');
 
     if($environment === 'local') {
-      $this->mail->SMTPDebug = '';
+      $this->mail->SMTPOptions = [
+        'ssl' => array(
+          'verify_peer' => false,
+          'verify_peer_name' => false,
+          'allow_self_signed' => true,
+        )
+      ];
+      $this->mail->SMTPDebug = "";
     }
 
     //send auth info

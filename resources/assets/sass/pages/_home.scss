@@ -1,6 +1,10 @@
-[v-cloak] .v-cloak--hidden {
+[v-cloak] {
   display: none;
 }
+
+// [v-cloak] .v-cloak--hidden {
+//   display: none;
+// }
 
 .toast {
   max-width: 500px !important;

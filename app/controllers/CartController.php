@@ -7,6 +7,11 @@ use App\Classes\CSRFToken;
 use App\Classes\Request;
 use App\Classes\Session;
 use App\Models\Product;
+use App\Models\Order;
+use App\Models\Payment;
+use Stripe\Charge;
+use Stripe\Customer;
+use App\Classes\Mail;
 
 class CartController extends BaseController{
 
@@ -74,7 +79,13 @@ class CartController extends BaseController{
         $itemTotal = count($result);
 
         $cart_total = \number_format($cart_total, 2);
-        echo json_encode(['items' => $result, 'cartTotal' => $cart_total, 'itemTotal' => $itemTotal]);
+        Session::add('cartTotal', $cart_total);
+        echo json_encode(['items' => $result,
+        'cartTotal' => $cart_total,
+        'itemTotal' => $itemTotal,
+        'authenticated' => isAuthenticated(),
+        'amountInCents' => convertToCent($cart_total)
+      ]);
         exit;
 
       }catch (\Exception $e) {
@@ -138,6 +149,98 @@ class CartController extends BaseController{
         Cart::removeItem($request->item_index);
         echo json_encode(["success" => "product removed from basket"]);
         exit;
+    }
+  }
+
+  public function checkout() {
+    if (Request::has('post')) {
+
+      $result['product'] = array();
+      $result['order_num'] = array();
+      $result['total'] = array();
+
+      $request = Request::get('post');
+      $token = $request->stripeToken;
+      $email = $request->stripeEmail;
+
+      try {
+
+        $customer = Customer::create([
+          'email' => $email,
+          'source' => $token
+        ]);
+
+        $amount = \convertToCent(Session::get('cartTotal'));
+        $charge = Charge::create([
+          'customer' => $customer->id,
+          'amount' => $amount,
+          'description' => user()->fullname.'-organic produce purchase',
+          'currency' => 'usd'
+        ]);
+
+        $order_id = strtoupper(uniqid());
+
+        foreach($_SESSION['user_cart'] as $cart_items) {
+          $productId = $cart_items['product_id'];
+          $quantity = $cart_items['quantity'];
+          $item = Product::where('id', $productId)->first();
+
+          //if the item is not found skip and continue
+          if(!$item){continue;}
+
+          $totalPrice = $item->price * $quantity;
+          $totalPrice = number_format($totalPrice, 2);
+
+          //store info
+          Order::create([
+            'user_id' => user()->id,
+            'product_id' => $productId,
+            'unit_price' => $item->price,
+            'status' => 'Pending...',
+            'quantity' => $quantity,
+            'total' => $totalPrice,
+            'order_num' => $order_id
+          ]);
+
+          $item->quantity -= $quantity;
+          $item->save();
+
+          array_push($result['product'], [
+            'name' => $item->name,
+            'price' => $item->price,
+            'total' => $totalPrice,
+            'quantity' => $quantity,
+          ]);
+
+        }
+
+        Payment::create([
+          'user_id' => user()->id,
+          'amount' => $charge->amount,
+          'status' => $charge->status,
+          'order_num' => $order_id
+        ]);
+
+        $result['order_num'] = $order_id;
+        $result['total'] = Session::get('cartTotal');
+
+        $data = [
+          'to' => user()->email,
+          'subject' => 'Order Confirmation',
+          'view' => 'purchase',
+          'name' => user()->fullname,
+          'body' => $result
+        ];
+
+        (new Mail())->mailSend($data);
+
+      } catch (\Exception $e) {
+        echo $e->getMessage();
+      }
+
+      Cart::clear();
+
+      echo json_encode(['success' => 'Thank You, we have received your payment and now processing your order']);
     }
   }
 }

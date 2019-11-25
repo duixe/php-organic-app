@@ -11,3 +11,5 @@ use Dotenv\Dotenv;
 
   //LOAD method ensures that any other env var aren't overwritten
   $dotenv->load();
+
+  require_once __DIR__ .'/_stripe.php';

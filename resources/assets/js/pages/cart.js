@@ -3,14 +3,41 @@
 
 ORGANICSTORE.product.cart = function() {
 
+  var Stripe = StripeCheckout.configure({
+    key: $('#properties').data('stripe-key'),
+    locale: "auto",
+    image: "",
+    token: function(token) {
+      var data = $.param({stripeToken: token.id, stripeEmail: token.email});
+      axios.post('/cart/payment', data).then(function(res) {
+        let msg = res.data.success;
+        Swal.fire({
+          title: 'Payment Successful',
+          width: 600,
+          padding: '3em',
+          fontSize: '3.125em',
+          text: msg,
+          icon: 'success'
+        })
+        app.displayItems(200);
+      }).catch(function(err) {
+        console.log(err);
+      });
+
+    }
+
+  });
+
   let app = new Vue({
     el: '#shopping_cart',
     data: {
       items: [],
-      cartTotal: [],
+      cartTotal: 0,
       fail: false,
       loading: false,
-      message: ''
+      authenticated: false,
+      message: '',
+      amountInCents: 0
     },
     methods: {
       displayItems: function(secTime) {
@@ -24,6 +51,8 @@ ORGANICSTORE.product.cart = function() {
             } else {
               app.items = res.data.items;
               app.cartTotal = res.data.cartTotal;
+              app.authenticated = res.data.authenticated;
+              app.amountInCents = res.data.amountInCents;
               app.loading = false;
             }
           });
@@ -49,6 +78,15 @@ ORGANICSTORE.product.cart = function() {
             title: msg
           });
           app.displayItems(200);
+        })
+      },
+      checkout: function() {
+        Stripe.open({
+          name: "ORGANIC Store, ltd",
+          description: "shopping basket Items",
+          email: $('#properties').data('customer-email'),
+          amount: app.amountInCents,
+          zipCode: true
         })
       }
     },

@@ -17,7 +17,8 @@
                 <img :src="'/' + feature.image_path" class="pcard__img" v-bind:alt="feature.name">
                 <img src="/img/home/wavesmall.png" class="pcard__shape" alt="">
                 <div class="pcard-icons">
-                  <button @click.prevent="addToCart(feature.id)" type="button" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fa fa-shopping-basket"></i></button>
+                  <button v-if="feature.quantity > 0" @click.prevent="addToCart(feature.id)" type="button" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fa fa-shopping-basket"></i></button>
+                  <button v-else type="button" data-toggle="tooltip" data-placement="top" title="out of stock"><i class="fas fa-info"></i></button>
                   <a :href="'/products/' + feature.id" class="fa fa-expand" data-toggle="tooltip" data-placement="top" title="about this product"></a>
                 </div>
               </div>
@@ -46,8 +47,8 @@
                 <img :src="'/' + product.image_path" class="pcard__img" v-bind:alt="product.name">
                 <img src="/img/home/wavesmall.png" class="pcard__shape" alt="">
                 <div class="pcard-icons">
-                  <button @click.prevent="addToCart(product.id)" type="button" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fa fa-shopping-basket"></i></button>
-                  <a :href="'/products/' + product.id" class="fa fa-expand" data-toggle="tooltip" data-placement="top" title="about this product"></a>
+                  <button v-if="product.quantity > 0" @click.prevent="addToCart(product.id)" type="button" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fa fa-shopping-basket"></i></button>
+                  <button v-else type="button" data-toggle="tooltip" data-placement="top" title="out of stock"><i class="fas fa-info"></i></button>                  <a :href="'/products/' + product.id" class="fa fa-expand" data-toggle="tooltip" data-placement="top" title="about this product"></a>
                 </div>
               </div>
               <div class="pcard-caption">

@@ -14,7 +14,7 @@
         <div class="circle"></div>
         <div class="circle"></div>
       </div>
-      <div class="container-fluid">
+      <div v-cloak class="container-fluid">
           <div class="product__container">
           <div class="row mt-4">
             <div class="col-sm-8 col-lg-6 col-sm-offset-2 col-lg-offset-0 pt-40 text-center">
@@ -51,7 +51,8 @@
                 </ul>
                 <span class="product__description-divider2"></span>
                 <div class="product__description-foot">
-                  <button @click.prevent="addToCart(product.id)" type="button" class="product__description-btn"><i class="fas fa-shopping-basket"></i> Add to basket</button>
+                  <button v-if="product.quantity > 0" @click.prevent="addToCart(product.id)" type="button" class="product__description-btn"><i class="fas fa-shopping-basket"></i> Add to basket</button>
+                  <button v-else type="button" class="product__description-btn"><i class="fas fa-info"></i> Produce out of stock</button>
                 </div>
               </div>
             </div>

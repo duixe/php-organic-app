@@ -53927,14 +53927,41 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
   "use strict";
 
   ORGANICSTORE.product.cart = function () {
+    var Stripe = StripeCheckout.configure({
+      key: $('#properties').data('stripe-key'),
+      locale: "auto",
+      image: "",
+      token: function token(_token) {
+        var data = $.param({
+          stripeToken: _token.id,
+          stripeEmail: _token.email
+        });
+        axios.post('/cart/payment', data).then(function (res) {
+          var msg = res.data.success;
+          Swal.fire({
+            title: 'Payment Successful',
+            width: 600,
+            padding: '3em',
+            fontSize: '3.125em',
+            text: msg,
+            icon: 'success'
+          });
+          app.displayItems(200);
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      }
+    });
     var app = new Vue({
       el: '#shopping_cart',
       data: {
         items: [],
-        cartTotal: [],
+        cartTotal: 0,
         fail: false,
         loading: false,
-        message: ''
+        authenticated: false,
+        message: '',
+        amountInCents: 0
       },
       methods: {
         displayItems: function displayItems(secTime) {
@@ -53948,6 +53975,8 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
               } else {
                 app.items = res.data.items;
                 app.cartTotal = res.data.cartTotal;
+                app.authenticated = res.data.authenticated;
+                app.amountInCents = res.data.amountInCents;
                 app.loading = false;
               }
             });
@@ -53977,6 +54006,15 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
               title: msg
             });
             app.displayItems(200);
+          });
+        },
+        checkout: function checkout() {
+          Stripe.open({
+            name: "ORGANIC Store, ltd",
+            description: "shopping basket Items",
+            email: $('#properties').data('customer-email'),
+            amount: app.amountInCents,
+            zipCode: true
           });
         }
       },

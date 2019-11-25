@@ -14,7 +14,8 @@
         "phpmailer/phpmailer": "^6.1",
         "league/oauth2-google": "^3.0",
         "voku/pagination": "^3.0",
-        "nesbot/carbon": "^2.25"
+        "nesbot/carbon": "^2.25",
+        "stripe/stripe-php": "^7.13"
 
     },
 

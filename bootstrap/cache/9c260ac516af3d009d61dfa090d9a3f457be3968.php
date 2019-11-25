@@ -2,6 +2,10 @@
 
 <?php $__env->startSection('data-page-id', 'cart'); ?>
 
+<?php $__env->startSection('stripe-checkout'); ?>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('content'); ?>
 
     <section class="shopping_cart" id="shopping_cart">
@@ -11,7 +15,7 @@
         <div class="circle"></div>
       </div>
 
-      <div class="container item" v-if="loading == false">
+      <div class="container item" v-cloak v-if="loading == false">
         <div class="row">
           <div class="cart__table">
             <h2 v-if="fail" v-text="message"></h2>
@@ -87,9 +91,15 @@
               <a href="/shop" class="btno btno--green mr-3">
                 Contine shopping &nbsp;&nbsp;<i class="fas fa-shopping-basket" aria-hidden="true"></i>
               </a>
-              <button type="button" name="button" class="btno btno--brown">
+              <button @click.prevent="checkout()" v-if="authenticated" name="button" class="btno btno--brown">
                 Checkout &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-credit-card" aria-hidden="true"></i>
               </button>
+              <span v-else>
+                <a href="/login" class="btno btno--brown">
+                  Checkout &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-credit-card" aria-hidden="true"></i>
+                </a>
+              </span>
+              <span id="properties" class="d-none" data-customer-email="<?php echo e(user()->email); ?>" data-stripe-key="<?php echo e(App\Classes\Session::get('publishable_key')); ?>"></span>
             </div>
             </div>
           </div>

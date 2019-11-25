@@ -71,7 +71,8 @@
                       <img :src="'/' + feature.image_path" class="pcard__img" alt="{{ feature.name }}">
                       <img src="/img/home/wavesmall.png" class="pcard__shape" alt="">
                       <div class="pcard-icons">
-                        <button @click.prevent="addToCart(feature.id)" type="button" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fa fa-shopping-basket"></i></button>
+                        <button v-if="feature.quantity > 0" @click.prevent="addToCart(feature.id)" type="button" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fa fa-shopping-basket"></i></button>
+                        <a v-else :href="'/products/' + feature.id" class="fa fas-info"></a>
                         <a :href="'/products/' + feature.id" class="fa fa-expand"></a>
                       </div>
                     </div>
@@ -216,7 +217,8 @@
                             <img :src="'/' + product.image_path" class="pcard__img" v-bind:alt="product.name">
                             <img src="/img/home/wavesmall.png" class="pcard__shape" alt="">
                             <div class="pcard-icons">
-                              <button @click.prevent="addToCart(product.id)" type="button" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fa fa-shopping-basket"></i></button>
+                              <button v-if="product.quantity > 0" @click.prevent="addToCart(product.id)" type="button" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fa fa-shopping-basket"></i></button>
+                              <a v-else :href="'/products/' + product.id" class="fa fas-info"></a>
                               <a :href="'/products/' + product.id" class="fa fa-expand"></a>
                             </div>
                           </div>

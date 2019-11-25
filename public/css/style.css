@@ -1480,7 +1480,7 @@ u.margin-bottom-vsmall {
           backface-visibility: hidden;
 }
 
-[v-cloak] .v-cloak--hidden {
+[v-cloak] {
   display: none;
 }
 
