@@ -8,6 +8,7 @@ use App\Classes\Request;
 use App\Classes\Session;
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Models\Payment;
 use Stripe\Charge;
 use Stripe\Customer;
@@ -152,6 +153,8 @@ class CartController extends BaseController{
     }
   }
 
+
+
   public function checkout() {
     if (Request::has('post')) {
 
@@ -192,7 +195,7 @@ class CartController extends BaseController{
           $totalPrice = number_format($totalPrice, 2);
 
           //store info
-          Order::create([
+          OrderDetail::create([
             'user_id' => user()->id,
             'product_id' => $productId,
             'unit_price' => $item->price,
@@ -213,6 +216,11 @@ class CartController extends BaseController{
           ]);
 
         }
+
+        Order::create([
+          'user_id' => user()->id,
+          'order_num' => $order_id
+        ]);
 
         Payment::create([
           'user_id' => user()->id,
@@ -242,5 +250,12 @@ class CartController extends BaseController{
 
       echo json_encode(['success' => 'Thank You, we have received your payment and now processing your order']);
     }
+  }
+
+
+  public function emptyCart() {
+    Cart::clear();
+    echo \json_encode(['success' => "Shopping Cart Emptied !!"]);
+    exit;
   }
 }

@@ -40,7 +40,11 @@
   //
   $router->map('POST', '/admin/products/[i:id]/delete', 'App\Controllers\Admin\ProductController@delete', 'delete_product');
 
+  //admin view orders route
+  $router->map('GET', '/admin/transactions/orders', 'App\Controllers\Admin\OrderController@Show', 'dashboard_transactions_orders');
 
+  //admin view Payments route
+  $router->map('GET', '/admin/transactions/payment', 'App\Controllers\Admin\PaymentController@Show', 'dashboard_transactions_payment');
 
 
   // $match = $router->match();

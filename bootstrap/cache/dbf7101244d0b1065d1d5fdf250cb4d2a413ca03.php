@@ -11,7 +11,7 @@
           <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
               <div class="row">
-                <div class="col-lg-6 col-md-6 d-none d-lg-block d-md-block forgetpass__bg-image"></div>
+                <div class="col-lg-6 col-md-6 d-none d-lg-block d-md-block resetpass__bg-image"></div>
                 <div class="col-md-6 col-lg-6">
                   <div class="login__content">
                     <div class="login__content-head">

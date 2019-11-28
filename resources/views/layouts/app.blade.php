@@ -5,11 +5,11 @@
   {{-- navigation --}}
   @include('includes.nav')
   {{-- site wrapper --}}
-  
+
   <div class="site-wrapper">
     @yield('content')
   </div>
 
   {{-- footer --}}
-  @yield('footer')
+  @include('includes.footer')
 @endsection

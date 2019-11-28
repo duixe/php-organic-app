@@ -65,6 +65,15 @@
         }
     }
 
+    &--danger {
+        background-color: orangered;
+        color: $color-white;
+
+        &::after {
+           background-color: orangered !important;
+        }
+    }
+
     &::after {
         content: "";
         display: inline-block;

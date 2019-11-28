@@ -380,6 +380,15 @@ u.margin-bottom-vsmall {
   background-color: #92D2A7 !important;
 }
 
+.btno--danger {
+  background-color: orangered;
+  color: #fff;
+}
+
+.btno--danger::after {
+  background-color: orangered !important;
+}
+
 .btno::after {
   content: "";
   display: inline-block;

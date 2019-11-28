@@ -131,14 +131,14 @@
 
  <!-- Nav Item -  Orders -->
  <li class="nav-item">
-   <a class="nav-link" href="/admin/users/orders">
+   <a class="nav-link" href="/admin/transactions/orders">
      <i class="fa fa-shopping-cart"></i>
      <span>View Orders</span></a>
  </li>
 
  <!-- Nav Item - Payments -->
  <li class="nav-item">
-   <a class="nav-link" href="/admin/users/payments">
+   <a class="nav-link" href="/admin/transactions/payment">
      <i class="fas fa-money-bill-alt"></i>
      <span>View Payments</span></a>
  </li>

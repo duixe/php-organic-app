@@ -32,7 +32,7 @@
                    </div>
                  </div>
                  <div class="card-footer">
-                   <a href="" class="card-link">Order Details</a>
+                   <a href="/admin/transactions/orders" class="card-link">Order Details</a>
                  </div>
                </div>
              </div>
@@ -73,7 +73,7 @@
                    </div>
                  </div>
                  <div class="card-footer">
-                   <a href="" class="card-link">Payment Details</a>
+                   <a href="/admin/transactions/payment" class="card-link">Payment Details</a>
                  </div>
                </div>
              </div>
@@ -141,7 +141,7 @@
            </div>
 
            <!-- Content Row -->
-          
+
 
          </div>
          <!-- /.container-fluid -->

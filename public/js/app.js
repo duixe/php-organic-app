@@ -55631,6 +55631,20 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
             amount: app.amountInCents,
             zipCode: true
           });
+        },
+        emptyCart: function emptyCart() {
+          axios.post('/cart/empty').then(function (res) {
+            var msg = res.data.success;
+            Swal.fire({
+              title: '🙄',
+              width: 600,
+              padding: '3em',
+              fontSize: '3.125em',
+              text: msg,
+              icon: 'success'
+            });
+            app.displayItems(200);
+          });
         }
       },
       created: function created() {

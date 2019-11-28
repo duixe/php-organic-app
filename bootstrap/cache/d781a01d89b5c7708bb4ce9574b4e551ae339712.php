@@ -1,6 +1,6 @@
 <?php $__env->startSection('title', 'token expired'); ?>
 
-<?php $__env->startSection('data-page-id', 'pass'); ?>
+<?php $__env->startSection('data-page-id', 'auth'); ?>
 
 <?php $__env->startSection('content'); ?>
 

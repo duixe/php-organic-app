@@ -88,6 +88,20 @@ ORGANICSTORE.product.cart = function() {
           amount: app.amountInCents,
           zipCode: true
         })
+      },
+      emptyCart: function() {
+        axios.post('/cart/empty').then(function(res) {
+          let msg = res.data.success;
+          Swal.fire({
+            title: '🙄',
+            width: 600,
+            padding: '3em',
+            fontSize: '3.125em',
+            text: msg,
+            icon: 'success',
+          });
+          app.displayItems(200);
+        });
       }
     },
     created: function() {

@@ -90,20 +90,25 @@
                     </div>
                 </div>
               </div>
-              <div class="text-right mt-5">
-              <a href="/shop" class="btno btno--green mr-3">
-                Contine shopping &nbsp;&nbsp;<i class="fas fa-shopping-basket" aria-hidden="true"></i>
-              </a>
-              <button @click.prevent="checkout()" v-if="authenticated" name="button" class="btno btno--brown">
-                Checkout &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-credit-card" aria-hidden="true"></i>
-              </button>
-              <span v-else>
-                <a href="/login" class="btno btno--brown">
-                  Checkout &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-credit-card" aria-hidden="true"></i>
-                </a>
-              </span>
-              <span id="properties" class="d-none" data-customer-email="{{ user()->email }}" data-stripe-key="{{ App\Classes\Session::get('publishable_key') }}"></span>
-            </div>
+                  <div class="float-left mt-5">
+                    <button @click.prevent="emptyCart()"  name="button" class="btno btno--danger">
+                      Empty Cart &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                  <div class="float-right mt-5">
+                    <a href="/shop" class="btno btno--green mr-3">
+                      Contine shopping &nbsp;&nbsp;<i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                    </a>
+                    <button @click.prevent="checkout()" v-if="authenticated" name="button" class="btno btno--brown">
+                      Checkout &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-credit-card" aria-hidden="true"></i>
+                    </button>
+                    <span v-else>
+                      <a href="/login" class="btno btno--brown">
+                        Checkout &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-credit-card" aria-hidden="true"></i>
+                      </a>
+                    </span>
+                    <span id="properties" class="d-none" data-customer-email="{{ user()->email }}" data-stripe-key="{{ App\Classes\Session::get('publishable_key') }}"></span>
+                </div>
             </div>
           </div>
         </div>
