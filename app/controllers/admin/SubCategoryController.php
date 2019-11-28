@@ -9,9 +9,16 @@ use App\Classes\CSRFToken;
 use App\Classes\ValidateRequest;
 use App\Classes\Redirect;
 use App\Classes\Session;
+use App\Classes\Role;
 use App\Controllers\BaseController;
 
 class SubCategoryController extends BaseController{
+
+  public function __construct() {
+    if (!Role::middleware('admin')) {
+      Redirect::redirectTo("/login");
+    }
+  }
 
   public function createStore() {
     if (Request::has('post')) {

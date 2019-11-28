@@ -46,7 +46,7 @@
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="register__small" href="#">Forgot Password?</a>
+                    <a class="register__small" href="/password/forget">Forgot Password?</a>
                   </div>
                   <div class="text-center">
                     <a class="register__small" href="/login">Already have an account? Login!</a>

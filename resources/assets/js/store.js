@@ -11,7 +11,8 @@
     homescroll: {},
     shop: {},
     product: {},
-    cart: {}
+    cart: {},
+    auth: {}
 
   };
 })()

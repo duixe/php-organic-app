@@ -12,6 +12,12 @@
   $router->map('GET', '/products/[i:id]', 'App\Controllers\ProductController@show', 'product');
   $router->map('GET', '/products-details/[i:id]', 'App\Controllers\ProductController@get', 'product_detail');
 
+  //password reset route
+    $router->map('GET', '/password/forget', 'App\Controllers\PasswordResetController@show', 'forgot_password');
+    $router->map('POST', '/password/forget', 'App\Controllers\PasswordResetController@requestResetAction', 'forgot_password_reset');
+    $router->map('GET', '/password/reset/[*:token]', 'App\Controllers\PasswordResetController@emailResetAction', 'email_password_reset');
+    $router->map('POST', '/password/reset-pass/', 'App\Controllers\PasswordResetController@resetPassAction', 'password_reset_action');
+
 
   require_once __DIR__.'/cart_routes.php';
   require_once __DIR__.'/auth.php';

@@ -2,7 +2,8 @@
 
   //admin routes
   $router->map('GET', '/admin', 'App\Controllers\Admin\DashBoardController@show', 'Admin_dashboard');
-  $router->map('POST', '/admin', 'App\Controllers\Admin\DashBoardController@get', 'admin_form');
+  $router->map('GET', '/admin/charts', 'App\Controllers\Admin\DashBoardController@getChartData', 'Admin_dashboard_chart');
+  // $router->map('POST', '/admin', 'App\Controllers\Admin\DashBoardController@get', 'admin_form');
 
   //product management
   $router->map('GET', '/admin/products/categories', 'App\Controllers\Admin\ProductCategoryController@show', 'product_category');

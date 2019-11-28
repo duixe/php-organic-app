@@ -34,9 +34,18 @@
         ORGANICSTORE.shop.initScrollShop();
         break;
 
+      case 'auth':
+        ORGANICSTORE.auth.initNavAuth();
+        ORGANICSTORE.auth.initScrollAuth();
+        break;
+
       case 'adminProduct':
         ORGANICSTORE.admin.changeEvent();
         ORGANICSTORE.admin.delete();
+        break;
+
+      case 'adminDashboard':
+        ORGANICSTORE.admin.dashboard();
         break;
 
       case 'adminCategories':

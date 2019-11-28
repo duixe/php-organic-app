@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="form-check">
-                          <input type="checkbox" class="form-check-input" name="remember_me" id="exampleCheck1" <?php if(remember_me): ?> checked="checked" <?php endif; ?>>
+                          <input type="checkbox" class="form-check-input" name="remember_me" id="exampleCheck1" <?php if(isset($remember_me)): ?> checked="checked" <?php endif; ?>>
                           <label class="form-check-label p2" for="exampleCheck1">Remember me</label>
                         </div>
 
@@ -41,7 +41,7 @@
                       </form>
                       <hr>
                       <div class="text-center">
-                        <a class="login__small" href="#">Forgot Password?</a>
+                        <a class="login__small" href="/password/forget">Forgot Password?</a>
                       </div>
                       <div class="text-center">
                         <a class="login__small" href="/register">Don't have an account? Sign Up!</a>

@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Models\Category;
 use App\Models\SubCategory;
 use App\Classes\Request;
+use App\Classes\Role;
 use App\Classes\CSRFToken;
 use App\Classes\ValidateRequest;
 use App\Classes\Redirect;
@@ -19,6 +20,10 @@ class ProductCategoryController extends BaseController{
   public $links;
 
   public function __construct() {
+
+      if (!Role::middleware('admin')) {
+        Redirect::redirectTo("/login");
+      }
 
     $total = Category::all()->count();
     $sub_total= SubCategory::all()->count();

@@ -11,6 +11,7 @@ use App\Classes\ValidateRequest;
 use App\Classes\Redirect;
 use App\Classes\Session;
 use App\Classes\UploadFile;
+use App\Classes\Role;
 use App\Controllers\BaseController;
 
 class ProductController extends BaseController{
@@ -22,6 +23,10 @@ class ProductController extends BaseController{
   public $links;
 
   public function __construct() {
+
+    if (!Role::middleware('admin')) {
+      Redirect::redirectTo("/login");
+    }
 
     $total = Product::all()->count();
     $this->categories = Category::all();

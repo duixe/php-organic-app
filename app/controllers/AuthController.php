@@ -102,21 +102,49 @@ class AuthController extends BaseController{
               Session::add('SESSION_USER_ID', $user->id);
               Session::add('SESSION_USER_NAME', $user->username);
 
-              //Add Remember me before redirect to home page
               $authLogin = new Auth();
-              if ($request->remember_me) {
 
-                if ($authLogin->rememberLogin($request, $user)) {
+              if ($user->role == 'admin') {
+                Redirect::redirectTo("/admin");
+              }elseif ($user->role == 'user' && Session::has('user_cart')) {
+                if ($request->remember_me) {
 
-                  // $expire_timestamp = time() + 60 * 60 * 24 * 30;
-                  setcookie('remember_me', $request->token, $authLogin->expire_timestamp, '/');
+                  if ($authLogin->rememberLogin($request, $user)) {
 
+                    // $expire_timestamp = time() + 60 * 60 * 24 * 30;
+                    setcookie('remember_me', $request->token, $authLogin->expire_timestamp, '/');
+
+                  }
                 }
+                Redirect::redirectTo("/cart");
+              }else {
+                if ($request->remember_me) {
+
+                  if ($authLogin->rememberLogin($request, $user)) {
+
+                    // $expire_timestamp = time() + 60 * 60 * 24 * 30;
+                    setcookie('remember_me', $request->token, $authLogin->expire_timestamp, '/');
+
+                  }
+                }
+                Redirect::redirectTo('/');
               }
+
+              //Add Remember me before redirect to home page
+              // $authLogin = new Auth();
+              // if ($request->remember_me) {
+              //
+              //   if ($authLogin->rememberLogin($request, $user)) {
+              //
+              //     // $expire_timestamp = time() + 60 * 60 * 24 * 30;
+              //     setcookie('remember_me', $request->token, $authLogin->expire_timestamp, '/');
+              //
+              //   }
+              // }
 
               // $cookie_result = var_dump($_COOKIE);
 
-              Redirect::redirectTo('/');
+
             }
           }else {
             Session::add('error', 'Incorrect Credentials');
