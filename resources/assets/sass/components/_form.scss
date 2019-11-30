@@ -2,9 +2,31 @@
 
     &__group {
         margin-bottom: .5rem;
+
+        &-eye {
+          position: relative;
+          cursor: pointer;
+
+          span.eye {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: $color-secondary;
+
+            i {
+              font-size: 1.5rem;
+            }
+
+            #hideone {
+              display: none;
+            }
+          }
+        }
+
     }
 
     &__input {
+        position: relative;
         font-size: 1.5rem;
         font-family: inherit;
         color: inherit;
@@ -85,5 +107,7 @@
         visibility: hidden;
         transform: translateY(-4rem);
     }
+
+
 
 }

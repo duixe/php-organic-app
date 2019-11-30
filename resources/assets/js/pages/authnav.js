@@ -27,5 +27,24 @@
 
   }
 
+  ORGANICSTORE.auth.initPassReveal = () => {
+    const eyeReveal = document.querySelector(".eye");
+    const passInput = document.getElementById('password');
+    const hiddenOne = document.getElementById('hideone');
+    const hiddenTwo = document.getElementById('hidetwo');
+
+    eyeReveal.addEventListener('click', () => {
+      if (passInput.type == "password") {
+        passInput.type = "text";
+        hiddenOne.style.display = "block";
+        hiddenTwo.style.display = "none";
+      }else {
+        passInput.type = "password";
+        hiddenOne.style.display = "none";
+        hiddenTwo.style.display = "block";
+      }
+    })
+  }
+
 
 })();

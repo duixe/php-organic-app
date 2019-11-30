@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "jquery.easing": "^1.4.1",
+    "lightbox2": "^2.11.1",
     "sweetalert2": "^9.3.16",
     "vue-resource": "^1.5.1",
     "vue-validator": "^3.0.0-alpha.2"

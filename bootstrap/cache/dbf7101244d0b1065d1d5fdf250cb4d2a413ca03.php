@@ -20,9 +20,13 @@
                     <?php echo $__env->make('includes.message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                     <form action="/password/reset-pass/" method="post">
 
-                      <div class="form__group">
+                      <div class="form__group form__group-eye">
                         <input type="password" class="form__input2" name="password" placeholder="Enter new password" id="password" required>
                         <label for="name" class="form__label">Enter new password</label>
+                        <span class="eye">
+                          <i id="hideone" class="far fa-eye"></i>
+                          <i id="hidetwo" class="fas fa-eye-slash"></i>
+                        </span>
                       </div>
 
                       <input type="hidden" name="token" value="<?php echo e($getToken); ?>">

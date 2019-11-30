@@ -35,9 +35,13 @@
                       <label for="username" class="form__label">Your username</label>
                     </div>
 
-                    <div class="form__group">
+                    <div class="form__group form__group-eye">
                       <input type="password" class="form__input2" name="password" placeholder="password" id="password" required>
                       <label for="name" class="form__label">password</label>
+                      <span class="eye">
+                        <i id="hideone" class="far fa-eye"></i>
+                        <i id="hidetwo" class="fas fa-eye-slash"></i>
+                      </span>
                     </div>
 
                     <div class="form__group">

@@ -16,15 +16,15 @@
           <a class="nav__link" href="#"><i class="far fa-user"></i><?php echo e(user()->username); ?>
 
             <ul class="login__dropdown">
-              <li><a href="/logout">Logout</a></li>
+              <li><a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
             </ul>
           </a>
         <?php else: ?>
         <a class="nav__link" href="#"><i class="far fa-user"></i>Login
           <ul class="login__dropdown">
-            <li><a href="/login">Login</a></li>
+            <li><a href="/login"><i class="fas fa-sign-in-alt"></i>Login</a></li>
             <hr>
-            <li><a href="/register">Register</a></li>
+            <li><a href="/register"><i class="fas fa-user-plus"></i>Register</a></li>
           </ul>
         </a>
       <?php endif; ?>

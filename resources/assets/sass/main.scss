@@ -23,6 +23,7 @@
 @import "./layouts/header";
 @import "./layouts/navigation";
 @import "./layouts/landing";
+@import "./layouts/footer";
 
 @import "./pages/home";
 @import "./pages/shop";
@@ -31,11 +32,13 @@
 @import "./pages/auth";
 @import "./pages/auth-login";
 @import "./pages/passwords";
+@import "./pages/notfound";
 
 
 
 /////////// import bootstrap //////////
 @import "../../../node_modules/bootstrap/scss/bootstrap";
+
 
 /////////// import sweetalert //////////
 @import '../../../node_modules/sweetalert2/src/sweetalert2.scss';
@@ -43,3 +46,6 @@
 ////////////import slick //////////////
 @import "../../../node_modules/slick-carousel/slick/slick.scss";
 @import "../../../node_modules/slick-carousel/slick/slick-theme.scss";
+
+/////////// import lightbox2 //////////
+@import "../../../node_modules/lightbox2/dist/css/lightbox.min.css";
