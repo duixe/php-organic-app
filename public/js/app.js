@@ -55885,6 +55885,7 @@ var _this = this;
         ORGANICSTORE.homeslider.homePageProducts();
         ORGANICSTORE.homescroll.initScroll();
         ORGANICSTORE.homescroll.customNav();
+        ORGANICSTORE.home.sendMessage();
         break;
 
       case 'product':
@@ -55999,6 +56000,8 @@ __webpack_require__(/*! ../../assets/js/admin/create.js */ "./resources/assets/j
 __webpack_require__(/*! ../../assets/js/admin/dashboard.js */ "./resources/assets/js/admin/dashboard.js");
 
 __webpack_require__(/*! ../../assets/js/pages/nav.js */ "./resources/assets/js/pages/nav.js");
+
+__webpack_require__(/*! ../../assets/js/pages/sendMessage.js */ "./resources/assets/js/pages/sendMessage.js");
 
 __webpack_require__(/*! ../../assets/js/pages/shopnav.js */ "./resources/assets/js/pages/shopnav.js");
 
@@ -56669,6 +56672,78 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
 
 /***/ }),
 
+/***/ "./resources/assets/js/pages/sendMessage.js":
+/*!**************************************************!*\
+  !*** ./resources/assets/js/pages/sendMessage.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+(function () {
+  "use strict";
+
+  ORGANICSTORE.home.sendMessage = function () {
+    var app = new Vue({
+      el: '#sendMessage',
+      data: _defineProperty({
+        loading: false,
+        name: '',
+        email: '',
+        textArea: '',
+        errors: {}
+      }, "loading", false),
+      methods: {
+        submit: function submit() {
+          this.loading = true;
+          var token = $(".section-book").data('token');
+          var postData = $.param({
+            name: app.name,
+            email: app.email,
+            textArea: app.textArea,
+            token: token
+          });
+          axios.post('/send-message', postData).then(function (res) {
+            app.name = '';
+            app.email = '';
+            app.textArea = '';
+
+            if (res.data.errors) {
+              app.loading = false;
+              app.errors = res.data.errors;
+              var msg = "".concat(app.errors.name[0], " and  ").concat(app.errors.email[0]);
+              Swal.fire({
+                title: '<strong>ERROR</strong>',
+                width: 600,
+                padding: '3em',
+                fontSize: '3em',
+                text: msg,
+                icon: 'error'
+              });
+            } else {
+              app.loading = false;
+              var _msg = res.data.success;
+              Swal.fire({
+                title: '<strong>MESSAGE RECEIVED 👍</strong>',
+                width: 600,
+                padding: '3em',
+                fontSize: '3em',
+                text: _msg,
+                icon: 'success'
+              });
+            }
+          });
+        }
+      },
+      created: function created() {},
+      mounted: function mounted() {}
+    });
+  };
+})();
+
+/***/ }),
+
 /***/ "./resources/assets/js/pages/shop_products.js":
 /*!****************************************************!*\
   !*** ./resources/assets/js/pages/shop_products.js ***!
@@ -56883,6 +56958,7 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
   window.ORGANICSTORE = {
     global: {},
     admin: {},
+    home: {},
     homenav: {},
     homeslider: {},
     homescroll: {},

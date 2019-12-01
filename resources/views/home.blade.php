@@ -240,38 +240,41 @@
 
 
         {{-- section send us a message --}}
-        <section class="section-book">
+        <section class="section-book" data-token="{{ $token }}" id="sendMessage">
           <img class="book__bg-img1" src="/img/home/greenleave2.png" alt="green-leave">
           <img class="book__bg-img2" src="/img/home/vegleaf.png" alt="green-leave">
           <div class="container">
                 <div class="row">
+                  <div v-if="loading" class="loader">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                  </div>
                     <div class="col-md-12">
                         <div class="book">
                             <div class="book__form">
-                                <form action="#" class="form">
+                                <form method="post" @submit.prevent="submit" class="form">
                                     <div class="u-margin-bottom-medium">
                                         <h2 class="heading__about">
                                            Contact us Now
                                         </h2>
                                     </div>
-
                                     <div class="form__group">
-                                        <input type="text" class="form__input" placeholder="Full Name" id="name" required>
+                                        <input type="text" class="form__input" placeholder="Full Name" name="name" v-model="name" required>
                                         <label for="name" class="form__label">Full Name</label>
                                     </div>
 
                                     <div class="form__group">
-                                        <input type="email" class="form__input" placeholder="Email Address" id="email" required>
+                                        <input type="email" class="form__input" placeholder="Email Address" name="email" v-model="email" required>
                                         <label for="email" class="form__label">Email Address</label>
                                     </div>
 
                                     <div class="form__group">
-                                        <textarea name="textArea" id="textArea" class="form__input" placeholder="Send us a messaage"></textarea>
+                                        <textarea name="textArea" id="textArea" class="form__input" placeholder="Send us a messaage" v-model="textArea"></textarea>
                                         <label for="textArea" class="form__label">Send us a messaage</label>
                                     </div>
 
                                     <div class="form-group">
-                                        <a href="#" class="btn-text2">Send message&rarr;</a>
+                                        <button  class="btn-textbtn">Send message&rarr;</button>
                                     </div>
                                 </form>
                             </div>

@@ -14,6 +14,7 @@
         ORGANICSTORE.homeslider.homePageProducts();
         ORGANICSTORE.homescroll.initScroll();
         ORGANICSTORE.homescroll.customNav();
+        ORGANICSTORE.home.sendMessage();
         break;
 
       case 'product':

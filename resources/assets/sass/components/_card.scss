@@ -86,6 +86,10 @@
         color: $color-white;
       }
 
+      &:active {
+        outline: none;
+      }
+
     }
 
     & > a:last-child {

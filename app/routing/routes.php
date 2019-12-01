@@ -12,6 +12,9 @@
   $router->map('GET', '/products/[i:id]', 'App\Controllers\ProductController@show', 'product');
   $router->map('GET', '/products-details/[i:id]', 'App\Controllers\ProductController@get', 'product_detail');
 
+  //message us route;
+  $router->map('POST', '/send-message', 'App\Controllers\IndexController@sendMessage', 'send_us_message');
+
   //password reset route
     $router->map('GET', '/password/forget', 'App\Controllers\PasswordResetController@show', 'forgot_password');
     $router->map('POST', '/password/forget', 'App\Controllers\PasswordResetController@requestResetAction', 'forgot_password_reset');

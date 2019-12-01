@@ -6,6 +6,7 @@
   window.ORGANICSTORE = {
     global: {},
     admin: {},
+    home: {},
     homenav: {},
     homeslider:{},
     homescroll: {},

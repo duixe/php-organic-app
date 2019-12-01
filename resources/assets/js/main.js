@@ -48,6 +48,7 @@ require('../../assets/js/admin/delete.js');
 require('../../assets/js/admin/create.js');
 require('../../assets/js/admin/dashboard.js');
 require('../../assets/js/pages/nav.js');
+require('../../assets/js/pages/sendMessage.js');
 require('../../assets/js/pages/shopnav.js');
 require('../../assets/js/pages/slider.js');
 require('../../assets/js/pages/sliderProduct.js');
