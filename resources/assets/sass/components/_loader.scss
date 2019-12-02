@@ -1,3 +1,16 @@
+.sect-loader {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color-black, .45);
+  background-size: cover;
+  background-position: top;
+  z-index: 2000;
+}
+
+
 .loader {
   position: fixed;
   top: 40%;

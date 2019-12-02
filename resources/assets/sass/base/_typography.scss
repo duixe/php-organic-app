@@ -14,12 +14,20 @@ body {
   transform: skewY(-9deg);
   text-shadow: .3rem .8rem 1rem rgba($color-black, .6);
 
+  @include respond(tab-port) {
+    font-size: 5rem;
+  }
+
   &__2 {
     display: inline-block;
     @include customFont($font-abril, $color-white, 400);
     font-size: 7rem;
     text-shadow: .5rem 1rem 2rem rgba($color-black, .8);
     width: 70vw;
+
+    @include respond(tab-port) {
+      font-size: 4.5rem;
+    }
 
   }
 
@@ -30,12 +38,22 @@ body {
     @include customFont($font-abril, $color-secondary, 400);
     font-size: 3.4rem;
 
+    @include respond(tab-port) {
+      display: none;
+    }
+
   }
 
   &__paragraph {
     @include customFont($font-oswald, $color-white, 500);
     font-size: 2rem;
     letter-spacing: 1rem;
+
+    @include respond(tab-port) {
+      @include customFont($font-oswald, $color-secondary, 500);
+      font-size: 1.5rem;
+      letter-spacing: .4rem;
+    }
   }
 }
 

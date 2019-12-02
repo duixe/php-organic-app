@@ -17,6 +17,11 @@
       img {
         width: 100% !important;
         height: 100vh !important;
+
+        @include respond(tab-port) {
+          width: 100vw !important;
+          height: 60vh !important;
+        }
       }
 
     }
@@ -26,6 +31,11 @@
       img {
         width: 100% !important;
         height: 100vh !important;
+
+        @include respond(tab-port) {
+          width: 100vw !important;
+          height: 60vh !important;
+        }
     }
 
     }
@@ -34,6 +44,11 @@
       img {
         width: 100% !important;
         height: 100vh !important;
+
+        @include respond(tab-port) {
+          width: 100vw !important;
+          height: 60vh !important;
+        }
       }
     }
   }
@@ -47,5 +62,10 @@
     z-index: 300;
     text-align: center;
     backface-visibility: hidden;
+
+    @include respond(tab-port) {
+      top: 60%;
+
+    }
   }
 }

@@ -144,6 +144,13 @@
         border-bottom: 1px solid $color-primary;
         padding: 3px;
         transition: all .2s;
+
+        @include respond(tab-port) {
+          background-color: $color-primary;
+          color: $color-white !important;
+          box-shadow: 0 1rem 2rem rgba($color-black, .15);
+          transform: translateY(-2px);
+        }
     }
 
     &:hover {
@@ -203,6 +210,13 @@
       transition: all .2s;
       outline: none !important;
       border-radius: 3px;
+
+      @include respond(tab-port) {
+        background-color: $color-primary;
+        color: $color-white !important;
+        box-shadow: 0 1rem 2rem rgba($color-black, .15);
+        transform: translateY(-2px);
+      }
 
 
   &:hover {

@@ -6,6 +6,11 @@
     align-items: center;
     font-family: 'Roboto', sans-serif;
     padding-top: 3rem;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+      padding-top: .5rem;
+    }
   }
 
   &-btn {

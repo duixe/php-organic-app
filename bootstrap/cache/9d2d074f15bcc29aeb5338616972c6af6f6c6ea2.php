@@ -60,9 +60,11 @@
         </div>
       </div>
       
-      <div v-show="loading" class="loader">
-        <div class="circle"></div>
-        <div class="circle"></div>
+      <div v-show="loading" class="sect-loader">
+        <div class="loader">
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
       </div>
     </section>
 

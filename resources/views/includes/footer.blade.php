@@ -12,7 +12,7 @@
             <ul class="footer-listone">
               <li><i class="fas fa-map-marker-alt"></i><span><strong>30 john rig ave</strong>, Highland street, london</span></li>
               <li><i class="fas fa-envelope"></i><span> contact@organicstore.com</span></li>
-              <li><i class="fas fa-phone-alt"></i><span> contact@organicstore.com</span></li>
+              <li><i class="fas fa-phone-alt"></i><span> +44 234 3456</span></li>
             </ul>
           </div>
         </div>

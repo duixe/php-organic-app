@@ -7,6 +7,10 @@
   background-color: $color-white;
   transition: all 0.4s cubic-bezier(.68,-0.55,.27,1.55);
 
+  @include respond(phone) {
+    box-shadow: 0 0 2rem 0 rgba($color-black, 0.25);
+  }
+
   &:hover {
     box-shadow: 0 0 2rem 0 rgba($color-black, 0.25);
   }
@@ -34,6 +38,11 @@
     height: 33.3rem;
     position: relative;
 
+    @include respond(phone) {
+      // display: table;
+      height: 37rem;
+    }
+
   }
 
   &__img {
@@ -44,7 +53,12 @@
     bottom: 0;
     right: 0;
     margin: 0 auto;
-    z-index: 10
+    z-index: 10;
+
+    @include respond(tab-port) {
+      width: 75%;
+      height: auto;
+    }
   }
 
   &-icons {
@@ -70,6 +84,20 @@
     // & > a:first-child {
     //   border-radius: 2rem 0 0 2rem;
     // }
+
+    @include respond(phone) {
+      display: table-cell;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(-.3rem);
+      vertical-align: middle;
+      width: 8rem;
+      left: -31.5rem;
+      height: 50%;
+      // left: -2rem;
+      // width: 100%;
+
+    }
     & > button {
       border: none;
       outline: none;
@@ -80,6 +108,22 @@
       height: 4.5rem;
       line-height: 4.5rem;
       width: 6rem;
+
+      @include respond(phone) {
+        display: table;
+        width: 100%;
+        height: 48.3333333%;
+        border-radius: none;
+        vertical-align: middle;
+        font-size: 2.5rem;
+        line-height: 7.5rem;
+        background-color: #92d2a7;
+        color: $color-white;
+        margin-bottom: .5rem;
+        border-radius: 0;
+        // width: 100%;
+
+      }
 
       &:hover {
         background-color: #92d2a7;
@@ -95,6 +139,11 @@
     & > a:last-child {
       border-radius: 0 2rem 2rem 0;
       margin-left: 1rem;
+
+      @include respond(phone) {
+        margin: 0;
+        border-radius: 0;
+      }
     }
 
     & > a {
@@ -105,6 +154,19 @@
       line-height: 4.5rem;
       width: 6rem;
       text-decoration: none !important;
+
+      @include respond(phone) {
+        display: table;
+        width: 100%;
+        height: 48.3333333%;
+        border-radius: none;
+        vertical-align: middle;
+        margin: 0;
+        font-size: 2.5rem;
+        line-height: 7.5rem;
+        background-color: #92d2a7;
+        color: $color-white !important;
+      }
 
       &:hover {
         background-color: #92d2a7;
@@ -130,13 +192,21 @@
     &__title {
       @include customFont($font-rob, $color-secondary, 600);
       font-size: 2rem;
-      letter-spacing: .1rem
+      letter-spacing: .1rem;
+
+      @include respond(tab-port) {
+        font-size: 2.5rem;
+      }
     }
 
     &__price {
       @include customFont($font-oswald, $color-orange, 600);
       font-size: 1.5rem;
-      letter-spacing: .2rem
+      letter-spacing: .2rem;
+
+      @include respond(tab-port) {
+        font-size: 2rem;
+      }
     }
   }
 
@@ -155,6 +225,15 @@
     -webkit-transform: translateX(-6.5rem);
     transition: all 0.4s ease-in-out 0s;
     -webkit-transition: all 0.4s ease-in-out 0s;
+
+    @include respond(tab-port) {
+      opacity: 1;
+      visibility: visible;
+      width: 7rem;
+
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+    }
   }
 
 }

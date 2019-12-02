@@ -8,7 +8,12 @@
 
   @include respond(tab-port) {
     background-color: $color-white;
-    padding: 3rem 0;
+    padding: 15rem 4rem 10rem !important;
+  }
+
+  @include respond(phone) {
+    padding: 15rem 4rem 10rem !important;
+    margin-bottom: 50rem;
   }
 
   &__container {
@@ -27,6 +32,10 @@
     @include respond(tab-port) {
       padding: 0;
       vertical-align: none;
+    }
+
+    @include respond(phone) {
+      margin-top: 3rem;
     }
 
     &-title {
@@ -154,8 +163,22 @@
 
   &__slider {
     margin-top: 2.5rem;
+    position: relative;
 
+    @include respond(tab-land) {
+      padding: 1rem 3rem 2rem;
+    }
     &-anchor {
+      @include respond(tab-port) {
+        display: inline-block;
+        border: 1px solid $color-orange-dark;
+        padding: 1rem;
+        border-radius: 1rem;
+      }
+
+      @include respond(phone) {
+        // align-items: center !important;
+      }
       h4 {
         @include customFont($font-pop, $color-white, 400);
         font-size: 1.5rem;
@@ -181,4 +204,40 @@
         }
       }
     }
+
+  .slider__btnprod {
+    &-prev,
+    &-next {
+      background-color: $color-primary;
+      padding: .5rem .5rem;
+      border-radius: .1rem;
+      color: #fff;
+      font-size: 1.6rem;
+      margin: 0 1rem;
+      cursor: pointer;
+      transition: opacity 1s ease;
+      transition: scale .6s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .btn__position {
+      position: absolute;
+      top: 50%;
+    }
+
+    .right-0 {
+      right: 0;
+
+      @include respond(phone) {
+        right: -5rem;
+      }
+    }
+
+    .left-0 {
+      left: -5rem;
+    }
+  }
 }

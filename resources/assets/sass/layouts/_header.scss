@@ -8,7 +8,7 @@
   transition: background-color .5s ease;
 
   @include respond(tab-port) {
-    background-color: green;
+    background-color: $color-white;
   }
 
   &__scrolled {

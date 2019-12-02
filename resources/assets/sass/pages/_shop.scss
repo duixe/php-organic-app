@@ -8,6 +8,10 @@
     background-repeat: no-repeat;
     background-position: top;
     padding: 25rem 10rem 4rem 10rem;
+
+    @include respond(tab-port) {
+      padding: 15rem 1rem 4rem 1rem;
+    }
   }
 
   &__img {
@@ -19,6 +23,9 @@
     transition: all 0.4s ease-in-out;
     z-index: 2;
 
+    @include respond(phone) {
+      display: none;
+    }
 
   }
 
@@ -30,7 +37,10 @@
     margin-bottom: 3rem;
     transition: all 0.4s ease-in-out;
 
-    
+    @include respond(phone) {
+      display: none;
+    }
+
   }
 
 }
@@ -47,4 +57,8 @@
   box-shadow: 0 0 2rem 0 rgba($color-black, 0.25);
   border-radius: 1.5rem;
   // margin-bottom: 3rem !important;
+
+  @include respond(tab-port) {
+    padding: 2rem !important;
+  }
 }

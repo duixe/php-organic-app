@@ -10,15 +10,21 @@
 
     <section class="shopping_cart" id="shopping_cart">
 
-      <div v-show="loading" class="loader">
-        <div class="circle"></div>
-        <div class="circle"></div>
+      <div v-show="loading" class="sect-loader">
+        <div class="loader">
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
       </div>
+
 
       <div class="container item" v-cloak v-if="loading == false">
         <div class="row">
           <div class="cart__table">
-            <h2 v-if="fail" v-text="message"></h2>
+            <div class="shopping_cart-empty col-sm-12 col-md-12 col-lg-12 text-center" v-if="fail">
+              <img class="shopping_cart-empty--img" src="/img/home/emptypng.png" alt="empty-basket">
+              <h2 class="display-3" v-text="message"></h2>
+            </div>
             <div v-else>
               <h2>your cart</h2>
 
@@ -87,16 +93,16 @@
                     </div>
                 </div>
               </div>
-                  <div class="float-left mt-5">
+                  <div class="float-md-left cart__middle mt-5">
                     <button @click.prevent="emptyCart()"  name="button" class="btno btno--danger">
                       Empty Cart &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" aria-hidden="true"></i>
                     </button>
                   </div>
-                  <div class="float-right mt-5">
-                    <a href="/shop" class="btno btno--green mr-3">
+                  <div class="float-md-right cart__middle mt-5">
+                    <a href="/shop" class="btno btno--green mr-3 mb-3">
                       Contine shopping &nbsp;&nbsp;<i class="fas fa-shopping-basket" aria-hidden="true"></i>
                     </a>
-                    <button @click.prevent="checkout()" v-if="authenticated" name="button" class="btno btno--brown">
+                    <button @click.prevent="checkout()" v-if="authenticated" name="button" class="btno btno--brown mb-3">
                       Checkout &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-credit-card" aria-hidden="true"></i>
                     </button>
                     <span v-else>

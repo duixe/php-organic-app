@@ -10,14 +10,16 @@
       {{-- <div class="text-center">
         <i v-show="loading" class="fas fa-spinner fa-spin" style="font-size: 4rem; padding-bottom: 3.5rem; position: fixed; top: 60%; color: 0a2b1d; bottom: 20%;"></i>
       </div> --}}
-      <div v-show="loading" class="loader">
-        <div class="circle"></div>
-        <div class="circle"></div>
+      <div v-show="loading" class="sect-loader">
+        <div class="loader">
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
       </div>
       <div v-cloak class="container-fluid">
           <div class="product__container">
           <div class="row mt-4">
-            <div class="col-sm-8 col-lg-6 col-sm-offset-2 col-lg-offset-0 pt-40 text-center">
+            <div class="col-sm-12 col-lg-6 col-sm-offset-2 col-lg-offset-0 pt-40 text-center">
               <div class="product-item">
                 <img src="/{{$product->image_path}}" alt="">
               </div>
@@ -26,16 +28,20 @@
               </div>
               <div class="product__slider">
                 <div class="row" id="product-slide">
-                  <div class="col-md-3 product-slide__item" v-for="similar in similarProducts">
+                  <div class="col-xs-12 product__slider-img col-md-3 product-slide__item" v-for="similar in similarProducts">
                    <a v-bind:href="'/products/' + similar.id" class="product__slider-anchor">
                      <img :src="'/' + similar.image_path" v-bind:alt="similar.name" style="width: 50%;">
                      <h4>@{{ similar.name }}</h4>
                    </a>
                   </div>
                 </div>
+                <div class="slider__btnprod">
+                  <span class="slider__btnprod-prev btn__position left-0">prev</span>
+                  <span class="slider__btnprod-next btn__position right-0">next</span>
+                </div>
               </div>
             </div>
-            <div class="col-lg-6 pt-50 pl-10">
+            <div class="col-xs-12 col-sm-12 col-lg-6 pt-50 pl-10">
               <div class="product__description">
                 <h2 class="product__description-title"><span class="light1">Organic</span> @{{ product.name }}</h2>
                 <span class="product__description-divider"></span>

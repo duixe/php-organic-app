@@ -5,11 +5,16 @@
 <?php $__env->startSection('content'); ?>
 
   <section class="notfound">
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container text-center">
-        <h3 class="display-2">🙄ops !!</h3>
-        <h1 class="display-3">404 Not FOund</h1><br>
-        <p class="lead">The page you're Looking for could not be Found</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 text-center">
+          <h3 class="notfound__h3">Oops !!</h3>
+          <img class="notfound--img" src="img/home/oopspng.png" alt="">
+        </div>
+        <div class="col-xs-12 col-sm-12 offset-md-1 col-md-6 col-lg-6 text-center u-padd-top-big">
+          <h1 class="notfound__h1">404 Not FOund</h1><br>
+          <p class="notfound__paragragh">Sorry, The page you're Looking for could not be Found</p>
+        </div>
       </div>
     </div>
   </section>

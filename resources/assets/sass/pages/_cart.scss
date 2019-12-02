@@ -2,7 +2,23 @@
   padding: 15rem;
 
   @include respond(tab-port) {
+    padding: 15rem 0;
+  }
+
+  @include respond(phone) {
     padding: 10rem 0;
+  }
+
+  &-empty {
+    padding: 6rem 0;
+
+
+    &--img {
+      width: 25rem !important;
+      height: auto;
+      transform: translate3d(0);
+      animation: bounce .6s infinite alternate;
+    }
   }
 
 }
@@ -52,6 +68,11 @@
     &-bg {
       width: 65%;
       background-color: #fffaef;
+
+      @include respond(phone) {
+        width: 100%;
+        height: auto;
+      }
     }
 
     img {
@@ -263,5 +284,12 @@
         font-size: 1.7rem;
       }
     }
+  }
+
+}
+
+.cart__middle {
+  @include respond(tab-port) {
+    text-align: center !important;
   }
 }

@@ -64,9 +64,11 @@
       {{-- <div class="text-center">
         <i v-show="loading" class="fas fa-spinner fa-spin" style="font-size: 4rem; padding-bottom: 3.5rem; position: fixed; top: 60%; color: 0a2b1d; bottom: 20%;"></i>
       </div> --}}
-      <div v-show="loading" class="loader">
-        <div class="circle"></div>
-        <div class="circle"></div>
+      <div v-show="loading" class="sect-loader">
+        <div class="loader">
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
       </div>
     </section>
 

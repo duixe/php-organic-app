@@ -16,7 +16,7 @@
 
                 <a href="/shop" class="bttn bttn--primary">Shop Now</a>
               </div>
-              <img src="/img/home/img-slider-01.jpg" alt="">
+              <img src="/img/home/imgall4.jpg" alt="">
             </div>
 
             <div class="slider__page-2">
@@ -26,7 +26,7 @@
                 <h2 class="heading-land__2">Live Organic Stay Healthy</h2>
                 <p class="heading-land__paragraph pb-1">Organic fruits and vegetables at your Doorstep</p>
 
-                <a href="#" class="bttn bttn--primary">Shop Now</a>
+                <a href="/shop" class="bttn bttn--primary">Shop Now</a>
               </div>
               <img src="/img/home/img-slider-02.jpg" alt="">
             </div>
@@ -38,9 +38,9 @@
                 <h2 class="heading-land__2">Live Organic Stay Healthy</h2>
                 <p class="heading-land__paragraph pb-1">Organic fruits and vegetables at your Doorstep</p>
 
-                <a href="#" class="bttn bttn--primary">Shop Now</a>
+                <a href="/shop" class="bttn bttn--primary">Shop Now</a>
               </div>
-              <img src="/img/home/img-slider-3.jpg" alt="">
+              <img src="/img/home/imgall3.jpg" alt="">
             </div>
           </div>
           <div class="slider__btn">
@@ -61,11 +61,11 @@
                   <img src="/img/home/varieties2.png" alt="">
                 </div>
                 <div class="feature-btn">
-                  <a href="#" class="feature-btn__1"><span style="font-weight: 300;">Other</span> Variteies</a>
+                  <a href="/shop" class="feature-btn__1"><span style="font-weight: 300;">Other</span> Variteies</a>
                 </div>
               </div>
-              <div class="row pb-2">
-                <div class="col-xs-4 col-sm-3 col-md-2" v-cloak v-for="feature in featured">
+              <div class="row pb-5" id="homeFeature">
+                <div class="col-xs-12 col-sm-3 col-md-2 mb-5" v-cloak v-for="feature in featured">
                   <div class="pcard">
                     <div class="pcard-content">
                       <img :src="'/' + feature.image_path" class="pcard__img" alt="{{ feature.name }}">
@@ -85,7 +85,7 @@
               </div>
 
 
-              <div class="u-center-text u-margin-top-big">
+              <div class="u-center-text u-margin-top-small">
                 <a href="/shop" class="feature-btn__1"><span style="font-weight: 300;">Shop</span> Now</a>
               </div>
             </div>
@@ -211,7 +211,7 @@
 
                   <div class="row tab-content">
 
-                      <div class="tab-pane active col-xs-12 col-sm-4 col-md-3" v-cloak v-for="product in products" id="tab-1" role="tabpanel">
+                      <div class="col-xs-12 col-sm-4 col-md-3" v-cloak v-for="product in products" id="tab-1" role="tabpanel">
                         <div class="pcard">
                           <div class="pcard-content">
                             <img :src="'/' + product.image_path" class="pcard__img" v-bind:alt="product.name">
@@ -241,9 +241,11 @@
           <img class="book__bg-img2" src="/img/home/vegleaf.png" alt="green-leave">
           <div class="container">
                 <div class="row">
-                  <div v-if="loading" class="loader">
-                    <div class="circle"></div>
-                    <div class="circle"></div>
+                  <div v-show="loading" class="sect-loader">
+                    <div class="loader">
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                    </div>
                   </div>
                     <div class="col-md-12">
                         <div class="book">

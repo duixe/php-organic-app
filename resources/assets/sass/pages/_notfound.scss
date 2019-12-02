@@ -1,12 +1,54 @@
 .notfound {
-  padding-top: 20rem;
+  padding-top: 15rem;
+  padding-bottom: 10rem;
   padding-left: 7rem;
   padding-right: 7rem;
 
 
-  .jumbotron {
-  margin-top: 5.5rem;
-  box-shadow: .4rem .7rem 4rem rgba(0, 0, 0, .5) !important;
+  &__h3 {
+    @include customFont($font-rob, $color-secondary, 400);
+    font-size: 12rem;
+
+    @include respond(phone) {
+      font-size: 6rem;
+    }
   }
-  
+
+
+  &--img {
+    width: 25rem;
+    height: auto;
+    backface-visibility: hidden;
+    transform: translate3d(0);
+    animation: bounceOps .6s infinite alternate;
+
+    @include respond(phone) {
+      width: 20rem;
+      height: auto;
+      transform: none;
+      animation: none;
+    }
+
+  }
+
+  &__h1 {
+    @include customFont($font-pop, $color-secondary, 500);
+    font-size: 5rem;
+    margin-top: 1.5rem;
+
+    @include respond(phone) {
+      font-size: 3rem;
+      margin-top: .5rem;
+    }
+  }
+
+  &__paragragh {
+    @include customFont($font-pop, $color-secondary, 300);
+    font-size: 3.5rem;
+
+    @include respond(phone) {
+      font-size: 1.7rem;
+    }
+  }
+
 }
