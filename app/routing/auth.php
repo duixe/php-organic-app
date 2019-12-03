@@ -7,3 +7,6 @@
   $router->map('POST', '/login', 'App\Controllers\AuthController@login', 'log_user_in');
 
   $router->map('GET', '/logout', 'App\Controllers\AuthController@logout', 'logout');
+
+  //activate account
+  $router->map('GET', '/register/activate/[*:token]', 'App\Controllers\AuthController@activateAccount', 'Account_activation');

@@ -5,7 +5,9 @@ namespace App\Controllers;
 use App\Models\Product;
 use App\Classes\Request;
 use App\Classes\CSRFToken;
+use App\Classes\Mail;
 use App\Classes\ValidateRequest;
+use App\Classes\Findactivate;
 use App\Models\User;
 use App\Models\Remember;
 use App\Classes\Session;
@@ -52,17 +54,35 @@ class AuthController extends BaseController{
           return view('register', ['errors' => $errors]);
         }
 
-        User::create([
+        $hashed_token = hash_hmac('sha256', $request->token, 'GtXcY4C1ye8542KtYGoBEVa4XJXu8Ah1');
+
+        $user_reg =  User::create([
           'username' => $request->username,
           'email' => $request->email,
           'password' => password_hash($request->password, PASSWORD_BCRYPT),
           'fullname' => $request->fullname,
           'address' => $request->address,
+          'activation_hash' => $hashed_token,
           'role' => 'user',
         ]);
 
+        if ($user_reg) {
+          $activate_token = $request->token;
+          $url = 'http://'. $_SERVER['HTTP_HOST'] . '/register/activate/'. $activate_token;
+          $info = ['url' => $url];
+            $data = [
+              'to' => $request->email,
+              'subject' => 'ACCOUNT ACTIVATION',
+              'view' => 'activate_account',
+              'name' => $request->username,
+              'body' => $info
+            ];
+
+            (new Mail())->mailSend($data);
+        }
+
         Request::refresh();
-        return \view('register', ['success' => 'Account created, please login']);
+        return \view('register', ['success' => 'Account created, please check your email for account activation']);
       }else {
         throw new \Exception("Token Mismatch", 1);
 
@@ -94,7 +114,7 @@ class AuthController extends BaseController{
           $user = User::where('username', $request->username)
           ->orWhere('email', $request->username)->first();
 
-          if($user){
+          if($user  && $user->is_active == true){
             if (!password_verify($request->password, $user->password)) {
               Session::add('error', 'Incorrect Credentials');
               return view('login', ['remember_me' => $request->remember_me]);
@@ -147,7 +167,7 @@ class AuthController extends BaseController{
 
             }
           }else {
-            Session::add('error', 'Incorrect Credentials');
+            Session::add('error', 'Incorrect Credentials or account not activated');
             return \view('login');
           }
 
@@ -178,6 +198,17 @@ class AuthController extends BaseController{
       }
 
       Redirect::redirectTo('/');
+  }
+
+  public function activateAccount($token) {
+    $getToken = $token['token'];
+
+    $user = Findactivate::findByActionToken($getToken);
+
+    if ($user) {
+      return \view('password/activation_success');
+    }
+
   }
 
 }
