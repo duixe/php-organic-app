@@ -4,7 +4,7 @@
 
 <?php $__env->startSection('content'); ?>
 
-      <section style="padding-top: 17rem;">
+      <section style="padding: 17rem 0 10rem;">
         <div class="container">
           <div class="row text-center">
             <div class="col-md-12 col-lg-12">

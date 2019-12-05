@@ -27,6 +27,17 @@
 
   }
 
+  ORGANICSTORE.auth.hideFooter = () => {
+
+      $(".form__input2").focus(() => {
+        $(".footer").hide();
+      });
+
+      $(".form__input2").focusout(() => {
+        $(".footer").show();
+      });
+  }
+
   ORGANICSTORE.auth.initPassReveal = () => {
     const eyeReveal = document.querySelector(".eye");
     const passInput = document.getElementById('password');

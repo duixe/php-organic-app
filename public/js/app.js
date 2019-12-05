@@ -55909,6 +55909,7 @@ var _this = this;
       case 'auth':
         ORGANICSTORE.auth.initNavAuth();
         ORGANICSTORE.auth.initScrollAuth();
+        ORGANICSTORE.auth.hideFooter();
         ORGANICSTORE.auth.initPassReveal();
         break;
 
@@ -56096,6 +56097,15 @@ __webpack_require__(/*! ../../assets/js/init.js */ "./resources/assets/js/init.j
         }
       });
       burger.classList.toggle('toggle');
+    });
+  };
+
+  ORGANICSTORE.auth.hideFooter = function () {
+    $(".form__input2").focus(function () {
+      $(".footer").hide();
+    });
+    $(".form__input2").focusout(function () {
+      $(".footer").show();
     });
   };
 

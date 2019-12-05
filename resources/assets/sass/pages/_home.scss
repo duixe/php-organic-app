@@ -23,10 +23,18 @@
   padding: .7em !important;
 }
 
+.home__main {
+  @include respond(phone) {
+    overflow-x: hidden;
+  }
+}
+
 .section-landing {
 
   @include respond(tab-port) {
     height: 70vh;
+
+
   }
 
     position: relative;
@@ -95,6 +103,10 @@
       &.slick-active button {
         transform: scale(1.9) !important;
         box-shadow: 0 .3rem .5rem .1rem rgba(0,0,0, .205) !important;
+
+        @include respond(phone) {
+          transform: scale(1.4) !important;
+        }
       }
 
     }

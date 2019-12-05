@@ -1,7 +1,7 @@
 @extends('layouts.app')
 {{-- {{use App\Classes\CSRFToken;}} --}}
 
-@section('title', 'Register an account')
+@section('title', 'log in to ypur account')
 
 @section('data-page-id', 'auth')
 
@@ -16,8 +16,8 @@
             <div class="card o-hidden border-0 shadow-lg my-5">
               <div class="card-body p-0">
                 <div class="row">
-                  <div class="col-lg-6 col-md-6 d-none d-lg-block d-md-block login__bg-image"></div>
-                  <div class="col-md-6 col-lg-6">
+                  <div class="col-sm-6 col-lg-6 col-md-6 d-none d-lg-block d-md-block d-sm-block login__bg-image"></div>
+                  <div class="col-sm-6 col-md-6 col-lg-6">
                     <div class="login__content">
                       <div class="login__content-head">
                         <h4>Welcome Back !</h4>
@@ -32,6 +32,10 @@
                         <div class="form__group">
                           <input type="password" class="form__input2" name="password" placeholder="password" id="password">
                           <label for="name" class="form__label">password</label>
+                          <span class="eye d-none" >
+                            <i id="hideone" class="far fa-eye"></i>
+                            <i id="hidetwo" class="fas fa-eye-slash"></i>
+                          </span>
                         </div>
 
                         <div class="form-check">

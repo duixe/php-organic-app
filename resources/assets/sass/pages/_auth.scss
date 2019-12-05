@@ -30,6 +30,10 @@
   &__content {
     padding: 2.5rem 6rem;
 
+    @include respond(phone) {
+      padding: 2.3rem 2rem;
+    }
+
     &-head {
       margin-bottom: 2.5rem;
 

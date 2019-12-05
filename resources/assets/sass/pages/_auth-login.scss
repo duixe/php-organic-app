@@ -8,7 +8,7 @@
   position: relative;
 
   @include respond(tab-port) {
-    padding: 0;
+    padding: 15rem 1rem;
   }
 
   @include respond(phone) {
@@ -55,8 +55,16 @@
   &__content {
     padding: 4rem 6rem;
 
+    @include respond(phone) {
+      padding: 3.5rem 2.5rem;
+    }
+
     &-head {
       margin-bottom: 4rem;
+
+      @include respond(phone) {
+        margin-bottom: 3.5rem;
+      }
 
       h4 {
         @include customFont($font-pop, $color-secondary, 600);

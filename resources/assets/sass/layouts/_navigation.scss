@@ -7,6 +7,11 @@
   padding-top: 3rem;
 
   @include respond(tab-port) {
+    justify-content: space-around !important;
+    padding-top: 1.5rem !important;
+  }
+
+  @include respond(phone) {
     justify-content: space-around;
     padding-top: 1.5rem;
   }
@@ -26,6 +31,7 @@
       width: 100%;
       text-align: center;
       padding-bottom: .7rem;
+      margin-left: 0;
     }
 
     h4 {
@@ -35,7 +41,7 @@
       @include respond(tab-port) {
         display: block;
         margin: 0 auto;
-        font-size: 4rem !important;
+        font-size: 2.5rem !important;
       }
 
     }
@@ -68,6 +74,11 @@
         transition: transform .5s ease-in;
     }
 
+    @include respond(phone) {
+      background: rgba($color-ash, .85);
+    }
+
+
   }
 
 
@@ -91,6 +102,9 @@
       font-weight: 500;
       font-size: 1.5rem;
 
+    @include respond(tab-port) {
+      font-size: 1.8rem;
+    }
 
   }
 
@@ -136,6 +150,10 @@
 
     @include respond(tab-port) {
       margin-right: 4rem;
+    }
+
+    @include respond(phone) {
+      margin-right: 3rem !important;
     }
 
       a {

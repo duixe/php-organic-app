@@ -11,8 +11,16 @@
     background-color: $color-white;
   }
 
+  @include respond(phone) {
+    background-color: rgba($color-ash, .85);
+  }
+
   &__scrolled {
     background-color: #fff;
      box-shadow: 0 .3rem 2rem rgba(0, 0, 0, 0.2);
+
+     @include respond(phone) {
+       background-color: rgba($color-ash, .85);
+     }
   }
 }

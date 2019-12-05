@@ -31,5 +31,11 @@ body {
     @include respond(tab-port) {
         padding: 0;
         overflow-x: hidden;
+        -webkit-overflow-x: hidden;
     }
+
+    // @include respond(phone) {
+    //     padding: 0;
+    //     overflow-y: hidden;
+    // }
 }

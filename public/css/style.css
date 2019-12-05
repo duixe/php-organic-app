@@ -58,6 +58,7 @@ body {
   body {
     padding: 0;
     overflow-x: hidden;
+    -webkit-overflow-x: hidden;
   }
 }
 
@@ -84,6 +85,12 @@ body {
 @media (max-width: 56.25em) {
   .heading-land {
     font-size: 5rem;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .heading-land {
+    font-size: 4rem;
   }
 }
 
@@ -498,6 +505,14 @@ body {
   cursor: pointer;
 }
 
+@media (max-width: 37.5em) {
+  .bttn,
+  .bttn:link,
+  .bttn:visited {
+    padding: 0.8rem 2rem;
+  }
+}
+
 .bttn--primary {
   background-color: #fff;
   color: #525252;
@@ -788,11 +803,11 @@ body {
     display: table-cell;
     opacity: 1;
     visibility: visible;
-    -webkit-transform: translateY(-0.3rem);
-            transform: translateY(-0.3rem);
+    -webkit-transform: translateY(-0.25rem);
+            transform: translateY(-0.25rem);
     vertical-align: middle;
     width: 8rem;
-    left: -31.5rem;
+    left: -28rem;
     height: 50%;
   }
 }
@@ -1504,9 +1519,21 @@ body {
   }
 }
 
+@media (max-width: 37.5em) {
+  .header {
+    background-color: rgba(247, 246, 242, 0.85);
+  }
+}
+
 .header__scrolled {
   background-color: #fff;
   box-shadow: 0 0.3rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 37.5em) {
+  .header__scrolled {
+    background-color: rgba(247, 246, 242, 0.85);
+  }
 }
 
 .nav {
@@ -1522,6 +1549,13 @@ body {
 }
 
 @media (max-width: 56.25em) {
+  .nav {
+    justify-content: space-around !important;
+    padding-top: 1.5rem !important;
+  }
+}
+
+@media (max-width: 37.5em) {
   .nav {
     justify-content: space-around;
     padding-top: 1.5rem;
@@ -1541,6 +1575,7 @@ body {
     width: 100%;
     text-align: center;
     padding-bottom: 0.7rem;
+    margin-left: 0;
   }
 }
 
@@ -1553,7 +1588,7 @@ body {
   .nav-logo h4 {
     display: block;
     margin: 0 auto;
-    font-size: 4rem !important;
+    font-size: 2.5rem !important;
   }
 }
 
@@ -1595,6 +1630,12 @@ body {
   }
 }
 
+@media (max-width: 37.5em) {
+  .nav__list {
+    background: rgba(247, 246, 242, 0.85);
+  }
+}
+
 .nav__item {
   list-style: none;
 }
@@ -1613,6 +1654,12 @@ body {
   text-decoration: none !important;
   font-weight: 500;
   font-size: 1.5rem;
+}
+
+@media (max-width: 56.25em) {
+  .nav__link:link {
+    font-size: 1.8rem;
+  }
 }
 
 .nav__link {
@@ -1660,6 +1707,12 @@ body {
 @media (max-width: 56.25em) {
   .nav-right {
     margin-right: 4rem;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .nav-right {
+    margin-right: 3rem !important;
   }
 }
 
@@ -1786,7 +1839,7 @@ body {
 @media (max-width: 56.25em) {
   .slider__page-1 img {
     width: 100vw !important;
-    height: 60vh !important;
+    height: 65vh !important;
   }
 }
 
@@ -1802,7 +1855,7 @@ body {
 @media (max-width: 56.25em) {
   .slider__page-2 img {
     width: 100vw !important;
-    height: 60vh !important;
+    height: 65vh !important;
   }
 }
 
@@ -1814,7 +1867,7 @@ body {
 @media (max-width: 56.25em) {
   .slider__page-3 img {
     width: 100vw !important;
-    height: 60vh !important;
+    height: 65vh !important;
   }
 }
 
@@ -1979,6 +2032,12 @@ body {
   padding: 0.7em !important;
 }
 
+@media (max-width: 37.5em) {
+  .home__main {
+    overflow-x: hidden;
+  }
+}
+
 .section-landing {
   position: relative;
   padding-bottom: 2rem;
@@ -2039,6 +2098,13 @@ body {
   -webkit-transform: scale(1.9) !important;
           transform: scale(1.9) !important;
   box-shadow: 0 0.3rem 0.5rem 0.1rem rgba(0, 0, 0, 0.205) !important;
+}
+
+@media (max-width: 37.5em) {
+  .slick-dots li.slick-active button {
+    -webkit-transform: scale(1.4) !important;
+            transform: scale(1.4) !important;
+  }
 }
 
 .slick-dots button {
@@ -2301,7 +2367,7 @@ body {
 @media (max-width: 37.5em) {
   .product {
     padding: 15rem 4rem 10rem !important;
-    margin-bottom: 50rem;
+    margin-bottom: 58rem;
   }
 }
 
@@ -2912,6 +2978,12 @@ body {
   padding: 2.5rem 6rem;
 }
 
+@media (max-width: 37.5em) {
+  .register__content {
+    padding: 2.3rem 2rem;
+  }
+}
+
 .register__content-head {
   margin-bottom: 2.5rem;
 }
@@ -2978,7 +3050,7 @@ body {
 
 @media (max-width: 56.25em) {
   .auth__login {
-    padding: 0;
+    padding: 15rem 1rem;
   }
 }
 
@@ -3028,8 +3100,20 @@ body {
   padding: 4rem 6rem;
 }
 
+@media (max-width: 37.5em) {
+  .login__content {
+    padding: 3.5rem 2.5rem;
+  }
+}
+
 .login__content-head {
   margin-bottom: 4rem;
+}
+
+@media (max-width: 37.5em) {
+  .login__content-head {
+    margin-bottom: 3.5rem;
+  }
 }
 
 .login__content-head h4 {

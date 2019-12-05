@@ -115,6 +115,10 @@
         //style for button inside form
         border: 4px solid rgba($pink-light, .8);
         cursor: pointer;
+
+        @include respond(phone) {
+          padding: .8rem 2rem;
+        }
     }
 
     &--primary {

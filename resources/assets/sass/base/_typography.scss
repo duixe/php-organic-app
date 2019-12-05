@@ -18,6 +18,10 @@ body {
     font-size: 5rem;
   }
 
+  @include respond(phone) {
+    font-size: 4rem;
+  }
+
   &__2 {
     display: inline-block;
     @include customFont($font-abril, $color-white, 400);

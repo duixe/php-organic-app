@@ -25,6 +25,10 @@
                         <div class="form__group">
                           <input type="text" class="form__input2" name="email" placeholder="Enter your Email" id="username" value="{{ App\Classes\Request::old('post', 'username')}}">
                           <label for="username" class="form__label">Enter your Email</label>
+                          <span class="eye d-none" >
+                            <i id="hideone" class="far fa-eye"></i>
+                            <i id="hidetwo" class="fas fa-eye-slash"></i>
+                          </span>
                         </div>
 
                         <input type="hidden" name="token" value="{{App\Classes\CSRFToken::_token()}}">

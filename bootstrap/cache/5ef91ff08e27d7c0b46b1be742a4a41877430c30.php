@@ -3,7 +3,7 @@
 <?php $__env->startSection('data-page-id', 'home'); ?>
 
 <?php $__env->startSection('content'); ?>
-  <main>
+  <main class="home__main">
       <div class="container-fluid p-0">
         <section class="section-landing">
           <div class="slider__page">
@@ -162,7 +162,7 @@
               <div class="col-xs-12 col-sm-4 col-md-3 text-center">
                 <div class="farm__box">
                   <div class="farm__box-head">
-                    <img src="/img/home/farmpng4.png" alt="">
+                    <img src="/img/home/farmpng3.png" alt="">
                   </div>
                   <span class="farm__box-divider"></span>
                   <div class="farm__box-footer">
@@ -174,7 +174,7 @@
               <div class="col-xs-12 col-sm-4 col-md-3 text-center">
                 <div class="farm__box">
                   <div class="farm__box-head">
-                    <img src="/img/home/farmpng3.png" alt="">
+                    <img src="/img/home/farmpng4.png" alt="">
                   </div>
                   <span class="farm__box-divider"></span>
                   <div class="farm__box-footer">
@@ -339,6 +339,7 @@
           </div>
         </section>
       </div>
+    </div>
   </main>
 <?php $__env->stopSection(); ?>
 

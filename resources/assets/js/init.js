@@ -38,7 +38,9 @@
       case 'auth':
         ORGANICSTORE.auth.initNavAuth();
         ORGANICSTORE.auth.initScrollAuth();
+        ORGANICSTORE.auth.hideFooter();
         ORGANICSTORE.auth.initPassReveal();
+
         break;
 
       case 'adminProduct':
