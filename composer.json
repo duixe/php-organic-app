@@ -15,12 +15,13 @@
         "league/oauth2-google": "^3.0",
         "voku/pagination": "^3.0",
         "nesbot/carbon": "^2.25",
-        "stripe/stripe-php": "^7.13"
+        "stripe/stripe-php": "^7.13",
+        "filp/whoops": "^2.5"
 
     },
 
     "require-dev": {
-        "filp/whoops": "^2.5"
+
     },
 
     "config": {
