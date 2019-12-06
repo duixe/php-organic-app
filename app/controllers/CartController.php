@@ -241,6 +241,7 @@ class CartController extends BaseController{
         ];
 
         (new Mail())->mailSend($data);
+        exit;
 
       } catch (\Exception $e) {
         echo $e->getMessage();
