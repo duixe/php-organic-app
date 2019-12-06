@@ -52,6 +52,7 @@ class PasswordResetController extends BaseController{
               ];
 
               (new Mail())->mailSend($data);
+              exit;
             }
           }
           return view('password/reset_request');

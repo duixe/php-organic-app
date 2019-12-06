@@ -33,7 +33,6 @@ class Mail{
         )
       ];
       $this->mail->SMTPDebug = 2;
-      exit;
     }
 
     //send auth info
