@@ -18,7 +18,7 @@ class Mail{
     $this->mail->Mailer = 'smtp';
     $this->mail->SMTPAuth = true;
     $this->mail->SMTPSecure = 'ssl';
-    $this->mail->AuthType = 'XOAUTH2';
+    $this->mail->AuthType = 'XOAUTH';
 
     $this->mail->Host = getenv('SMTP_HOST');
     $this->mail->Port = getenv('SMTP_PORT');
