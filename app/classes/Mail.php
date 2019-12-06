@@ -18,7 +18,7 @@ class Mail{
     $this->mail->Mailer = 'smtp';
     $this->mail->SMTPAuth = true;
     $this->mail->SMTPSecure = 'ssl';
-    
+
 
     $this->mail->Host = getenv('SMTP_HOST');
     $this->mail->Port = getenv('SMTP_PORT');
@@ -33,7 +33,7 @@ class Mail{
           'allow_self_signed' => true,
         )
       ];
-      $this->mail->SMTPDebug = 4;
+      $this->mail->SMTPDebug = "";
     }
 
     //send auth info
