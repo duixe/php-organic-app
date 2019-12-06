@@ -32,7 +32,7 @@ class Mail{
           'allow_self_signed' => true,
         )
       ];
-      $this->mail->SMTPDebug = "";
+      $this->mail->SMTPDebug = 2;
     }
 
     //send auth info
