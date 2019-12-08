@@ -29,6 +29,7 @@
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
+    "jquery-ui-dist": "^1.12.1",
     "jquery.easing": "^1.4.1",
     "lightbox2": "^2.11.1",
     "sweetalert2": "^9.3.16",

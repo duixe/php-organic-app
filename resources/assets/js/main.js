@@ -35,6 +35,7 @@ Vue.use(resource);
 // require('popper.js/dist/popper.min');
 require('bootstrap/dist/js/bootstrap.min.js');
 require('jquery.easing/jquery.easing.min.js');
+require('jquery-ui-dist/jquery-ui.min.js');
 require('slick-carousel/slick/slick.min');
 require('lightbox2/dist/js/lightbox.js');
 

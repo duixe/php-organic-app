@@ -2,13 +2,13 @@
 <header class="header">
   <nav class="nav">
     <div class="nav-logo">
-      <h4>🍊rganic|<span class="nav-logo__span">STORE</span></h4>
+      <h4>Prems|<span class="nav-logo__span">Ventures</span></h4>
     </div>
     <ul class="nav__list">
       <li class="nav__item"><a class="nav__link" href="/">HOME</a></li>
-      <li class="nav__item"><a class="nav__link" href="#">About us</a></li>
+      <li class="nav__item"><a class="nav__link"  href="/#section-about">About us</a></li>
       <li class="nav__item"><a class="nav__link" href="/shop">Shop</a></li>
-      <li class="nav__item"><a class="nav__link" href="#">Contact us</a></li>
+      <li class="nav__item"><a class="nav__link"  href="/#sendMessage">Contact us</a></li>
     </ul>
     <div class="nav-right">
       <div class="nav-right__toggle">

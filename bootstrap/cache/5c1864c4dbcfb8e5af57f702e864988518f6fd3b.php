@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-3 col-sm-12 footer__section-cols">
           <div class="footer__section--logo">
-            <h4>🍊rganic|<span class="nav-logo__span">STORE</span></h4>
+             <h4>Prems|<span class="nav-logo__span">Ventures</span></h4>
           </div>
           <div class="footer__section-divider"></div>
           <div class="footer__section-text">

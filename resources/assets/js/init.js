@@ -15,6 +15,7 @@
         ORGANICSTORE.homescroll.initScroll();
         ORGANICSTORE.homescroll.customNav();
         ORGANICSTORE.home.sendMessage();
+        ORGANICSTORE.homescroll.smoothScroll();
         break;
 
       case 'product':
@@ -40,7 +41,7 @@
         ORGANICSTORE.auth.initScrollAuth();
         ORGANICSTORE.auth.hideFooter();
         ORGANICSTORE.auth.initPassReveal();
-
+        ORGANICSTORE.auth.toolTip();
         break;
 
       case 'adminProduct':

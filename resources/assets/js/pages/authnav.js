@@ -58,4 +58,15 @@
   }
 
 
+  ORGANICSTORE.auth.toolTip = () => {
+     $("#addressArea").tooltip({
+       content: 'Please make sure the address is <strong>Correct</strong>, as this address will be used to deliver your products. <strong>i.e.</strong><i>street number (possibly name or both) + street name + [suburb] + postal town + [county] + postal code</i>',
+       show: {effect: "bounce", duration: 3000},
+       hide: {effect: "explode", duration: 2000}
+
+     });
+  }
+
+
+
 })();

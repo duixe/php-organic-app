@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="form__group">
-                        <textarea name="address" id="textArea" class="form__input2" placeholder="Enter your address"><?php echo e(App\Classes\Request::old('post', 'username')); ?></textarea>
+                        <textarea name="address" id="addressArea" class="form__input2" placeholder="Enter your address" title=""><?php echo e(App\Classes\Request::old('post', 'username')); ?></textarea>
                         <label for="textArea" class="form__label">Enter your address</label>
                     </div>
                     <input type="hidden" name="token" value="<?php echo e(App\Classes\CSRFToken::_token()); ?>">

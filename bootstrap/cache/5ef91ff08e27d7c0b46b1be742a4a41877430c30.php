@@ -92,7 +92,7 @@
         </section>
 
         <!-- section about -->
-        <section class="section-about">
+        <section class="section-about" id="section-about">
           <div class="container-fluid p-0">
             <div class="u-center-text u-margin-bottom-small">
               <h3 class="heading__about"><span class="heading__about-tin">We provide</span> fresh organic farm food</h3>
@@ -109,7 +109,7 @@
                     <h4><span class="heading__about-tin">fresh from</span> our organic farm</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod labore et dolore magna aliqua.</p>
                   </div>
-                  <a href="/shop" class="btn-text">Read more &rarr;</a>
+                  <a href="#" class="btn-text" data-toggle="modal" data-target="#aboutModal">Read more &rarr;</a>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-3 text-center">
@@ -121,7 +121,7 @@
                     <h4><span class="heading__about-tin">100%</span> organic produce</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod labore et dolore magna aliqua.</p>
                   </div>
-                  <a href="/shop" class="btn-text">Read more &rarr;</a>
+                  <a href="#" class="btn-text" data-toggle="modal" data-target="#aboutModal">Read more &rarr;</a>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-3 text-center">
@@ -133,7 +133,7 @@
                     <h4><span class="heading__about-tin">premium</span> quality</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod labore et dolore magna aliqua.</p>
                   </div>
-                  <a href="/shop" class="btn-text">Read more &rarr;</a>
+                  <a href="#" class="btn-text" data-toggle="modal" data-target="#aboutModal">Read more &rarr;</a>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-3 text-center">
@@ -145,7 +145,7 @@
                     <h4><span class="heading__about-tin">100%</span> healthy and clean</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod labore et dolore magna aliqua.</p>
                   </div>
-                  <a href="/shop" class="btn-text">Read more &rarr;</a>
+                  <a href="#" class="btn-text" data-toggle="modal" data-target="#aboutModal">Read more &rarr;</a>
                 </div>
               </div>
             </div>
@@ -341,6 +341,7 @@
       </div>
     </div>
   </main>
+  <?php echo $__env->make('includes.aboutmodal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/organicstore/resources/views/home.blade.php ENDPATH**/ ?>

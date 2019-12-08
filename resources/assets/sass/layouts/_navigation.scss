@@ -20,7 +20,7 @@
 
 
   &-logo {
-    color: black;
+    // color: black;
     // text-transform: uppercase;
     font-family: $font-pop;
     font-weight: bold;
@@ -37,6 +37,8 @@
     h4 {
       font-size: 2rem !important;
       margin-right: 2.3rem;
+      color: $color-orange-dark;
+      // text-shadow: 1px 1px 3px rgba($color-secondary, .55);
 
       @include respond(tab-port) {
         display: block;
@@ -48,7 +50,7 @@
 
 
     &__span {
-      @include customFont($font-lob, $color-orange, 400)
+      @include customFont($font-rob, $color-secondary, 600);
     }
   }
 

@@ -41,7 +41,7 @@ class AuthController extends BaseController{
         $rules = [
           'username' => ['required' => true, 'maxLength' => 25, 'string' => true, 'unique' => 'users'],
           'email' => ['required' => true, 'email' => true, 'unique' => 'users'],
-          'password' => ['required' => true, 'minLength' => 7],
+          'password' => ['required' => true, 'minLength' => 8],
           'fullname' => ['required' => true, 'minLength' => 6, 'maxLength' => 60],
           'address' => ['required' => true, 'minLength' => 4, 'maxLength' => 500, 'mixed' => true]
         ];
