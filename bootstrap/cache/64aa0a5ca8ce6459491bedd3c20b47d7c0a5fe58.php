@@ -14,7 +14,7 @@
               <div class="card-body p-0">
                 <div class="row">
                   <div class="col-sm-6 col-lg-6 col-md-6 d-none d-lg-block d-md-block d-sm-block login__bg-image"></div>
-                  <div class="col-sm-6 col-md-6 col-lg-6">
+                  <div class="col-sm-6 col-md-6 col-lg-6 login__mobile">
                     <div class="login__content">
                       <div class="login__content-head">
                         <h4>Welcome Back !</h4>
@@ -65,4 +65,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/organicstore/resources/views/login.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app2', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/organicstore/resources/views/login.blade.php ENDPATH**/ ?>

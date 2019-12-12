@@ -37,9 +37,9 @@
         break;
 
       case 'auth':
-        ORGANICSTORE.auth.initNavAuth();
-        ORGANICSTORE.auth.initScrollAuth();
-        ORGANICSTORE.auth.hideFooter();
+        // ORGANICSTORE.auth.initNavAuth();
+        // ORGANICSTORE.auth.initScrollAuth();
+        // ORGANICSTORE.auth.hideFooter();
         ORGANICSTORE.auth.initPassReveal();
         ORGANICSTORE.auth.toolTip();
         break;

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 {{-- {{use App\Classes\CSRFToken;}} --}}
 
 @section('title', 'log in to ypur account')
@@ -17,7 +17,7 @@
               <div class="card-body p-0">
                 <div class="row">
                   <div class="col-sm-6 col-lg-6 col-md-6 d-none d-lg-block d-md-block d-sm-block login__bg-image"></div>
-                  <div class="col-sm-6 col-md-6 col-lg-6">
+                  <div class="col-sm-6 col-md-6 col-lg-6 login__mobile">
                     <div class="login__content">
                       <div class="login__content-head">
                         <h4>Welcome Back !</h4>

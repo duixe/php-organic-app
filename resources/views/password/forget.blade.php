@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 {{-- {{use App\Classes\CSRFToken;}} --}}
 
 @section('title', 'Reset your password')
