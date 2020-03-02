@@ -17,7 +17,7 @@ class Mail{
     $this->mail->isSMTP();
     $this->mail->Mailer = 'smtp';
     $this->mail->SMTPAuth = true;
-    $this->mail->SMTPSecure = 'tls';
+    $this->mail->SMTPSecure = 'ssl';
 
 
     $this->mail->Host = getenv('SMTP_HOST');
@@ -25,7 +25,7 @@ class Mail{
 
     $environment = getenv('APP_ENV');
 
-    if($environment === 'local') {
+    if($environment === 'production') {
       $this->mail->SMTPOptions = [
         'ssl' => array(
           'verify_peer' => false,
