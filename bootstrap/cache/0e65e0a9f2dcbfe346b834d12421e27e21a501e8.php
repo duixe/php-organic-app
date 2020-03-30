@@ -2,7 +2,7 @@
 <header class="header">
   <nav class="nav">
     <div class="nav-logo">
-      <h4>Prems|<span class="nav-logo__span">Ventures</span></h4>
+      <h4>Duixe|<span class="nav-logo__span">Organic</span></h4>
     </div>
     <ul class="nav__list">
       <li class="nav__item"><a class="nav__link" href="/">HOME</a></li>
