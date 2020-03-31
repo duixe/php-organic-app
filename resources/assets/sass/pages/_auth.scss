@@ -1,10 +1,10 @@
 .auth {
-  padding: 10rem 12rem;
+  padding: 1rem 12rem 3rem;
   background: linear-gradient(to right bottom, rgba($pink-light, .75), rgba($pink-dark, .85));
   background-size: cover;
   background-position: top;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
 
   @include respond(tab-port) {
@@ -13,7 +13,7 @@
   }
 
   @include respond(phone) {
-    padding: 6rem .5rem 1rem;
+    padding: 2rem .5rem 1rem;
     height: 100vh;
   }
 }

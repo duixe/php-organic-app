@@ -2953,13 +2953,13 @@ body {
 }
 
 .auth {
-  padding: 10rem 12rem;
+  padding: 1rem 12rem 3rem;
   background: -webkit-gradient(linear, left top, right bottom, from(rgba(216, 216, 215, 0.75)), to(rgba(121, 209, 214, 0.85)));
   background: linear-gradient(to right bottom, rgba(216, 216, 215, 0.75), rgba(121, 209, 214, 0.85));
   background-size: cover;
   background-position: top;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
 }
 
@@ -2972,7 +2972,7 @@ body {
 
 @media (max-width: 37.5em) {
   .auth {
-    padding: 6rem 0.5rem 1rem;
+    padding: 2rem 0.5rem 1rem;
     height: 100vh;
   }
 }
