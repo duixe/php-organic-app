@@ -144,6 +144,7 @@
       outline: none;
     }
 
+
   }
 
   &-right {
@@ -182,6 +183,20 @@
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
+      }
+
+      @include respond(tab-port) {
+        // & > div:active .login__dropdown {
+        //   opacity: 1;
+        //   visibility: visible;
+        //   transform: translateY(0);
+        // }
+        //
+        // & > div:focus .login__dropdown {
+        //   opacity: 1;
+        //   visibility: visible;
+        //   transform: translateY(0);
+        // }
       }
 
   }

@@ -26,7 +26,7 @@
 
 .circle {
   display: inline-block;
-  background-color: purple;
+  background-color: $color-orange-dark;
   height: 4rem;
   width: 4rem;
   border-radius: 50%;
@@ -35,7 +35,7 @@
   margin: -1rem;
 
   &:nth-child(2) {
-    background-color: palevioletred;
+    background-color: $color-secondary;
     animation-delay: .75s;
   }
 }

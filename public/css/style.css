@@ -1463,7 +1463,7 @@ body {
 
 .circle {
   display: inline-block;
-  background-color: purple;
+  background-color: #E4811C;
   height: 4rem;
   width: 4rem;
   border-radius: 50%;
@@ -1475,7 +1475,7 @@ body {
 }
 
 .circle:nth-child(2) {
-  background-color: palevioletred;
+  background-color: #525252;
   -webkit-animation-delay: 0.75s;
           animation-delay: 0.75s;
 }
