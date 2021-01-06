@@ -14,7 +14,7 @@
   "author": "Emmanuel Sunday Akomaning",
   "license": "ISC",
   "devDependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.9.3",
     "cross-env": "^6.0.3",
